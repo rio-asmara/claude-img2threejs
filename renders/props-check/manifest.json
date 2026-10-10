@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-10-10T05:55:45.693Z",
+  "createdAt": "2026-10-10T06:00:25.282Z",
   "generator": "scripts/capture.mjs",
   "label": "props-check",
   "params": {
@@ -9,7 +9,7 @@
     "query": {}
   },
   "runtime": {
-    "url": "http://127.0.0.1:35983/",
+    "url": "http://127.0.0.1:41111/",
     "route": "/",
     "viewport": [
       800,
@@ -23,7 +23,7 @@
     "readySignal": "window.__IMG2_READY",
     "serve": "snapshot",
     "source": {
-      "sha256": "33f18ad29e93e1003ce5e8524e8a55dab7451713177ed4e2bf19fb018c46d6bf",
+      "sha256": "86f5bd80a18f53498d5907d5492361a63d1b8134104e7d042d3eef648cf18ca5",
       "files": 11
     },
     "captureContract": "url-params (view, az, el, team, explode)",
@@ -61,7 +61,7 @@
         ],
         "distance": 1.2462759392599434
       },
-      "url": "http://127.0.0.1:35983/?view=blaster&team=A",
+      "url": "http://127.0.0.1:41111/?view=blaster&team=A",
       "viewport": [
         1074,
         520
@@ -70,7 +70,7 @@
       "path": "blaster.png",
       "referenceCrop": "../../reference/blaster.png",
       "status": "recorded",
-      "recordedAt": "2026-10-10T05:55:34.381Z",
+      "recordedAt": "2026-10-10T06:00:19.299Z",
       "readySignal": true,
       "screenshotSha256": "3ab78cb7c6f8df1826aae37048ca810964bcaffe4edf8da5c1085ac4b3d25453",
       "image": {
@@ -120,18 +120,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          0.8346483180901,
-          0.8112604361870376,
-          1.382584132626506
+          0.8397733511859925,
+          0.7890397378304902,
+          1.3913814384673138
         ],
         "target": [
-          0.041301716183329375,
-          -0.0323993054337914,
-          0.00846751011185916
+          0.04512552903284205,
+          -0.05600374594567686,
+          0.015011036374099798
         ],
-        "distance": 1.7970412022710565
+        "distance": 1.7999886484318564
       },
-      "url": "http://127.0.0.1:35983/?view=swim&team=A",
+      "url": "http://127.0.0.1:41111/?view=swim&team=A",
       "viewport": [
         1196,
         520
@@ -140,14 +140,14 @@
       "path": "swim.png",
       "referenceCrop": "../../reference/swim-form.png",
       "status": "recorded",
-      "recordedAt": "2026-10-10T05:55:45.595Z",
+      "recordedAt": "2026-10-10T06:00:25.210Z",
       "readySignal": true,
-      "screenshotSha256": "77fb8815040d9e3b7c75329b56a32c0dff829700ae9d6641c01e815ec2a95380",
+      "screenshotSha256": "81cb820aa3e99baa831282485a111b1301d7b6734cfdce0bd7bd9ab2e1e5c5bf",
       "image": {
         "type": "png",
         "width": 1196,
         "height": 520,
-        "bytes": 112593
+        "bytes": 112327
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -171,13 +171,13 @@
           241,
           237
         ],
-        "foregroundFraction": 0.35149,
-        "darkFraction": 0.00047,
+        "foregroundFraction": 0.33225,
+        "darkFraction": 0.00009,
         "foregroundBBox": {
-          "x0": 60,
-          "y0": 51,
-          "x1": 1135,
-          "y1": 478
+          "x0": 59,
+          "y0": 68,
+          "x1": 1136,
+          "y1": 451
         }
       }
     }

@@ -31,7 +31,7 @@ import {
  *   blaster= 1 — humanoid holds the blaster (figure views)
  *   ground = 0 — hide the shadow-catcher ground
  *   bg     = RRGGBB background override
- *   tone   = aces (default) | neutral | agx;  exposure, env, hemi, key = lighting overrides
+ *   tone   = neutral (default) | aces | agx;  exposure, env, hemi, key = lighting overrides
  */
 
 type ViewName = 'front' | 'three-quarter' | 'side' | 'back' | 'blaster' | 'swim' | 'orbit' | 'turntable';
@@ -111,9 +111,10 @@ const mount = document.getElementById('app')!;
 const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const toneParam = params.get('tone');
+// Khronos PBR Neutral keeps the sheet's saturated turquoise/magenta; ACES washes them to pastel.
 renderer.toneMapping = toneParam === 'agx' ? THREE.AgXToneMapping
-  : toneParam === 'neutral' ? THREE.NeutralToneMapping
-    : THREE.ACESFilmicToneMapping;
+  : toneParam === 'aces' ? THREE.ACESFilmicToneMapping
+    : THREE.NeutralToneMapping;
 renderer.toneMappingExposure = num('exposure') ?? 1.0;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.shadowMap.enabled = true;
@@ -132,16 +133,16 @@ scene.background = new THREE.Color(bgHex);
 const pmrem = new THREE.PMREMGenerator(renderer);
 const envTexture = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 scene.environment = envTexture;
-scene.environmentIntensity = num('env') ?? 0.5;
+scene.environmentIntensity = num('env') ?? 0.7;
 pmrem.dispose();
 
 // Studio rig. Positions are expressed relative to the viewing azimuth and re-placed whenever the
 // camera azimuth changes, so every review view is lit the same way relative to the viewer — the
 // way a character sheet is drawn (key upper-left, cool rim from behind).
-const hemi = new THREE.HemisphereLight(0xffffff, 0xd9d4ca, num('hemi') ?? 0.65);
+const hemi = new THREE.HemisphereLight(0xffffff, 0xd9d4ca, num('hemi') ?? 0.55);
 scene.add(hemi);
 
-const key = new THREE.DirectionalLight(0xfff2e0, num('key') ?? 2.2);
+const key = new THREE.DirectionalLight(0xfff2e0, num('key') ?? 1.9);
 key.castShadow = true;
 key.shadow.mapSize.set(2048, 2048);
 key.shadow.bias = -0.0003;

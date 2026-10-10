@@ -594,6 +594,8 @@ function applyToeSpring(geo: THREE.BufferGeometry): void {
  * toward +Z. Length ≈ 0.42 (heel z = −0.13 … toe z = +0.29), width ≈ 0.19, collar top ≈ 0.21
  * (back) with the padded tongue rising to ≈ 0.24 in front of the ankle.
  * The right shoe is the exact mirror (inner group scale.x = −1) of the left one.
+ * Tagged sub-parts (s = l|r): shoe-upper-s, shoe-collar-s, shoe-collar-trim-s, shoe-midsole-s,
+ * shoe-outsole-s, shoe-tongue-s, shoe-panel-s, shoe-heel-tab-s, shoe-lace-1..4-s.
  */
 export function buildSneaker(mats: SlimeMaterials, side: 'left' | 'right'): THREE.Group {
   const root = new THREE.Group();
@@ -934,9 +936,11 @@ const TK = {
 /**
  * Backpack ink tank rig. Local origin: the mount point on the upper back = centre of the back
  * plate's FRONT face (z = 0 touches the jacket); the tank hangs behind it toward −Z, +Y up.
- * Children (each tagged): `ink-tank` (glass + liquid + caps + bands), `tank-harness-frame`
+ * Tagged containers: `ink-tank` (glass + liquid + caps + bands), `tank-harness-frame`
  * (plate, rails, clamp brackets), `tank-hose` (corrugated hose ending at the right hip at
- * ≈ (−0.17, −0.24, +0.02)).
+ * ≈ (−0.17, −0.24, +0.02)). Tagged sub-parts (componentTree ids): tank, tank-liquid,
+ * tank-bubble-1..4, tank-cap-top, tank-valve, tank-cap-bottom, tank-band-top, tank-band-bottom,
+ * back-plate, hose, hose-coupler.
  */
 export function buildInkTank(mats: SlimeMaterials): THREE.Group {
   const root = new THREE.Group();
@@ -948,6 +952,17 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
   tank.position.set(0, 0, TK.z);
   root.add(tank);
   const R = TK.r;
+  /** Tagged sub-part group inside a container (componentTree ids). */
+  const sub = (parent: THREE.Object3D, id: string, module: string): THREE.Group => {
+    const g = new THREE.Group();
+    tagPart(g, id, module);
+    parent.add(g);
+    return g;
+  };
+  const liquidGroup = sub(tank, 'tank-liquid', 'ink-tank');
+  const capTop = sub(tank, 'tank-cap-top', 'ink-tank');
+  const valveGroup = sub(capTop, 'tank-valve', 'ink-tank');
+  const capBottom = sub(tank, 'tank-cap-bottom', 'ink-tank');
 
   // Liquid first (opaque-ish, inside), then the glass shell.
   const liquidTop = 0.08;
@@ -958,10 +973,10 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
   const liquidMesh = mesh('ink-liquid', liquid, mats.inkLiquid);
   // Drawn after the (depth-write-free) glass so the ink keeps its saturated sheet colour.
   liquidMesh.renderOrder = 2;
-  tank.add(liquidMesh);
+  liquidGroup.add(liquidMesh);
   // Meniscus ring: a thin brighter lip where the liquid meets the glass.
   const meniscus = new THREE.TorusGeometry(0.0632, 0.0022, 8, 48).rotateX(Math.PI / 2).translate(0, liquidTop - 0.0015, 0);
-  tank.add(mesh('ink-meniscus', meniscus, mats.inkLiquid));
+  liquidGroup.add(mesh('ink-meniscus', meniscus, mats.inkLiquid));
 
   const rnd = seededRandom(4021);
   // Bubbles: small pale beads floating in the ink (read as the sheet's white dots).
@@ -971,13 +986,16 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
     const rad = 0.03 + rnd() * 0.03;
     const y = -0.105 + rnd() * 0.17;
     const b = new THREE.SphereGeometry(r, 10, 8).translate(Math.sin(ang) * rad, y, Math.cos(ang) * rad);
-    tank.add(mesh(`ink-bubble-${i + 1}`, b, mats.whitePlastic));
+    const bubble = mesh(`ink-bubble-${i + 1}`, b, mats.whitePlastic);
+    if (i < 4) tagPart(bubble, `tank-bubble-${i + 1}`, 'ink-tank');
+    liquidGroup.add(bubble);
   }
 
   const glass = new THREE.CylinderGeometry(R, R, TK.glassHalf * 2, 56, 1, true);
   const glassMesh = mesh('tank-glass', glass, mats.glass);
   glassMesh.renderOrder = 1;
   glassMesh.castShadow = false;
+  tagPart(glassMesh, 'tank', 'ink-tank');
   tank.add(glassMesh);
 
   // Metal bands near each end of the glass (two-tone: a dark groove in the middle).
@@ -987,41 +1005,42 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
     [0.0702, -h],
   ];
   for (const sgn of [1, -1]) {
+    const bandGroup = sub(tank, sgn > 0 ? 'tank-band-top' : 'tank-band-bottom', 'ink-tank');
     const band = lathe(bandProfile(sgn > 0 ? 0.019 : 0.0165), 56).translate(0, sgn * TK.bandY, 0);
-    tank.add(mesh(sgn > 0 ? 'tank-band-top' : 'tank-band-bottom', band, mats.metal));
+    bandGroup.add(mesh(sgn > 0 ? 'tank-band-top-ring' : 'tank-band-bottom-ring', band, mats.metal));
     const groove = new THREE.CylinderGeometry(0.0751, 0.0751, 0.0062, 56, 1, true).translate(0, sgn * TK.bandY, 0);
-    tank.add(mesh(sgn > 0 ? 'tank-band-top-groove' : 'tank-band-bottom-groove', groove, mats.blackPlastic));
+    bandGroup.add(mesh(sgn > 0 ? 'tank-band-top-groove' : 'tank-band-bottom-groove', groove, mats.blackPlastic));
   }
 
   // Top cap: black dome with a neck, a metal collar and a small valve nub.
   const topCap = smoothLathe([
     [0.0738, 0.114], [0.0744, 0.126], [0.0722, 0.142], [0.064, 0.156], [0.05, 0.166], [0.034, 0.171], [0.0001, 0.172],
   ], 28, 56);
-  tank.add(mesh('tank-cap-top', topCap, mats.blackPlastic));
-  tank.add(mesh('tank-cap-top-inner', new THREE.CircleGeometry(0.0702, 48).rotateX(Math.PI / 2).translate(0, TK.glassHalf - 0.004, 0), mats.blackPlastic));
+  capTop.add(mesh('tank-cap-top-dome', topCap, mats.blackPlastic));
+  capTop.add(mesh('tank-cap-top-inner', new THREE.CircleGeometry(0.0702, 48).rotateX(Math.PI / 2).translate(0, TK.glassHalf - 0.004, 0), mats.blackPlastic));
   const neck = lathe([
     [0.0001, 0.166], [0.027, 0.166], [0.028, 0.172], [0.028, 0.199], [0.026, 0.205], [0.016, 0.208], [0.0001, 0.2085],
   ], 40);
-  tank.add(mesh('tank-neck', neck, mats.blackPlastic));
+  capTop.add(mesh('tank-neck', neck, mats.blackPlastic));
   const collar = lathe([
     [0.029, 0.17], [0.0325, 0.1705], [0.0335, 0.1745], [0.0325, 0.1785], [0.029, 0.179],
   ], 40);
-  tank.add(mesh('tank-neck-ring', collar, mats.metal));
+  capTop.add(mesh('tank-neck-ring', collar, mats.metal));
   const valve = alongDir(new THREE.CylinderGeometry(0.0075, 0.0085, 0.022, 16), new THREE.Vector3(0.033, 0.19, 0), new THREE.Vector3(1, 0, 0));
-  tank.add(mesh('tank-valve', valve, mats.blackPlastic));
+  valveGroup.add(mesh('tank-valve-stem', valve, mats.blackPlastic));
   const valveKnob = alongDir(new THREE.CylinderGeometry(0.0105, 0.0105, 0.006, 20), new THREE.Vector3(0.045, 0.19, 0), new THREE.Vector3(1, 0, 0));
-  tank.add(mesh('tank-valve-knob', valveKnob, mats.metal));
+  valveGroup.add(mesh('tank-valve-knob', valveKnob, mats.metal));
 
   // Bottom cap + fitting.
   const botCap = smoothLathe([
     [0.0001, -0.164], [0.042, -0.164], [0.056, -0.158], [0.067, -0.147], [0.0732, -0.132], [0.0744, -0.122], [0.0738, -0.114],
   ], 28, 56);
-  tank.add(mesh('tank-cap-bottom', botCap, mats.blackPlastic));
-  tank.add(mesh('tank-cap-bottom-inner', new THREE.CircleGeometry(0.0702, 48).rotateX(-Math.PI / 2).translate(0, -TK.glassHalf + 0.004, 0), mats.blackPlastic));
+  capBottom.add(mesh('tank-cap-bottom-dome', botCap, mats.blackPlastic));
+  capBottom.add(mesh('tank-cap-bottom-inner', new THREE.CircleGeometry(0.0702, 48).rotateX(-Math.PI / 2).translate(0, -TK.glassHalf + 0.004, 0), mats.blackPlastic));
   const fitting = lathe([
     [0.0001, -0.16], [0.04, -0.16], [0.042, -0.164], [0.042, -0.18], [0.039, -0.184], [0.024, TK.fittingY], [0.0001, TK.fittingY],
   ], 40);
-  tank.add(mesh('tank-fitting', fitting, mats.blackPlastic));
+  capBottom.add(mesh('tank-fitting', fitting, mats.blackPlastic));
   tagPart(tank, 'ink-tank');
 
   // ------------------------------------------------------------------ harness frame
@@ -1036,11 +1055,12 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
       for (const sy of [-1, 1]) shape.holes.push(rectHole(0.036, 0.011, 0.004, sx * 0.058, sy * 0.122));
     }
     const plate = extrudeCentered(shape, TK.plateT - 2 * bevel, bevel, 10).translate(0, 0, -TK.plateT / 2);
-    frame.add(mesh('tank-back-plate', plate, mats.blackPlastic));
+    const backPlate = sub(frame, 'back-plate', 'tank-harness-frame');
+    backPlate.add(mesh('tank-back-plate', plate, mats.blackPlastic));
     // Side rails along the plate's back edges.
     for (const sx of [-1, 1]) {
       const rail = new THREE.CapsuleGeometry(0.0105, 0.235, 6, 14).translate(sx * 0.086, 0, -TK.plateT - 0.004);
-      frame.add(mesh(sx > 0 ? 'tank-rail-l' : 'tank-rail-r', rail, mats.rubberBlack));
+      backPlate.add(mesh(sx > 0 ? 'tank-rail-l' : 'tank-rail-r', rail, mats.rubberBlack));
     }
     // Clamp brackets: metal half-bands round the tank on the plate side + a mount block each.
     for (const y of [0.066, -0.066]) {
@@ -1086,16 +1106,20 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
     const len = curve.getLength();
     const ribs = Math.round(len / 0.0135);
     const geo = ribbedTube(curve, 0.018, ribs, 0.2, { radialSegments: 14 });
-    hose.add(mesh('tank-hose-tube', geo, mats.rubberBlack));
+    hose.add(tagPart(mesh('tank-hose-tube', geo, mats.rubberBlack), 'hose', 'tank-hose'));
     // Ferrules at both ends.
     const t0 = curve.getTangentAt(0);
     const startFerrule = alongDir(new THREE.CylinderGeometry(0.0215, 0.0215, 0.016, 24), curve.getPointAt(0).addScaledVector(t0, 0.004), t0);
     hose.add(mesh('tank-hose-ferrule-top', startFerrule, mats.metal));
     const t1 = curve.getTangentAt(1);
     const endFerrule = alongDir(new THREE.CylinderGeometry(0.023, 0.023, 0.02, 24), curve.getPointAt(1).addScaledVector(t1, -0.006), t1);
-    hose.add(mesh('tank-hose-ferrule-hip', endFerrule, mats.blackPlastic));
+    const coupler = sub(hose, 'hose-coupler', 'tank-hose');
+    coupler.add(mesh('tank-hose-coupler-body', endFerrule, mats.blackPlastic));
     const endRing = alongDir(new THREE.CylinderGeometry(0.0245, 0.0245, 0.006, 24), curve.getPointAt(1).addScaledVector(t1, -0.017), t1);
-    hose.add(mesh('tank-hose-ferrule-hip-ring', endRing, mats.metal));
+    coupler.add(mesh('tank-hose-coupler-ring', endRing, mats.metal));
+    // Flange that butts against the hip / belt.
+    const flange = alongDir(new THREE.CylinderGeometry(0.03, 0.03, 0.006, 28), curve.getPointAt(1).addScaledVector(t1, 0.002), t1);
+    coupler.add(mesh('tank-hose-coupler-flange', flange, mats.blackPlastic));
   }
   tagPart(hose, 'tank-hose');
 
