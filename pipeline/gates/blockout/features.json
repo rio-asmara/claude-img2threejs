@@ -1,0 +1,8 @@
+[
+  {"id": "anatomy-proportion", "score": 0.8, "notes": "Head+hair ~35% of height and 1.6-unit figure match the sheet; Tier 1 aspect delta 0.015 / scale delta 0.006 pass. Jaw now sits in the collar."},
+  {"id": "pose-silhouette", "score": 0.77, "notes": "A-pose with bent elbows, feet apart, toes out. Hands still end slightly higher/closer than the sheet; IoU loss in arms band 0.040."},
+  {"id": "slime-hair-drip-silhouette", "score": 0.72, "notes": "Blob locks with bulb tips, crown tuft, drips and droplets read as slime hair, but the dome is a regular helmet: the sheet has irregular clumps, side tentacle-locks that stick out horizontally before drooping, and a taller narrower crown. Below the 0.75 critical threshold."},
+  {"id": "goggles-identity", "score": 0.85, "notes": "Single black lens in a white wrap frame wider than the head, strap over the hair, metal clips and hinges at the temples; matches front/side/back."},
+  {"id": "backpack-ink-tank", "score": 0.85, "notes": "Glass tank with ink, caps, bands, back plate and corrugated hose looping to the right hip as on back/side views."},
+  {"id": "chunky-sneakers", "score": 0.76, "notes": "Thick white midsole + team outsole, black upper with team panels, white tongue/laces. Front view reads slightly narrower than the sheet."}
+]

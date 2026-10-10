@@ -3,6 +3,7 @@ import { createSlimeMaterials, type SlimeMaterials, type Team } from './material
 import { buildGoggles, buildSlimeBlaster, buildSlimeBlasterHeld, buildSwimForm } from './props';
 import { buildHarnessBuckle, buildInkTank, buildSneaker } from './gear';
 import { attachSculptRuntime, buildSlimeAgentRig, createAnimationController } from './slimeAgent';
+import { addToonOutline } from './geometry';
 
 /**
  * Slime Agent — procedural Three.js reconstruction of reference/slime-agent-sheet.jpg,
@@ -30,10 +31,12 @@ export interface SlimeAgentOptions {
   withBlaster?: boolean;
   /** Start the idle animation immediately (viewer ticks root.userData.tick). */
   animate?: boolean;
+  /** Ink outline matching the sheet's line art (inverted hull, default true). */
+  outline?: boolean;
 }
 
 /** Goggle placement on the head (relative to the head pivot), from the front/side crops. */
-const GOGGLES_ON_HEAD = { y: 0.14, frontZ: 0.236, width: 0.54, height: 0.17, bendRadius: 0.3 };
+const GOGGLES_ON_HEAD = { y: 0.132, frontZ: 0.236, width: 0.54, height: 0.18, bendRadius: 0.3 };
 
 function headGoggles(mats: SlimeMaterials): THREE.Object3D {
   const g = buildGoggles(mats, {
@@ -58,6 +61,8 @@ export function createSlimeAgentModel(options: SlimeAgentOptions = {}): THREE.Gr
     inkTank: buildInkTank,
     blaster: options.withBlaster ? buildSlimeBlasterHeld : undefined,
   });
+  // Outline before the runtime is collected so outline meshes ride their parts.
+  if (options.outline !== false) addToonOutline(rig.root);
   const ctrl = createAnimationController(rig);
   attachSculptRuntime(rig, ctrl);
   rig.root.userData.tick = (dt: number) => ctrl.update(dt);

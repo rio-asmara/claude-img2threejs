@@ -1,0 +1,9 @@
+{
+  "comparisonImage": "/home/user/claude-img2threejs/pipeline/gates/blockout/cmp-side.png",
+  "referenceImage": "/home/user/claude-img2threejs/reference/side.png",
+  "renderScreenshot": "/home/user/claude-img2threejs/renders/review/side.png",
+  "layout": "left=reference,right=render",
+  "panelWidth": 720,
+  "panelHeight": 720,
+  "note": "Send this image to AI vision for global, layer, and semantic feature scores; this script does not score."
+}

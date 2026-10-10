@@ -26,3 +26,11 @@ const out = {
   standProud: proud, perMesh,
 };
 console.log(JSON.stringify(out, null, 1));
+// measured pivot world positions for attachment_anchor.py --measured
+import { writeFileSync as __w } from 'node:fs';
+const __measured: Record<string, number[]> = {};
+for (const [id, node] of Object.entries(rt.nodes as Record<string, THREE.Object3D>)) {
+  const v = new THREE.Vector3(); node.getWorldPosition(v);
+  __measured[id] = [+v.x.toFixed(5), +v.y.toFixed(5), +v.z.toFixed(5)];
+}
+if (process.argv[2]) __w(process.argv[2], JSON.stringify(__measured, null, 1));

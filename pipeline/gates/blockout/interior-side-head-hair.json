@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "interior-difference",
+  "baseline": "/home/user/claude-img2threejs/reference/side.png",
+  "render": "/home/user/claude-img2threejs/renders/review/side.png",
+  "band": {
+    "from": 0.0,
+    "to": 0.35
+  },
+  "grid": 192,
+  "cellsCompared": 6582,
+  "warnings": [],
+  "interiorDifference": 0.16276698115238758,
+  "status": "measured"
+}

@@ -284,12 +284,12 @@ function loftFootprint(
 }
 
 /** Midsole top height along the shoe: the heel cup rises higher than the forefoot. */
-const midsoleTop = (z: number): number => 0.066 + 0.014 * sstep(0.0, -0.095, z);
+const midsoleTop = (z: number): number => 0.084 + 0.014 * sstep(0.0, -0.095, z);
 
 /** Outsole top edge height round the perimeter: lug blocks, flush notches and the toe bumper. */
 function outsoleTop(p: FootPt): number {
   const z = p.z;
-  const base = 0.018;
+  const base = 0.034;
   const lugs = Math.max(
     pulse(z, -0.5, -0.062, 0.004),
     pulse(z, -0.046, 0.03, 0.004),
@@ -799,8 +799,8 @@ export function buildSneaker(mats: SlimeMaterials, side: 'left' | 'right'): THRE
     new THREE.Vector3(0, domeTop(0.125) + 0.006, 0.125),
     new THREE.Vector3(0, domeTop(0.085) + 0.008, 0.085),
     new THREE.Vector3(0, 0.172, 0.066),
-    new THREE.Vector3(0, 0.206, 0.0605),
-    new THREE.Vector3(0, 0.236, 0.059),
+    new THREE.Vector3(0, 0.203, 0.0605),
+    new THREE.Vector3(0, 0.23, 0.059),
   ], false, 'centripetal');
   const tongueUp = (u: number): THREE.Vector3 => {
     const T = tongueCurve.getTangentAt(u);
@@ -1098,8 +1098,8 @@ export function buildInkTank(mats: SlimeMaterials): THREE.Group {
       new THREE.Vector3(-0.198, -0.24, -0.051),
       new THREE.Vector3(-0.212, -0.186, -0.032),
       new THREE.Vector3(-0.2, -0.164, -0.012),
-      new THREE.Vector3(-0.182, -0.188, 0.006),
-      new THREE.Vector3(-0.172, -0.224, 0.016),
+      new THREE.Vector3(-0.193, -0.19, 0.004),
+      new THREE.Vector3(-0.182, -0.224, 0.014),
       new THREE.Vector3(-0.17, -0.24, 0.02),
     ];
     const curve = new THREE.CatmullRomCurve3(pts, false, 'centripetal');

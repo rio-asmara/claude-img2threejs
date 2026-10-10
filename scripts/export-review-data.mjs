@@ -12,7 +12,9 @@
  *   meshes.json       closed meshes (skull, hair locks/tufts, hands) in world space, with vertex
  *                     normals, for self_intersection.py
  *   rig.json          joints (pivots) with world positions + parents, sockets and colliders
- *   measured.json     measured world anchors of attached parts (goggles, ink tank, sneakers, hands)
+ *   measured-positions.json  world bbox centre of every tagged part (+ joint origins), keyed by
+ *                     component id, for attachment_anchor.py --measured
+ *   bounds.json       model world bounds
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { createServer as createNetServer } from 'node:net';
@@ -60,14 +62,14 @@ const EXTRACT = () => {
       let triangles = 0;
       const mats = new Set();
       o.traverse((m) => {
-        if (m.isMesh && partOf(m) === o) {
+        if (m.isMesh && !m.userData.isOutline && partOf(m) === o) {
           triangles += triCount(m.geometry);
           (Array.isArray(m.material) ? m.material : [m.material]).forEach((mm) => mats.add(mm.name || mm.type));
         }
       });
       parts.push({ name: o.userData.img2Part.id, module: o.userData.img2Part.module, kind: 'part', triangles, materials: [...mats] });
     }
-    if (o.isMesh) {
+    if (o.isMesh && !o.userData.isOutline) {
       if (partOf(o)) integralMeshes++;
       else unnamedMeshes++;
     }
@@ -99,7 +101,7 @@ const EXTRACT = () => {
   const hair = model.getObjectByName('slime-hair');
   if (hair) {
     hair.traverse((m) => {
-      if (!m.isMesh) return;
+      if (!m.isMesh || m.userData.isOutline) return;
       const pos = m.geometry.attributes.position;
       for (let i = 0; i < pos.count; i++) {
         v.fromBufferAttribute(pos, i).applyMatrix4(m.matrixWorld);
@@ -109,7 +111,7 @@ const EXTRACT = () => {
   }
 
   // ---- closed meshes for the self-intersection gate
-  const closedNames = (name) => /^(head-skull|hair-lock-\d+|hair-tuft-\d+|palm-[lr]|(index|middle|ring|thumb)-[lr]-1)$/.test(name);
+  const closedNames = (name) => !name.endsWith('__outline') && /^(head-skull|hair-lock-\d+|hair-tuft-\d+|palm-[lr]|(index|middle|ring|thumb)-[lr]-1)$/.test(name);
   const meshes = [];
   model.traverse((m) => {
     if (!m.isMesh || !closedNames(m.name)) return;
@@ -149,21 +151,23 @@ const EXTRACT = () => {
     return { key, node: o.name, parent: o.parent?.name ?? null, world: [round(v.x), round(v.y), round(v.z)], ...o.userData.socket };
   });
 
-  // ---- measured anchors of attached parts (world bounding boxes)
+  // ---- measured world positions (bbox centre of every tagged part + joint origins), keyed by
+  // component id, for attachment_anchor.py --measured
   const measured = {};
-  for (const id of ['goggles', 'ink-tank', 'tank-hose', 'sneaker-l', 'sneaker-r', 'hand-l', 'hand-r', 'slime-hair', 'head', 'harness']) {
-    let obj = null;
-    model.traverse((o) => { if (!obj && o.userData.img2Part?.id === id) obj = o; });
-    if (!obj) continue;
-    const b = new THREE.Box3().setFromObject(obj);
-    measured[id] = { min: b.min.toArray().map(round), max: b.max.toArray().map(round), center: b.getCenter(v).toArray().map(round) };
-  }
+  model.traverse((o) => {
+    const id = o.userData.img2Part?.id;
+    if (!id) return;
+    const b = new THREE.Box3().setFromObject(o);
+    if (!b.isEmpty()) measured[id] = b.getCenter(v).toArray().map(round);
+  });
+  for (const j of joints) if (!(j.name in measured)) measured[j.name] = j.world;
   const box = new THREE.Box3().setFromObject(model);
   return {
     parts: { model: 'slime-agent', parts, unnamedMeshes, integralMeshes },
     rings, hairPoints, meshes,
     rig: { joints, sockets, colliders: runtime.colliders || {}, actions: runtime.animationController?.actions ?? [] },
-    measured: { model: 'slime-agent', bounds: { min: box.min.toArray().map(round), max: box.max.toArray().map(round) }, parts: measured },
+    measured,
+    bounds: { min: box.min.toArray().map(round), max: box.max.toArray().map(round) },
   };
 };
 
@@ -190,7 +194,8 @@ async function main() {
     write('hair_points.json', data.hairPoints);
     write('meshes.json', { meshes: data.meshes });
     write('rig.json', data.rig);
-    write('measured.json', data.measured);
+    write('measured-positions.json', data.measured);
+    write('bounds.json', data.bounds);
     console.log(`[export] ${data.parts.parts.length} parts, ${data.parts.integralMeshes} integral meshes, ${data.parts.unnamedMeshes} unnamed`);
     console.log(`[export] ${data.rings.length} skull rings, ${data.hairPoints.length} hair points, ${data.meshes.length} closed meshes`);
     console.log(`[export] ${data.rig.joints.length} joints, ${data.rig.sockets.length} sockets → ${path.relative(ROOT, outDir)}/`);

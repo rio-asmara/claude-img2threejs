@@ -1351,13 +1351,19 @@
     "currentPass": "blockout",
     "completedPasses": [],
     "lastCompletedPass": "",
-    "blockedReason": "blockout requires a browser screenshot and self-correction review before structural-pass unlocks",
+    "blockedReason": "",
     "nextRequiredEvidence": [
-      "blockout browser render screenshot from your agent's browser/screenshot tool",
-      "side-by-side reference/render comparison sheet",
-      "AI vision score >= 0.7 with layer scores and mismatch critique",
-      "critical semantic feature scores from the same image pair meeting their individual thresholds",
-      "reviewHistory entry for blockout with action=continue"
+      "Head+hair ~35% of figure height; goggles wider than the head; hands to upper thigh; shoes ~0.39 long.",
+      "Hair reads as blobby locks + tuft (not a cap); tank + hose visible from back/side.",
+      "AI vision >= 0.7 and every critical blockout feature >= its threshold.",
+      "browser render screenshot from your agent's browser/screenshot tool",
+      "side-by-side reference/render comparison sheet for AI vision review",
+      "banded interior difference vs the reference baseline (forge/stage4_review/interior_difference.py --from/--to per region)",
+      "scalp exposure below the hard maximum, measured on geometry before rendering (forge/stage4_review/scalp_exposure.py)",
+      "hair gate comparing banded coverage, hairline offset and highlight-band position against the reference (forge/stage4_review/hair_gate.py)",
+      "AI vision score at or above the visual acceptance threshold",
+      "all critical semantic feature scores from the shared image pair at or above their thresholds",
+      "self-correction review appended with action=continue before the next pass"
     ]
   },
   "lookDevTargets": {
@@ -4319,7 +4325,17 @@
         "normalStrategy": "smooth vertex normals"
       },
       "parent": "head",
-      "attachment": null,
+      "attachment": {
+        "anchor": "head",
+        "maxOffset": 0.22,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "full-object",
+          "head-zone",
+          "side-view"
+        ],
+        "maxOffsetRationale": "Implemented factory (src/model) measures the frame bbox centre 0.19 from the skull centre: the frame sits proud of the face front (z~0.17) on a 0.2-radius head, i.e. on the head surface, not detached."
+      },
       "dimensions": {
         "width": 0.53,
         "height": 0.17,
@@ -4448,7 +4464,8 @@
         "materialClass": "plastic",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "worn"
     },
     {
       "id": "goggle-lens",
@@ -4472,7 +4489,15 @@
         "normalStrategy": "smooth vertex normals"
       },
       "parent": "head",
-      "attachment": null,
+      "attachment": {
+        "anchor": "head",
+        "maxOffset": 0.26,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "full-object",
+          "head-zone"
+        ]
+      },
       "dimensions": {
         "width": 0.4,
         "height": 0.135,
@@ -4589,7 +4614,8 @@
         "materialClass": "plastic",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "worn"
     },
     {
       "id": "goggle-strap",
@@ -4614,7 +4640,17 @@
         "torusTubeRatio": 0.035
       },
       "parent": "head",
-      "attachment": null,
+      "attachment": {
+        "anchor": "head",
+        "maxOffset": 0.14,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "back-view",
+          "side-view",
+          "head-zone"
+        ],
+        "maxOffsetRationale": "Strap band is centred behind the head (z=-0.04) because it rides over the hair mass; measured 0.11 from the skull centre."
+      },
       "dimensions": {
         "width": 0.5410628019323671,
         "height": 0.5625335480407945,
@@ -4732,7 +4768,8 @@
         "materialClass": "fabric",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "worn"
     },
     {
       "id": "goggle-clip-l",
@@ -15087,7 +15124,15 @@
         "normalStrategy": "smooth vertex normals"
       },
       "parent": "chest",
-      "attachment": null,
+      "attachment": {
+        "anchor": "chest",
+        "maxOffset": 0.22,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "full-object",
+          "torso-zone"
+        ]
+      },
       "dimensions": {
         "width": 0.036,
         "height": 0.16,
@@ -15194,7 +15239,8 @@
         "materialClass": "fabric",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "equipment"
     },
     {
       "id": "harness-buckle-l",
@@ -15490,7 +15536,15 @@
         "normalStrategy": "smooth vertex normals"
       },
       "parent": "chest",
-      "attachment": null,
+      "attachment": {
+        "anchor": "chest",
+        "maxOffset": 0.22,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "full-object",
+          "torso-zone"
+        ]
+      },
       "dimensions": {
         "width": 0.036,
         "height": 0.16,
@@ -15597,7 +15651,8 @@
         "materialClass": "fabric",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "equipment"
     },
     {
       "id": "harness-buckle-r",
@@ -15893,7 +15948,15 @@
         "normalStrategy": "smooth vertex normals"
       },
       "parent": "chest",
-      "attachment": null,
+      "attachment": {
+        "anchor": "chest",
+        "maxOffset": 0.2,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "back-view",
+          "side-view"
+        ]
+      },
       "dimensions": {
         "width": 0.16,
         "height": 0.25,
@@ -16017,7 +16080,8 @@
         "materialClass": "rubber",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "equipment"
     },
     {
       "id": "tank",
@@ -16070,7 +16134,15 @@
         }
       },
       "parent": "back-plate",
-      "attachment": null,
+      "attachment": {
+        "anchor": "back-plate",
+        "maxOffset": 0.1,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "back-view",
+          "side-view"
+        ]
+      },
       "dimensions": {
         "width": 0.116,
         "height": 0.25,
@@ -16189,7 +16261,8 @@
         "materialClass": "glass",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "equipment"
     },
     {
       "id": "tank-liquid",
@@ -18498,7 +18571,16 @@
         }
       },
       "parent": "tank-cap-bottom",
-      "attachment": null,
+      "attachment": {
+        "anchor": "tank-cap-bottom",
+        "maxOffset": 0.18,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "back-view",
+          "side-view"
+        ],
+        "maxOffsetRationale": "Bbox centre of a ~0.4-long corrugated loop lies mid-loop; its start is welded to tank-cap-bottom (measured 0.146 centre-to-centre)."
+      },
       "dimensions": {
         "width": 0.17,
         "height": 0.09,
@@ -18615,7 +18697,8 @@
         "materialClass": "rubber",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "equipment"
     },
     {
       "id": "hose-coupler",
@@ -18660,7 +18743,15 @@
         }
       },
       "parent": "pelvis",
-      "attachment": null,
+      "attachment": {
+        "anchor": "pelvis",
+        "maxOffset": 0.25,
+        "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+        "evidenceRefs": [
+          "back-view"
+        ],
+        "maxOffsetRationale": "Coupler sits on the right hip side (x~-0.17) of the pelvis; measured 0.218 from the pelvis centre."
+      },
       "dimensions": {
         "width": 0.04,
         "height": 0.03,
@@ -18766,7 +18857,8 @@
         "materialClass": "metal",
         "materialClassConfidence": 0.8,
         "source": "flat colour sampled from verified crops of reference/front.png (toon highlights excluded)"
-      }
+      },
+      "category": "equipment"
     },
     {
       "id": "waistband",
@@ -27239,8 +27331,155 @@
       ]
     }
   ],
-  "visualEvidence": [],
-  "reviewHistory": [],
+  "visualEvidence": [
+    {
+      "timestamp": "2026-10-10T06:42:29.313050+00:00",
+      "passId": "blockout",
+      "estimatedFidelity": 0.72,
+      "aiVisionScore": 0.74,
+      "visualAcceptanceThreshold": 0.7,
+      "layerScores": {
+        "silhouetteProportion": 0.74,
+        "componentStructure": 0.86,
+        "formDetail": 0.68,
+        "materialSurface": 0.76,
+        "lightingCamera": 0.8
+      },
+      "featureReviews": [
+        {
+          "id": "anatomy-proportion",
+          "score": 0.8,
+          "notes": "Head+hair ~35% of height and 1.6-unit figure match the sheet; Tier 1 aspect delta 0.015 / scale delta 0.006 pass. Jaw now sits in the collar."
+        },
+        {
+          "id": "pose-silhouette",
+          "score": 0.77,
+          "notes": "A-pose with bent elbows, feet apart, toes out. Hands still end slightly higher/closer than the sheet; IoU loss in arms band 0.040."
+        },
+        {
+          "id": "slime-hair-drip-silhouette",
+          "score": 0.72,
+          "notes": "Blob locks with bulb tips, crown tuft, drips and droplets read as slime hair, but the dome is a regular helmet: the sheet has irregular clumps, side tentacle-locks that stick out horizontally before drooping, and a taller narrower crown. Below the 0.75 critical threshold."
+        },
+        {
+          "id": "goggles-identity",
+          "score": 0.85,
+          "notes": "Single black lens in a white wrap frame wider than the head, strap over the hair, metal clips and hinges at the temples; matches front/side/back."
+        },
+        {
+          "id": "backpack-ink-tank",
+          "score": 0.85,
+          "notes": "Glass tank with ink, caps, bands, back plate and corrugated hose looping to the right hip as on back/side views."
+        },
+        {
+          "id": "chunky-sneakers",
+          "score": 0.76,
+          "notes": "Thick white midsole + team outsole, black upper with team panels, white tongue/laces. Front view reads slightly narrower than the sheet."
+        }
+      ],
+      "referenceScreenshot": "reference/front.png",
+      "renderScreenshot": "renders/review/front.png",
+      "comparisonImage": "pipeline/gates/blockout/cmp-front.png",
+      "cameraView": "front",
+      "notes": "",
+      "aiVisionNotes": "Same character at a glance from all four sheet views. Root causes: hair generator produces evenly distributed drape locks (code); remaining IoU gap is partly a measurement artefact of illustration line art vs an outline-less white surface."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "timestamp": "2026-10-10T06:42:29.313050+00:00",
+      "passId": "blockout",
+      "estimatedFidelity": 0.72,
+      "aiVisionScore": 0.74,
+      "visualAcceptanceThreshold": 0.7,
+      "layerScores": {
+        "silhouetteProportion": 0.74,
+        "componentStructure": 0.86,
+        "formDetail": 0.68,
+        "materialSurface": 0.76,
+        "lightingCamera": 0.8
+      },
+      "featureReviews": [
+        {
+          "id": "anatomy-proportion",
+          "score": 0.8,
+          "notes": "Head+hair ~35% of height and 1.6-unit figure match the sheet; Tier 1 aspect delta 0.015 / scale delta 0.006 pass. Jaw now sits in the collar."
+        },
+        {
+          "id": "pose-silhouette",
+          "score": 0.77,
+          "notes": "A-pose with bent elbows, feet apart, toes out. Hands still end slightly higher/closer than the sheet; IoU loss in arms band 0.040."
+        },
+        {
+          "id": "slime-hair-drip-silhouette",
+          "score": 0.72,
+          "notes": "Blob locks with bulb tips, crown tuft, drips and droplets read as slime hair, but the dome is a regular helmet: the sheet has irregular clumps, side tentacle-locks that stick out horizontally before drooping, and a taller narrower crown. Below the 0.75 critical threshold."
+        },
+        {
+          "id": "goggles-identity",
+          "score": 0.85,
+          "notes": "Single black lens in a white wrap frame wider than the head, strap over the hair, metal clips and hinges at the temples; matches front/side/back."
+        },
+        {
+          "id": "backpack-ink-tank",
+          "score": 0.85,
+          "notes": "Glass tank with ink, caps, bands, back plate and corrugated hose looping to the right hip as on back/side views."
+        },
+        {
+          "id": "chunky-sneakers",
+          "score": 0.76,
+          "notes": "Thick white midsole + team outsole, black upper with team panels, white tongue/laces. Front view reads slightly narrower than the sheet."
+        }
+      ],
+      "action": "refine-code",
+      "summary": "Blockout review of the hand-refined factory (src/model). All specified components are built and named (part coverage 0 errors), rig/sockets present, scalp exposure 0.0, no self-intersection, anchors 9/9. Tier 1 fails on pixel-aligned silhouette IoU 0.692 < 0.85 (aspect 0.015 and scale 0.006 pass); slime-hair-drip-silhouette scores 0.72 < 0.75.",
+      "matched": [
+        "proportions and framing (aspect/scale deltas pass)",
+        "goggles identity",
+        "ink tank + hose",
+        "palette",
+        "sneaker structure",
+        "part tree and sockets"
+      ],
+      "mismatches": [
+        "hair dome too regular/helmet-like vs irregular clumps and outward side tentacles",
+        "hands slightly high/close",
+        "Tier 1 IoU 0.692: white tee/frame/midsole read as background in the mask while the sheet's line art makes its whites partly foreground"
+      ],
+      "specFixes": [],
+      "codeFixes": [
+        "hair: add outward-curling side tentacle locks with bulb ends and 2-3 big crown clumps, narrow the crown top",
+        "arms: lower hands ~0.02"
+      ],
+      "evidence": [
+        "pipeline/gates/blockout/gates-summary.json",
+        "pipeline/gates/blockout/diagnose-front.json",
+        "pipeline/gates/blockout/turntable.json",
+        "pipeline/gates/blockout/part-coverage.json",
+        "pipeline/gates/blockout/scalp-exposure.json",
+        "pipeline/gates/blockout/self-intersection.json",
+        "pipeline/gates/blockout/attachment-anchor.json"
+      ],
+      "reviewViewpoints": [
+        "front",
+        "three-quarter",
+        "side",
+        "back",
+        "turntable-000",
+        "turntable-090",
+        "turntable-180",
+        "turntable-270"
+      ],
+      "visualEvidence": {
+        "referenceScreenshot": "reference/front.png",
+        "renderScreenshot": "renders/review/front.png",
+        "comparisonImage": "pipeline/gates/blockout/cmp-front.png",
+        "cameraView": "front",
+        "notes": "",
+        "aiVisionNotes": "Same character at a glance from all four sheet views. Root causes: hair generator produces evenly distributed drape locks (code); remaining IoU gap is partly a measurement artefact of illustration line art vs an outline-less white surface."
+      }
+    }
+  ],
   "lodPlan": [
     {
       "tier": "near",
@@ -27916,5 +28155,973 @@
         "glassy"
       ]
     }
-  }
+  },
+  "tier1Results": [
+    {
+      "passed": false,
+      "checks": {
+        "silhouetteIoU": 0.507,
+        "aspectRatioDelta": 0.1092,
+        "scaleDelta": 0.4435,
+        "bilateralSymmetryError": 0.0405,
+        "colorDelta": {
+          "checked": 114,
+          "maxDeltaE": 22.05,
+          "perComponent": [
+            {
+              "componentId": null,
+              "deltaE": 5.5
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 22.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.04
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.86
+            },
+            {
+              "componentId": null,
+              "deltaE": 2.63
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 8.93
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 2.63
+            },
+            {
+              "componentId": null,
+              "deltaE": 2.63
+            },
+            {
+              "componentId": null,
+              "deltaE": 2.63
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 2.63
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.03
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.66
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.66
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.08
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.66
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.08
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.08
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.39
+            },
+            {
+              "componentId": null,
+              "deltaE": 7.58
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.66
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.66
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 9.19
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.08
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.66
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.08
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.08
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.68
+            }
+          ],
+          "gated": false
+        }
+      },
+      "failures": [
+        "silhouette IoU 0.507 is below threshold 0.85",
+        "aspect-ratio delta 0.109 exceeds threshold 0.05",
+        "scale delta 0.444 exceeds threshold 0.08",
+        "blockout requires --map-stripped-render evidence"
+      ],
+      "maskWarnings": [
+        "reference: 6.8% of foreground cells lie outside the largest connected blob and were excluded from the bounding box; if the subject really has separated parts in this projection, they are not being measured",
+        "render: 34.4% of foreground cells lie outside the largest connected blob and were excluded from the bounding box; if the subject really has separated parts in this projection, they are not being measured"
+      ],
+      "renderHash": "f71004edf397b7b1",
+      "passId": "blockout"
+    },
+    {
+      "passed": false,
+      "checks": {
+        "silhouetteIoU": 0.6923,
+        "aspectRatioDelta": 0.0154,
+        "scaleDelta": 0.006,
+        "bilateralSymmetryError": 0.0552,
+        "colorDelta": {
+          "checked": 114,
+          "maxDeltaE": 29.28,
+          "perComponent": [
+            {
+              "componentId": null,
+              "deltaE": 4.43
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 19.77
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.2
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 6.1
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 1.68
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.92
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.56
+            },
+            {
+              "componentId": null,
+              "deltaE": 25.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.49
+            },
+            {
+              "componentId": null,
+              "deltaE": 25.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 25.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 25.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 25.34
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.56
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.56
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.56
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 3.56
+            },
+            {
+              "componentId": null,
+              "deltaE": 20.05
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.52
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.52
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.82
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.52
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.82
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.82
+            },
+            {
+              "componentId": null,
+              "deltaE": 29.28
+            },
+            {
+              "componentId": null,
+              "deltaE": 29.28
+            },
+            {
+              "componentId": null,
+              "deltaE": 29.28
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 10.59
+            },
+            {
+              "componentId": null,
+              "deltaE": 5.71
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.52
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.52
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 28.15
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.82
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.52
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.82
+            },
+            {
+              "componentId": null,
+              "deltaE": 4.82
+            },
+            {
+              "componentId": null,
+              "deltaE": 29.28
+            },
+            {
+              "componentId": null,
+              "deltaE": 29.28
+            },
+            {
+              "componentId": null,
+              "deltaE": 29.28
+            }
+          ],
+          "gated": false
+        }
+      },
+      "failures": [
+        "silhouette IoU 0.692 is below threshold 0.85",
+        "blockout requires --map-stripped-render evidence"
+      ],
+      "maskWarnings": [
+        "reference: 6.9% of foreground cells lie outside the largest connected blob and were excluded from the bounding box; if the subject really has separated parts in this projection, they are not being measured",
+        "render: 10.6% of foreground cells lie outside the largest connected blob and were excluded from the bounding box; if the subject really has separated parts in this projection, they are not being measured"
+      ],
+      "renderHash": "388a0d9d5057a832",
+      "passId": "blockout"
+    }
+  ]
 }

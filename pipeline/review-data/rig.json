@@ -1,0 +1,305 @@
+{
+  "joints": [
+    {
+      "name": "hips",
+      "parent": null,
+      "world": [
+        0,
+        0.62,
+        0
+      ]
+    },
+    {
+      "name": "spine",
+      "parent": "hips",
+      "world": [
+        0,
+        0.725,
+        0
+      ]
+    },
+    {
+      "name": "neck-joint",
+      "parent": "spine",
+      "world": [
+        0,
+        0.995,
+        0
+      ]
+    },
+    {
+      "name": "head-joint",
+      "parent": "neck-joint",
+      "world": [
+        0,
+        1.06,
+        0
+      ]
+    },
+    {
+      "name": "shoulder-l",
+      "parent": "spine",
+      "world": [
+        0.185,
+        0.885,
+        0
+      ]
+    },
+    {
+      "name": "elbow-l",
+      "parent": "shoulder-l",
+      "world": [
+        0.26136,
+        0.73088,
+        0
+      ]
+    },
+    {
+      "name": "wrist-l",
+      "parent": "elbow-l",
+      "world": [
+        0.39084,
+        0.62384,
+        0
+      ]
+    },
+    {
+      "name": "shoulder-r",
+      "parent": "spine",
+      "world": [
+        -0.185,
+        0.885,
+        0
+      ]
+    },
+    {
+      "name": "elbow-r",
+      "parent": "shoulder-r",
+      "world": [
+        -0.26136,
+        0.73088,
+        0
+      ]
+    },
+    {
+      "name": "wrist-r",
+      "parent": "elbow-r",
+      "world": [
+        -0.39084,
+        0.62384,
+        0
+      ]
+    },
+    {
+      "name": "hip-l",
+      "parent": "hips",
+      "world": [
+        0.116,
+        0.62,
+        0
+      ]
+    },
+    {
+      "name": "knee-l",
+      "parent": "hip-l",
+      "world": [
+        0.1649,
+        0.41577,
+        0
+      ]
+    },
+    {
+      "name": "ankle-l",
+      "parent": "knee-l",
+      "world": [
+        0.26444,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "hip-r",
+      "parent": "hips",
+      "world": [
+        -0.116,
+        0.62,
+        0
+      ]
+    },
+    {
+      "name": "knee-r",
+      "parent": "hip-r",
+      "world": [
+        -0.1649,
+        0.41577,
+        0
+      ]
+    },
+    {
+      "name": "ankle-r",
+      "parent": "knee-r",
+      "world": [
+        -0.26444,
+        0,
+        0
+      ]
+    }
+  ],
+  "sockets": [
+    {
+      "key": "wrist-l:hand-l",
+      "node": "socket-hand-l",
+      "parent": "wrist-l",
+      "world": [
+        0.424,
+        0.56138,
+        0.012
+      ],
+      "id": "hand-l",
+      "purpose": "grip"
+    },
+    {
+      "key": "wrist-r:hand-r",
+      "node": "socket-hand-r",
+      "parent": "wrist-r",
+      "world": [
+        -0.424,
+        0.56138,
+        0.012
+      ],
+      "id": "hand-r",
+      "purpose": "grip"
+    },
+    {
+      "key": "spine:back",
+      "node": "socket-back",
+      "parent": "spine",
+      "world": [
+        0,
+        0.83,
+        -0.152
+      ],
+      "id": "back",
+      "purpose": "ink-tank-mount"
+    }
+  ],
+  "colliders": {
+    "head": {
+      "type": "sphere",
+      "node": "head-joint",
+      "offset": [
+        0,
+        0.22,
+        0
+      ],
+      "scale": [
+        0.27,
+        0.27,
+        0.27
+      ]
+    },
+    "torso": {
+      "type": "capsule",
+      "node": "spine",
+      "offset": [
+        0,
+        0.13,
+        0
+      ],
+      "scale": [
+        0.2,
+        0.3,
+        0.16
+      ]
+    },
+    "pelvis": {
+      "type": "box",
+      "node": "hips",
+      "offset": [
+        0,
+        -0.02,
+        0
+      ],
+      "scale": [
+        0.36,
+        0.2,
+        0.28
+      ]
+    },
+    "ink-tank": {
+      "type": "capsule",
+      "node": "socket-back",
+      "offset": [
+        0,
+        0,
+        -0.1
+      ],
+      "scale": [
+        0.08,
+        0.3,
+        0.08
+      ]
+    },
+    "leg-l": {
+      "type": "capsule",
+      "node": "hip-l",
+      "offset": [
+        0,
+        -0.3,
+        0
+      ],
+      "scale": [
+        0.1,
+        0.62,
+        0.1
+      ]
+    },
+    "leg-r": {
+      "type": "capsule",
+      "node": "hip-r",
+      "offset": [
+        0,
+        -0.3,
+        0
+      ],
+      "scale": [
+        0.1,
+        0.62,
+        0.1
+      ]
+    },
+    "arm-l": {
+      "type": "capsule",
+      "node": "shoulder-l",
+      "offset": [
+        0,
+        -0.18,
+        0
+      ],
+      "scale": [
+        0.06,
+        0.4,
+        0.06
+      ]
+    },
+    "arm-r": {
+      "type": "capsule",
+      "node": "shoulder-r",
+      "offset": [
+        0,
+        -0.18,
+        0
+      ],
+      "scale": [
+        0.06,
+        0.4,
+        0.06
+      ]
+    }
+  },
+  "actions": [
+    "idle",
+    "wave",
+    "none"
+  ]
+}

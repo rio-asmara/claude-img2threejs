@@ -1,0 +1,625 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T06:35:52.716Z",
+  "generator": "scripts/capture.mjs",
+  "label": "review",
+  "params": {
+    "team": "A",
+    "explode": null,
+    "query": {
+      "ground": "0"
+    }
+  },
+  "runtime": {
+    "url": "http://127.0.0.1:38529/",
+    "route": "/",
+    "viewport": [
+      800,
+      1230
+    ],
+    "devicePixelRatio": 1,
+    "renderer": "WebGLRenderer",
+    "threeVersion": "0.169.0",
+    "toneMapping": "ACESFilmic",
+    "outputColorSpace": "srgb",
+    "readySignal": "window.__IMG2_READY",
+    "serve": "snapshot",
+    "source": {
+      "sha256": "205e0157ef25322cc7e079513e49880335896cf10efdfe987dfb21124f6eb092",
+      "files": 10
+    },
+    "captureContract": "url-params (view, az, el, team, explode)",
+    "cameraConvention": "faces +Z, Y up; az 0=+Z front, 90=+X (char left), 180=back, 270=-X (char right)"
+  },
+  "reference": {
+    "kind": "image",
+    "path": "../../reference/front.png",
+    "sha256": "27428b6cc364f572b007eb15bfdec6689868977143a5fd629fb865241af4eabc",
+    "comparisonBasis": "source-image",
+    "renderRequired": false,
+    "sheet": {
+      "path": "../../reference/slime-agent-sheet.jpg",
+      "sha256": "e7eb3baadb1785d719d80855de1e9c7098d69ccc3a467e287dbf6c3d1e09b54c"
+    }
+  },
+  "captures": [
+    {
+      "id": "hero",
+      "view": "front",
+      "role": "reference-match",
+      "azimuthDegrees": 0,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          0,
+          1.2294121653265737,
+          4.897468845352166
+        ],
+        "target": [
+          0,
+          0.7991722424312907,
+          -0.02019597607692829
+        ],
+        "distance": 4.936449502139587
+      },
+      "url": "http://127.0.0.1:38529/?view=front&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "front.png",
+      "referenceCrop": "../../reference/front.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:33:16.667Z",
+      "readySignal": true,
+      "screenshotSha256": "388a0d9d5057a83234c2973440e1d60172b7f0969db3eaa2c80963b8616cbc6d",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 358372
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.39109,
+        "darkFraction": 0.04974,
+        "foregroundBBox": {
+          "x0": 62,
+          "y0": 33,
+          "x1": 737,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "three-quarter",
+      "view": "three-quarter",
+      "role": "orbit",
+      "azimuthDegrees": 35,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          2.869792928412787,
+          1.2231731369069299,
+          4.123134821899388
+        ],
+        "target": [
+          -0.020166784172856334,
+          0.7823622930961557,
+          -0.004155381194812484
+        ],
+        "distance": 5.057737217466585
+      },
+      "url": "http://127.0.0.1:38529/?view=three-quarter&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "three-quarter.png",
+      "referenceCrop": "../../reference/three-quarter.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:33:38.970Z",
+      "readySignal": true,
+      "screenshotSha256": "553f95dc54dc08a98314872a71e767c79813a816325a3ae4591a4bc7b977846c",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 360844
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.37179,
+        "darkFraction": 0.04409,
+        "foregroundBBox": {
+          "x0": 94,
+          "y0": 33,
+          "x1": 705,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "side",
+      "view": "side",
+      "role": "orbit",
+      "azimuthDegrees": 270,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          -5.023582071008256,
+          1.2176227098675156,
+          -0.020238616860948317
+        ],
+        "target": [
+          -0.002386873359729968,
+          0.7783250527224582,
+          -0.020238616860947394
+        ],
+        "distance": 5.04037534757698
+      },
+      "url": "http://127.0.0.1:38529/?view=side&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "side.png",
+      "referenceCrop": "../../reference/side.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:34:01.702Z",
+      "readySignal": true,
+      "screenshotSha256": "0b7545cc22e1c27f8380cdca09f1bc6d7957cf9424424302e9d43f403d89a42b",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 333042
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.32545,
+        "darkFraction": 0.03778,
+        "foregroundBBox": {
+          "x0": 161,
+          "y0": 33,
+          "x1": 638,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "back",
+      "view": "back",
+      "role": "orbit",
+      "azimuthDegrees": 180,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          5.913538280775548e-16,
+          1.2413408200098146,
+          -4.849529411052207
+        ],
+        "target": [
+          -1.4110907509836189e-19,
+          0.8187773382788717,
+          -0.019606713630591424
+        ],
+        "distance": 4.848372217472692
+      },
+      "url": "http://127.0.0.1:38529/?view=back&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "back.png",
+      "referenceCrop": "../../reference/back.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:34:23.534Z",
+      "readySignal": true,
+      "screenshotSha256": "f28466f8c163a4f7807f14b4d87375d296466fbd61d02c119f5b598ce1ca3123",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 381988
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.4331,
+        "darkFraction": 0.04086,
+        "foregroundBBox": {
+          "x0": 60,
+          "y0": 34,
+          "x1": 739,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-000",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 0,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          0,
+          1.2294121653265737,
+          4.897468845352166
+        ],
+        "target": [
+          0,
+          0.7991722424312907,
+          -0.02019597607692829
+        ],
+        "distance": 4.936449502139587
+      },
+      "url": "http://127.0.0.1:38529/?az=0&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-000.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:34:44.886Z",
+      "readySignal": true,
+      "screenshotSha256": "388a0d9d5057a83234c2973440e1d60172b7f0969db3eaa2c80963b8616cbc6d",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 358372
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.39109,
+        "darkFraction": 0.04974,
+        "foregroundBBox": {
+          "x0": 62,
+          "y0": 33,
+          "x1": 737,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-090",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 90,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          5.055920138558864,
+          1.2261099421835124,
+          -0.021907941176477534
+        ],
+        "target": [
+          0.001895621101843949,
+          0.7839400917239449,
+          -0.021907941176477843
+        ],
+        "distance": 5.0733300700538
+      },
+      "url": "http://127.0.0.1:38529/?az=90&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-090.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:35:06.974Z",
+      "readySignal": true,
+      "screenshotSha256": "889a6ea9f14612325315ff3d57a5ca4ef1dd1432109eb9817b347d660b4011b3",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 318814
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.31746,
+        "darkFraction": 0.02878,
+        "foregroundBBox": {
+          "x0": 165,
+          "y0": 33,
+          "x1": 634,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-180",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 180,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          5.913538280775548e-16,
+          1.2413408200098146,
+          -4.849529411052207
+        ],
+        "target": [
+          -1.4110907509836189e-19,
+          0.8187773382788717,
+          -0.019606713630591424
+        ],
+        "distance": 4.848372217472692
+      },
+      "url": "http://127.0.0.1:38529/?az=180&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-180.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:35:29.717Z",
+      "readySignal": true,
+      "screenshotSha256": "f28466f8c163a4f7807f14b4d87375d296466fbd61d02c119f5b598ce1ca3123",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 381988
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.4331,
+        "darkFraction": 0.04086,
+        "foregroundBBox": {
+          "x0": 60,
+          "y0": 34,
+          "x1": 739,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-270",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 270,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          -5.023582071008256,
+          1.2176227098675156,
+          -0.020238616860948317
+        ],
+        "target": [
+          -0.002386873359729968,
+          0.7783250527224582,
+          -0.020238616860947394
+        ],
+        "distance": 5.04037534757698
+      },
+      "url": "http://127.0.0.1:38529/?az=270&team=A&ground=0",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-270.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:35:52.638Z",
+      "readySignal": true,
+      "screenshotSha256": "0b7545cc22e1c27f8380cdca09f1bc6d7957cf9424424302e9d43f403d89a42b",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 333042
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.32545,
+        "darkFraction": 0.03778,
+        "foregroundBBox": {
+          "x0": 161,
+          "y0": 33,
+          "x1": 638,
+          "y1": 1214
+        }
+      }
+    }
+  ],
+  "evidence": {
+    "browser": {
+      "adapter": "playwright",
+      "version": "1.56.1",
+      "browser": "chromium",
+      "executable": "playwright-default",
+      "headless": true,
+      "args": [
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader",
+        "--ignore-gpu-blocklist",
+        "--enable-webgl"
+      ]
+    },
+    "diagnostics": [],
+    "comparisonSheet": null,
+    "consoleErrors": []
+  }
+}

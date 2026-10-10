@@ -839,9 +839,6 @@ function outlinePointToward(outline: THREE.Vector2[], angle: number): THREE.Vect
   return best;
 }
 
-/** Review hook: partial goggle-pose override for buildSwimForm (empty in production). */
-export const SWIM_POSE_OVERRIDE: Partial<{ y: number; pitch: number; yaw: number; roll: number; bend: number }> = {};
-
 export function buildSwimForm(mats: SlimeMaterials): THREE.Group {
   const root = new THREE.Group();
   root.name = 'slime-swim-form';
@@ -850,8 +847,8 @@ export function buildSwimForm(mats: SlimeMaterials): THREE.Group {
   // Goggles rest a little left of and behind the centre, on a low mound.
   const gx = -0.04;
   const gz = 0.12;
-  // Goggle pose (Euler YXZ, degrees) and wrap; overridable for review via SWIM_POSE_OVERRIDE.
-  const pose = { y: 0.12, pitch: -40, yaw: 24, roll: 8, bend: 0.36, ...SWIM_POSE_OVERRIDE };
+  // Goggle pose (Euler YXZ, degrees) and wrap radius.
+  const pose = { y: 0.12, pitch: -40, yaw: 24, roll: 8, bend: 0.36 };
   const H = 0.026;
   const bumps = Array.from({ length: 7 }, () => ({
     x: (rnd() - 0.5) * 0.9,

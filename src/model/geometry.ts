@@ -34,6 +34,47 @@ export function lathe(
   return new THREE.LatheGeometry(pts, segments, phiStart, phiLength);
 }
 
+/**
+ * Open-front lathe whose front gap varies with height (`gapAt(y)` radians, centred on +Z): an
+ * A-shaped jacket opening that is narrow under the collar and wide at the hem. Same vertex and
+ * winding layout as THREE.LatheGeometry, so it faces outward for a bottom → top profile.
+ */
+export function variableGapLathe(
+  profile: Array<[number, number]>,
+  segments: number,
+  gapAt: (y: number) => number,
+): THREE.BufferGeometry {
+  const pts = profile[0][1] > profile[profile.length - 1][1] ? [...profile].reverse() : profile;
+  const positions: number[] = [];
+  const uvs: number[] = [];
+  const indices: number[] = [];
+  const n = pts.length;
+  for (let i = 0; i <= segments; i++) {
+    for (let j = 0; j < n; j++) {
+      const [r, y] = pts[j];
+      const gap = gapAt(y);
+      const phi = gap / 2 + (i / segments) * (Math.PI * 2 - gap);
+      positions.push(Math.max(r, 1e-4) * Math.sin(phi), y, Math.max(r, 1e-4) * Math.cos(phi));
+      uvs.push(i / segments, j / (n - 1));
+    }
+  }
+  for (let i = 0; i < segments; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      const a = j + i * n;
+      const b = j + (i + 1) * n;
+      const c = j + 1 + (i + 1) * n;
+      const d = j + 1 + i * n;
+      indices.push(a, b, d, c, d, b);
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+  geo.setIndex(indices);
+  geo.computeVertexNormals();
+  return geo;
+}
+
 /** Smoothly resample a coarse [r, y] profile with a Catmull-Rom spline. */
 export function smoothProfile(profile: Array<[number, number]>, samples = 32): Array<[number, number]> {
   const curve = new THREE.CatmullRomCurve3(profile.map(([r, y]) => new THREE.Vector3(r, y, 0)), false, 'centripetal');
@@ -291,4 +332,53 @@ export function pivot(name: string, x = 0, y = 0, z = 0): THREE.Group {
   g.name = name;
   g.position.set(x, y, z);
   return g;
+}
+
+export interface ToonOutlineOptions {
+  /** Object-space push along vertex normals (≈ the sheet's 2 px line weight at review size). */
+  thickness?: number;
+  color?: number;
+  /** Skip meshes whose material is transparent (glass, liquid) or whose name matches. */
+  skip?: RegExp;
+}
+
+/**
+ * Inverted-hull ink outline, matching the line-art style of the character sheet. Every opaque
+ * mesh gets a child that shares its geometry, renders back faces only in flat ink colour and is
+ * expanded along its normals in the vertex shader (no geometry is duplicated). Outline meshes are
+ * flagged `isOutline` + `explodeWithParent`, so part manifests and pickers ignore them.
+ */
+export function addToonOutline(root: THREE.Object3D, opts: ToonOutlineOptions = {}): THREE.Material {
+  const thickness = opts.thickness ?? 0.0042;
+  const mat = new THREE.MeshBasicMaterial({ color: opts.color ?? 0x0d1012, side: THREE.BackSide });
+  mat.name = 'toon-outline';
+  mat.onBeforeCompile = (shader) => {
+    shader.uniforms.outlineThickness = { value: thickness };
+    shader.vertexShader = shader.vertexShader
+      .replace('#include <common>', '#include <common>\nuniform float outlineThickness;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed += normalize(normal) * outlineThickness;');
+  };
+  // `normal` is always declared as an attribute in three's vertex prefix (objectNormal is not:
+  // MeshBasicMaterial only computes it with an env map or skinning).
+  const targets: THREE.Mesh[] = [];
+  root.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh || m.userData.isOutline) return;
+    const materials = Array.isArray(m.material) ? m.material : [m.material];
+    if (materials.some((mm) => mm.transparent)) return;
+    if (opts.skip && opts.skip.test(m.name)) return;
+    if (!m.geometry.getAttribute('normal')) return;
+    targets.push(m);
+  });
+  for (const m of targets) {
+    const outline = new THREE.Mesh(m.geometry, mat);
+    outline.name = `${m.name}__outline`;
+    outline.userData.isOutline = true;
+    outline.userData.explodeWithParent = true;
+    outline.castShadow = false;
+    outline.receiveShadow = false;
+    outline.raycast = () => {};
+    m.add(outline);
+  }
+  return mat;
 }

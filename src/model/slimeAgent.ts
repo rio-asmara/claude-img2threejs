@@ -59,7 +59,7 @@ export function buildSlimeAgentRig(mats: SlimeMaterials, deps: SlimeAgentDeps): 
   const spineW = new THREE.Vector3(0, L.waistY, 0);
   const neckW = new THREE.Vector3(0, L.neckBaseY, 0);
   const headW = new THREE.Vector3(0, L.headPivotY, 0);
-  const backW = new THREE.Vector3(0, 0.86, -0.152);
+  const backW = new THREE.Vector3(0, 0.83, -0.152);
 
   const hips = pivot('hips', hipsW.x, hipsW.y, hipsW.z);
   root.add(hips);

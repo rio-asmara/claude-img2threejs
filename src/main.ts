@@ -58,9 +58,9 @@ const VIEWS: Record<Exclude<ViewName, 'orbit'>, ViewSpec> = {
   back: { subject: 'figure', az: 180, el: 5, fov: REVIEW_FOV, margins: FIGURE_MARGINS, anchor: 'bottom' },
   turntable: { subject: 'figure', az: 0, el: 5, fov: REVIEW_FOV, margins: FIGURE_MARGINS, anchor: 'bottom' },
   // Muzzle (+Z) points image-left when seen from +X, hose + canister on the right.
-  blaster: { subject: 'blaster', az: 90, el: 8, fov: REVIEW_FOV, margins: PROP_MARGINS, anchor: 'center' },
+  blaster: { subject: 'blaster', az: 58, el: 14, fov: REVIEW_FOV, margins: PROP_MARGINS, anchor: 'center' },
   // Slightly elevated three-quarter of the puddle; goggles lens (+Z) turned toward image-left.
-  swim: { subject: 'swim', az: 30, el: 28, fov: REVIEW_FOV, margins: PROP_MARGINS, anchor: 'center' },
+  swim: { subject: 'swim', az: 8, el: 24, fov: REVIEW_FOV, margins: PROP_MARGINS, anchor: 'center' },
 };
 
 declare global {

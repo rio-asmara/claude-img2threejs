@@ -965,6 +965,24 @@ def main(argv=None) -> int:
         "Hair, goggles, garments' trims, shoe parts and tank parts ride their parent bone rigidly (no attachment => not bones).",
         "Digits are bones via attachment contracts but keep tapered-sweep geometry (generator only derives cylinders for attachment primitives).",
     ]
+    # Worn/carried items declare an anchor for forge/stage4_review/attachment_anchor.py. Added AFTER
+    # derive_character_rig on purpose: any component carrying an `attachment` block is read as a bone
+    # by the rig derivation, and goggles/tank/hose must ride their anchor rigidly, not become bones.
+    worn = {
+        "goggle-body": ("head", 0.16, "worn"), "goggle-lens": ("head", 0.26, "worn"),
+        "goggle-strap": ("head", 0.08, "worn"), "back-plate": ("chest", 0.2, "equipment"),
+        "tank": ("back-plate", 0.1, "equipment"), "hose": ("tank-cap-bottom", 0.06, "equipment"),
+        "hose-coupler": ("pelvis", 0.2, "equipment"), "harness-strap-l": ("chest", 0.22, "equipment"),
+        "harness-strap-r": ("chest", 0.22, "equipment"),
+    }
+    by_id = {c["id"]: c for c in tree}
+    for cid, (anchor_id, max_offset, category) in worn.items():
+        comp = by_id[cid]
+        assert not comp.get("attachment"), cid
+        comp["category"] = category
+        comp["attachment"] = {"anchor": anchor_id, "maxOffset": max_offset,
+                              "contract": "worn/carried item anchor (attachment_anchor.py); rigid ride on the anchor, not a limb weld",
+                              "evidenceRefs": comp.get("evidenceRefs", ["full-object"])}
     spec["materials"] = [make_material(d) for d in MATERIAL_DEFS]
     ids = [c["id"] for c in tree]
 

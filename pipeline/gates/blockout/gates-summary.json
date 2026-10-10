@@ -1,0 +1,185 @@
+{
+  "passId": "blockout",
+  "renders": "renders/review",
+  "gates": [
+    {
+      "gate": "tier1-diagnostics",
+      "exit": 1,
+      "command": "/usr/bin/python3 forge/stage4_review/diagnose_render.py --reference reference/tier1/front.png --render renders/review/front.png --json --spec pipeline/object-sculpt-spec.json --pass-id blockout --in-place",
+      "output": "diagnose-front.json",
+      "stderrTail": [
+        "STATUS pass=blockout completed=0 blocked=blockout requires a browser screenshot and self-correction review before structural-pass unlocks next=diagnose_render.py"
+      ]
+    },
+    {
+      "gate": "multi-angle",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/diagnose_render_multi_angle.py --reference renders/review/front.png --orbit renders/review/three-quarter.png --orbit renders/review/side.png --orbit renders/review/back.png --json",
+      "output": "multi-angle.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "turntable",
+      "exit": 1,
+      "command": "/usr/bin/python3 forge/stage4_review/turntable_gate.py --capture 0=renders/review/turntable-000.png --capture 90=renders/review/turntable-090.png --capture 180=renders/review/turntable-180.png --capture 270=renders/review/turntable-270.png --json",
+      "output": "turntable.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-front-head-hair",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/front.png renders/review/front.png --from 0.0 --to 0.35 --json",
+      "output": "interior-front-head-hair.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-front-torso-arms",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/front.png renders/review/front.png --from 0.35 --to 0.62 --json",
+      "output": "interior-front-torso-arms.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-front-legs-shoes",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/front.png renders/review/front.png --from 0.62 --to 1.0 --json",
+      "output": "interior-front-legs-shoes.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-three-quarter-head-hair",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/three-quarter.png renders/review/three-quarter.png --from 0.0 --to 0.35 --json",
+      "output": "interior-three-quarter-head-hair.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-three-quarter-torso-arms",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/three-quarter.png renders/review/three-quarter.png --from 0.35 --to 0.62 --json",
+      "output": "interior-three-quarter-torso-arms.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-three-quarter-legs-shoes",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/three-quarter.png renders/review/three-quarter.png --from 0.62 --to 1.0 --json",
+      "output": "interior-three-quarter-legs-shoes.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-side-head-hair",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/side.png renders/review/side.png --from 0.0 --to 0.35 --json",
+      "output": "interior-side-head-hair.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-side-torso-arms",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/side.png renders/review/side.png --from 0.35 --to 0.62 --json",
+      "output": "interior-side-torso-arms.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-side-legs-shoes",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/side.png renders/review/side.png --from 0.62 --to 1.0 --json",
+      "output": "interior-side-legs-shoes.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-back-head-hair",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/back.png renders/review/back.png --from 0.0 --to 0.35 --json",
+      "output": "interior-back-head-hair.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-back-torso-arms",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/back.png renders/review/back.png --from 0.35 --to 0.62 --json",
+      "output": "interior-back-torso-arms.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "interior-back-legs-shoes",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/interior_difference.py reference/back.png renders/review/back.png --from 0.62 --to 1.0 --json",
+      "output": "interior-back-legs-shoes.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "scalp-exposure",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/scalp_exposure.py --rings pipeline/review-data/head_rings.json --hair-points pipeline/review-data/hair_points.json --v-low 0.6 --out pipeline/gates/blockout/scalp-exposure.json",
+      "output": null,
+      "stderrTail": []
+    },
+    {
+      "gate": "hair-gate",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/hair_gate.py --reference front=reference/front.png back=reference/back.png side=reference/side.png --render front=renders/review/front.png back=renders/review/back.png side=renders/review/side.png --scalp-exposure pipeline/gates/blockout/scalp-exposure.json --out pipeline/gates/blockout/hair-gate.json",
+      "output": null,
+      "stderrTail": []
+    },
+    {
+      "gate": "self-intersection",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/self_intersection.py pipeline/review-data/meshes.json --json",
+      "output": "self-intersection.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "part-coverage",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/check_part_coverage.py --spec pipeline/object-sculpt-spec.json --manifest pipeline/review-data/parts.json --json pipeline/gates/blockout/part-coverage.json",
+      "output": "part-coverage.txt",
+      "stderrTail": []
+    },
+    {
+      "gate": "attachment-anchor",
+      "exit": 1,
+      "command": "/usr/bin/python3 forge/stage4_review/attachment_anchor.py pipeline/object-sculpt-spec.json --measured pipeline/review-data/measured-positions.json --json",
+      "output": "attachment-anchor.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "comparison-front",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/make_comparison_sheet.py --reference reference/front.png --render renders/review/front.png --out pipeline/gates/blockout/cmp-front.png --json",
+      "output": "cmp-front.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "comparison-three-quarter",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/make_comparison_sheet.py --reference reference/three-quarter.png --render renders/review/three-quarter.png --out pipeline/gates/blockout/cmp-three-quarter.png --json",
+      "output": "cmp-three-quarter.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "comparison-side",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/make_comparison_sheet.py --reference reference/side.png --render renders/review/side.png --out pipeline/gates/blockout/cmp-side.png --json",
+      "output": "cmp-side.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "comparison-back",
+      "exit": 0,
+      "command": "/usr/bin/python3 forge/stage4_review/make_comparison_sheet.py --reference reference/back.png --render renders/review/back.png --out pipeline/gates/blockout/cmp-back.png --json",
+      "output": "cmp-back.json",
+      "stderrTail": []
+    },
+    {
+      "gate": "pass-gate-check",
+      "exit": 1,
+      "command": "/usr/bin/python3 forge/stage3_build/orchestrate_passes.py check pipeline/object-sculpt-spec.json --pass-id blockout --json",
+      "output": "pass-check.json",
+      "stderrTail": [
+        "STATUS pass=blockout completed=0 blocked=blockout requires a browser screenshot and self-correction review before structural-pass unlocks next=forge/stage3_build/orchestrate_passes.py check /home/user/claude-img2threejs/pipeline/object-sculpt-spec.json"
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { SlimeMaterials } from './materials';
 import {
   ellipsoidPoint, lathe, mesh, pivot, seededRandom, smoothLathe, smoothProfile, tagPart,
-  taperedTube, teardrop,
+  taperedTube, teardrop, variableGapLathe,
 } from './geometry';
 
 /**
@@ -28,16 +28,16 @@ export const LANDMARKS = {
   shoulderX: 0.185,
   neckBaseY: 0.995,
   headPivotY: 1.06,
-  headCenterY: 1.255,
+  headCenterY: 1.25,
   gogglesY: 1.2,
   hairCenterY: 1.262,
-  hipJointX: 0.104,
-  legSplay: 0.2, // rad, legs open outward ~10.7°
+  hipJointX: 0.116,
+  legSplay: 0.235, // rad, legs open outward ~10.7°
   toeOut: 0.22, // rad, shoes turned outward
-  upperArmLength: 0.168,
-  forearmLength: 0.14,
-  armSwing: 0.5, // shoulder abduction (A-pose)
-  elbowBend: 0.24,
+  upperArmLength: 0.172,
+  forearmLength: 0.168,
+  armSwing: 0.46, // shoulder abduction (A-pose)
+  elbowBend: 0.42,
   thighLength: 0.21,
   torsoDepthScale: 0.74, // elliptical torso cross-section (depth / width)
 } as const;
@@ -62,6 +62,18 @@ export function buildHead(mats: SlimeMaterials, goggles: GogglesBuilder): THREE.
 
   // Face / skull volume.
   const skullGeo = new THREE.SphereGeometry(1, 48, 32);
+  // Fuller jaw: the sheet's face below the goggles is a broad rounded chin that sits in the
+  // collar, not the narrowing bottom of an ellipsoid. Widen the lower hemisphere.
+  const sp = skullGeo.getAttribute('position') as THREE.BufferAttribute;
+  for (let i = 0; i < sp.count; i++) {
+    const y = sp.getY(i);
+    if (y < 0) {
+      const k = 1 + 0.2 * Math.pow(-y, 1.4);
+      sp.setX(i, sp.getX(i) * k);
+      sp.setZ(i, sp.getZ(i) * k);
+    }
+  }
+  skullGeo.computeVertexNormals();
   skullGeo.scale(HEAD.rx, HEAD.ry, HEAD.rz);
   const skull = mesh('head-skull', skullGeo, mats.slime);
   skull.position.y = HEAD.cy;
@@ -75,6 +87,9 @@ export function buildHead(mats: SlimeMaterials, goggles: GogglesBuilder): THREE.
     const az = -0.33 + 0.66 * t;
     const polar = 2.37 + 0.075 * Math.sin(Math.PI * t);
     const p = ellipsoidPoint(HEAD.rx + 0.002, HEAD.ry + 0.002, HEAD.rz + 0.002, az, polar);
+    const jaw = 1 + 0.2 * Math.pow(Math.max(0, -p.y / HEAD.ry), 1.4); // same widening as the skull
+    p.x *= jaw;
+    p.z *= jaw;
     p.y += HEAD.cy;
     smilePts.push(p);
   }
@@ -109,12 +124,12 @@ function buildGoggleStrap(mats: SlimeMaterials): THREE.Group {
   // Band: an open elliptical cylinder sitting on the hair, covering the back 3/4 only
   // (the goggle frame covers the front).
   const bandGeo = new THREE.CylinderGeometry(1, 1, 0.052, 64, 1, true, Math.PI * 0.3, Math.PI * 1.4);
-  bandGeo.scale(0.272, 1, 0.318);
+  bandGeo.scale(0.272, 1, 0.284);
   // CylinderGeometry thetaStart 0 is +Z; rotate so the gap faces +Z (front).
   const band = mesh('goggle-strap-band', bandGeo, mats.webbing);
   band.material = mats.webbing.clone();
   (band.material as THREE.MeshStandardMaterial).side = THREE.DoubleSide;
-  band.position.set(0, y, -0.052);
+  band.position.set(0, y, -0.04);
   strap.add(tagPart(band, 'goggle-strap'));
 
   for (const s of [1, -1]) {
@@ -220,7 +235,9 @@ export function buildSlimeHair(mats: SlimeMaterials): THREE.Group {
       const polar = lk.p0 + (lk.p1 - lk.p0) * t;
       const az = lk.az + lk.twist * t;
       const radiusNow = lk.r * (0.7 + 0.3 * t);
-      const off = radiusNow * 0.6 + lk.lift * (0.4 + 0.6 * Math.sin(Math.PI * t)) + lk.splay * t * t;
+      // The sheet's hair mass leans to the character's left (+X): splay more on that side.
+      const lean = 1 + 0.4 * Math.max(0, Math.sin(az)) - 0.3 * Math.max(0, -Math.sin(az));
+      const off = radiusNow * 0.6 + lk.lift * (0.4 + 0.6 * Math.sin(Math.PI * t)) + lk.splay * lean * t * t + 0.006 * Math.max(0, Math.sin(az)) * t;
       const pc = Math.min(polar, 1.62);
       const p = ellipsoidPoint(HAIR.rx + off, HAIR.ry + off, HAIR.rz + off, az, pc);
       if (polar > 1.62) {
@@ -318,6 +335,17 @@ function jacketPoint(phi: number, y: number, offset = 0): THREE.Vector3 {
   return new THREE.Vector3(r * Math.sin(phi), y, r * Math.cos(phi) * L.torsoDepthScale);
 }
 
+/**
+ * Front opening of the jacket (radians, centred on +Z) as a function of height: wide at the hem,
+ * closing toward the collar, as on the front view of the sheet (tee visible ≈0.24 wide at the hem,
+ * ≈0.14 at the chest, ≈0.10 under the collar).
+ */
+function jacketGap(y: number): number {
+  const t1 = Math.min(1, Math.max(0, (y - 0.76) / 0.12));
+  const t2 = Math.min(1, Math.max(0, (y - 0.88) / 0.12));
+  return 1.34 + (0.72 - 1.34) * t1 + (0.6 - 0.72) * t2;
+}
+
 export interface TorsoDeps {
   buckle?: (mats: SlimeMaterials) => THREE.Object3D;
 }
@@ -329,7 +357,7 @@ export function buildTorso(mats: SlimeMaterials, deps: TorsoDeps = {}): THREE.Gr
 
   // White T-shirt (visible in the jacket opening and as a hem below the crop).
   const teeGeo = smoothLathe([
-    [0.176, 0.708], [0.18, 0.74], [0.19, 0.82], [0.195, 0.9], [0.15, 0.97], [0.098, 1.01], [0.08, 1.04], [0.072, 1.05],
+    [0.176, 0.708], [0.18, 0.74], [0.19, 0.82], [0.195, 0.9], [0.15, 0.97], [0.1, 0.995], [0.085, 1.005],
   ], 32, 48);
   teeGeo.scale(1, 1, D);
   torso.add(tagPart(mesh('tee', teeGeo, mats.cotton), 'tee'));
@@ -345,8 +373,7 @@ export function buildTorso(mats: SlimeMaterials, deps: TorsoDeps = {}): THREE.Gr
   // Cropped jacket: open front (lathe gap centred on +Z).
   const nylonDouble = mats.nylon.clone();
   nylonDouble.side = THREE.DoubleSide;
-  const gapHem = 0.86;
-  const jacketGeo = lathe(JACKET_PROFILE, 64, gapHem / 2, Math.PI * 2 - gapHem);
+  const jacketGeo = variableGapLathe(JACKET_PROFILE, 64, jacketGap);
   jacketGeo.scale(1, 1, D);
   const jacket = new THREE.Group();
   jacket.name = 'jacket-body';
@@ -355,13 +382,13 @@ export function buildTorso(mats: SlimeMaterials, deps: TorsoDeps = {}): THREE.Gr
   jacket.add(mesh('jacket-shell', jacketGeo, nylonDouble));
 
   // Elastic hem band.
-  const hemGeo = lathe([[0.184, L.jacketHemY - 0.004], [0.191, L.jacketHemY + 0.006], [0.19, L.jacketHemY + 0.026], [0.188, L.jacketHemY + 0.03]], 64, gapHem / 2, Math.PI * 2 - gapHem);
+  const hemGeo = variableGapLathe([[0.184, L.jacketHemY - 0.004], [0.191, L.jacketHemY + 0.006], [0.19, L.jacketHemY + 0.026], [0.188, L.jacketHemY + 0.03]], 64, jacketGap);
   hemGeo.scale(1, 1, D);
   jacket.add(mesh('jacket-hem', hemGeo, mats.nylon));
 
   // Stand-up collar: black outside, team-colour lining inside, open at the front.
-  const collarGap = 1.05;
-  const collarProfile: Array<[number, number]> = [[0.12, 0.99], [0.136, 1.02], [0.164, 1.055], [0.172, 1.066]];
+  const collarGap = 0.7;
+  const collarProfile: Array<[number, number]> = [[0.12, 0.99], [0.138, 1.025], [0.166, 1.065], [0.174, 1.08]];
   const collarGeo = lathe(collarProfile, 48, collarGap / 2, Math.PI * 2 - collarGap);
   collarGeo.scale(1, 1, 0.9);
   collar.add(mesh('jacket-collar-shell', collarGeo, mats.nylon));
@@ -374,7 +401,7 @@ export function buildTorso(mats: SlimeMaterials, deps: TorsoDeps = {}): THREE.Gr
   const rimPts: THREE.Vector3[] = [];
   for (let i = 0; i <= 40; i++) {
     const phi = collarGap / 2 + (i / 40) * (Math.PI * 2 - collarGap);
-    rimPts.push(new THREE.Vector3(0.17 * Math.sin(phi), 1.063, 0.17 * Math.cos(phi) * 0.9));
+    rimPts.push(new THREE.Vector3(0.172 * Math.sin(phi), 1.077, 0.172 * Math.cos(phi) * 0.9));
   }
   collar.add(mesh('jacket-collar-rim', taperedTube(new THREE.CatmullRomCurve3(rimPts), () => 0.006, { tubularSegments: 80, radialSegments: 6 }), mats.piping));
 
@@ -390,9 +417,9 @@ export function buildTorso(mats: SlimeMaterials, deps: TorsoDeps = {}): THREE.Gr
     const back: THREE.Vector3[] = [];
     for (let i = 0; i <= 12; i++) {
       const y = L.jacketHemY + 0.004 + (i / 12) * (0.985 - L.jacketHemY);
-      const phiEdge = s * (gapHem / 2 + (collarGap / 2 - gapHem / 2) * Math.max(0, (y - 0.9) / 0.09));
+      const phiEdge = s * (jacketGap(y) / 2);
       edge.push(jacketPoint(phiEdge, y, 0.003));
-      if (y < 0.93) stripe.push(jacketPoint(s * 0.82, y, 0.004));
+      if (y < 0.93) stripe.push(jacketPoint(s * (jacketGap(y) / 2 + 0.3), y, 0.004));
     }
     for (let i = 0; i <= 10; i++) {
       const t = i / 10;
@@ -405,7 +432,7 @@ export function buildTorso(mats: SlimeMaterials, deps: TorsoDeps = {}): THREE.Gr
 
     // Chest pocket zip line (short horizontal piping on each front panel).
     const zip: THREE.Vector3[] = [];
-    for (let i = 0; i <= 6; i++) zip.push(jacketPoint(s * (0.5 + i * 0.05), 0.79, 0.004));
+    for (let i = 0; i <= 6; i++) zip.push(jacketPoint(s * (jacketGap(0.79) / 2 + 0.1 + i * 0.05), 0.79, 0.004));
     pipe(`jacket-pocket-zip-${name}`, zip, 0.0045);
   }
   torso.add(tagPart(jacket, 'jacket-body', 'jacket'));
@@ -545,7 +572,7 @@ export function buildArm(mats: SlimeMaterials, side: Side): ArmChain {
   elbow.add(tagPart(wristband, `wristband-${n}`));
 
   const wrist = pivot(`wrist-${n}`, 0, -L.forearmLength, 0);
-  wrist.rotation.z = -s * 0.3;
+  wrist.rotation.z = -s * 0.25;
   elbow.add(wrist);
   const hand = buildHand(mats, side);
   wrist.add(hand);
@@ -615,9 +642,9 @@ export function buildLeg(mats: SlimeMaterials, side: Side): LegChain {
   const cuffLocal = -(L.hipsY - 0.25) / cosS;
 
   // Baggy jogger profile [radius, localY] measured along the leg axis.
-  const thighProfile: Array<[number, number]> = [[0.104, 0.04], [0.116, -0.04], [0.118, -0.12], [0.108, -L.thighLength]];
+  const thighProfile: Array<[number, number]> = [[0.098, 0.04], [0.106, -0.04], [0.11, -0.12], [0.106, -L.thighLength]];
   const shinProfile: Array<[number, number]> = [
-    [0.108, -L.thighLength], [0.113, -0.26], [0.108, -0.31], [0.09, -0.343], [0.068, cuffLocal + 0.02],
+    [0.106, -L.thighLength], [0.112, -0.26], [0.108, -0.31], [0.09, -0.343], [0.068, cuffLocal + 0.02],
   ];
   const outerPhi = s > 0 ? Math.PI / 2 : (3 * Math.PI) / 2;
   const stripeWidth = 0.42;
@@ -639,7 +666,7 @@ export function buildLeg(mats: SlimeMaterials, side: Side): LegChain {
   snap.position.set(s * 0.019, 0.04, 0);
   pocket.add(snap);
   // Pocket sits on the outer side just in front of the side stripe.
-  pocket.position.set(s * 0.12, -0.15, 0.03);
+  pocket.position.set(s * 0.112, -0.15, 0.03);
   pocket.rotation.z = -s * 0.04;
   thigh.add(tagPart(pocket, `cargo-pocket-${n}`, 'pants'));
   hip.add(tagPart(thigh, `thigh-${n}`));
@@ -674,7 +701,7 @@ export function buildLeg(mats: SlimeMaterials, side: Side): LegChain {
 
 /** Neck: a short slime cylinder mostly hidden by the collar. Origin = neck pivot. */
 export function buildNeck(mats: SlimeMaterials): THREE.Mesh {
-  const neck = mesh('neck', new THREE.CylinderGeometry(0.05, 0.055, 0.11, 24), mats.slime);
+  const neck = mesh('neck', new THREE.CylinderGeometry(0.062, 0.068, 0.11, 24), mats.slime);
   neck.position.y = 0.05;
   return tagPart(neck, 'neck');
 }

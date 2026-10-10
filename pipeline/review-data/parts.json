@@ -1,0 +1,1264 @@
+{
+  "model": "slime-agent",
+  "parts": [
+    {
+      "name": "pelvis",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 2304,
+      "materials": [
+        "pants-twill"
+      ]
+    },
+    {
+      "name": "waistband",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 288,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "tee",
+      "module": "tee",
+      "kind": "part",
+      "triangles": 3072,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "abdomen",
+      "module": "abdomen",
+      "kind": "part",
+      "triangles": 1024,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "chest",
+      "module": "chest",
+      "kind": "part",
+      "triangles": 1024,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "jacket-body",
+      "module": "jacket",
+      "kind": "part",
+      "triangles": 10112,
+      "materials": [
+        "jacket-nylon",
+        "piping"
+      ]
+    },
+    {
+      "name": "jacket-collar",
+      "module": "jacket",
+      "kind": "part",
+      "triangles": 1536,
+      "materials": [
+        "jacket-nylon",
+        "piping"
+      ]
+    },
+    {
+      "name": "harness-strap-l",
+      "module": "harness",
+      "kind": "part",
+      "triangles": 512,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "harness-yoke-l",
+      "module": "harness",
+      "kind": "part",
+      "triangles": 512,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "harness-buckle-l",
+      "module": "harness",
+      "kind": "part",
+      "triangles": 2644,
+      "materials": [
+        "aluminium"
+      ]
+    },
+    {
+      "name": "harness-strap-r",
+      "module": "harness",
+      "kind": "part",
+      "triangles": 512,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "harness-yoke-r",
+      "module": "harness",
+      "kind": "part",
+      "triangles": 512,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "harness-buckle-r",
+      "module": "harness",
+      "kind": "part",
+      "triangles": 2644,
+      "materials": [
+        "aluminium"
+      ]
+    },
+    {
+      "name": "neck",
+      "module": "neck",
+      "kind": "part",
+      "triangles": 96,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "head",
+      "module": "head",
+      "kind": "part",
+      "triangles": 2976,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "mouth-smile",
+      "module": "mouth-smile",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-deep"
+      ]
+    },
+    {
+      "name": "slime-hair",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 0,
+      "materials": []
+    },
+    {
+      "name": "hair-cap",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 3024,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-01",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-02",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-03",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-04",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-05",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-06",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-07",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-08",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-09",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-10",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-11",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-12",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-13",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-14",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-15",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-16",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-17",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-18",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-19",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-20",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-21",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-22",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-23",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-24",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-25",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-26",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-27",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-lock-28",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1280,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-tuft",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 3024,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drip-1",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drip-2",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-1",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-2",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-3",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-4",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-5",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-6",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drop-7",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "goggles",
+      "module": "goggles",
+      "kind": "part",
+      "triangles": 0,
+      "materials": []
+    },
+    {
+      "name": "goggle-body",
+      "module": "goggles",
+      "kind": "part",
+      "triangles": 13056,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "goggle-lens",
+      "module": "goggles",
+      "kind": "part",
+      "triangles": 8160,
+      "materials": [
+        "goggle-lens"
+      ]
+    },
+    {
+      "name": "goggle-strap",
+      "module": "goggle-strap",
+      "kind": "part",
+      "triangles": 128,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "goggle-clip-l",
+      "module": "goggle-clip-l",
+      "kind": "part",
+      "triangles": 24,
+      "materials": [
+        "aluminium",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "goggle-clip-r",
+      "module": "goggle-clip-r",
+      "kind": "part",
+      "triangles": 24,
+      "materials": [
+        "aluminium",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "upper-arm-l",
+      "module": "upper-arm-l",
+      "kind": "part",
+      "triangles": 912,
+      "materials": [
+        "jacket-nylon",
+        "piping"
+      ]
+    },
+    {
+      "name": "sleeve-lower-l",
+      "module": "sleeve-lower-l",
+      "kind": "part",
+      "triangles": 984,
+      "materials": [
+        "jacket-nylon",
+        "piping"
+      ]
+    },
+    {
+      "name": "sleeve-cuff-l",
+      "module": "jacket",
+      "kind": "part",
+      "triangles": 224,
+      "materials": [
+        "webbing",
+        "piping"
+      ]
+    },
+    {
+      "name": "forearm-l",
+      "module": "forearm-l",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "wristband-l",
+      "module": "wristband-l",
+      "kind": "part",
+      "triangles": 108,
+      "materials": [
+        "webbing",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "hand-l",
+      "module": "hand-l",
+      "kind": "part",
+      "triangles": 1064,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "index-l-1",
+      "module": "hand-l",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "middle-l-1",
+      "module": "hand-l",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "ring-l-1",
+      "module": "hand-l",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "thumb-l-1",
+      "module": "hand-l",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "upper-arm-r",
+      "module": "upper-arm-r",
+      "kind": "part",
+      "triangles": 912,
+      "materials": [
+        "jacket-nylon",
+        "piping"
+      ]
+    },
+    {
+      "name": "sleeve-lower-r",
+      "module": "sleeve-lower-r",
+      "kind": "part",
+      "triangles": 984,
+      "materials": [
+        "jacket-nylon",
+        "piping"
+      ]
+    },
+    {
+      "name": "sleeve-cuff-r",
+      "module": "jacket",
+      "kind": "part",
+      "triangles": 224,
+      "materials": [
+        "webbing",
+        "piping"
+      ]
+    },
+    {
+      "name": "forearm-r",
+      "module": "forearm-r",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "wristband-r",
+      "module": "wristband-r",
+      "kind": "part",
+      "triangles": 108,
+      "materials": [
+        "webbing",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "hand-r",
+      "module": "hand-r",
+      "kind": "part",
+      "triangles": 1064,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "index-r-1",
+      "module": "hand-r",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "middle-r-1",
+      "module": "hand-r",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "ring-r-1",
+      "module": "hand-r",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "thumb-r-1",
+      "module": "hand-r",
+      "kind": "part",
+      "triangles": 384,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "ink-tank",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 0,
+      "materials": []
+    },
+    {
+      "name": "tank-liquid",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 2228,
+      "materials": [
+        "ink-liquid",
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "tank-bubble-1",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 140,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "tank-bubble-2",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 140,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "tank-bubble-3",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 140,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "tank-bubble-4",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 140,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "tank-cap-top",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 3984,
+      "materials": [
+        "black-plastic",
+        "aluminium"
+      ]
+    },
+    {
+      "name": "tank-valve",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 144,
+      "materials": [
+        "black-plastic",
+        "aluminium"
+      ]
+    },
+    {
+      "name": "tank-cap-bottom",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 3664,
+      "materials": [
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "tank",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 112,
+      "materials": [
+        "tank-glass"
+      ]
+    },
+    {
+      "name": "tank-band-top",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 1232,
+      "materials": [
+        "aluminium",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "tank-band-bottom",
+      "module": "ink-tank",
+      "kind": "part",
+      "triangles": 1232,
+      "materials": [
+        "aluminium",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "tank-harness-frame",
+      "module": "tank-harness-frame",
+      "kind": "part",
+      "triangles": 2264,
+      "materials": [
+        "aluminium",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "back-plate",
+      "module": "tank-harness-frame",
+      "kind": "part",
+      "triangles": 5812,
+      "materials": [
+        "black-plastic",
+        "rubber-black"
+      ]
+    },
+    {
+      "name": "tank-hose",
+      "module": "tank-hose",
+      "kind": "part",
+      "triangles": 96,
+      "materials": [
+        "aluminium"
+      ]
+    },
+    {
+      "name": "hose",
+      "module": "tank-hose",
+      "kind": "part",
+      "triangles": 7840,
+      "materials": [
+        "rubber-black"
+      ]
+    },
+    {
+      "name": "hose-coupler",
+      "module": "tank-hose",
+      "kind": "part",
+      "triangles": 304,
+      "materials": [
+        "black-plastic",
+        "aluminium"
+      ]
+    },
+    {
+      "name": "thigh-l",
+      "module": "thigh-l",
+      "kind": "part",
+      "triangles": 1536,
+      "materials": [
+        "pants-twill",
+        "piping"
+      ]
+    },
+    {
+      "name": "cargo-pocket-l",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 60,
+      "materials": [
+        "pants-twill",
+        "aluminium"
+      ]
+    },
+    {
+      "name": "cargo-flap-l",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 12,
+      "materials": [
+        "jacket-nylon"
+      ]
+    },
+    {
+      "name": "shin-l",
+      "module": "shin-l",
+      "kind": "part",
+      "triangles": 1920,
+      "materials": [
+        "pants-twill",
+        "piping"
+      ]
+    },
+    {
+      "name": "pant-cuff-l",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 512,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "foot-l",
+      "module": "leg-l",
+      "kind": "part",
+      "triangles": 80,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "sneaker-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 0,
+      "materials": []
+    },
+    {
+      "name": "shoe-outsole-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 3200,
+      "materials": [
+        "rubber-ink"
+      ]
+    },
+    {
+      "name": "shoe-midsole-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 5440,
+      "materials": [
+        "rubber-white"
+      ]
+    },
+    {
+      "name": "shoe-upper-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 16344,
+      "materials": [
+        "rubber-black",
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "shoe-panel-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 3560,
+      "materials": [
+        "rubber-ink",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "shoe-collar-trim-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "shoe-heel-tab-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 716,
+      "materials": [
+        "rubber-ink"
+      ]
+    },
+    {
+      "name": "shoe-collar-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 3584,
+      "materials": [
+        "jacket-nylon"
+      ]
+    },
+    {
+      "name": "shoe-tongue-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 4684,
+      "materials": [
+        "white-plastic",
+        "black-plastic",
+        "rubber-ink"
+      ]
+    },
+    {
+      "name": "shoe-lace-1-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "shoe-lace-2-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "shoe-lace-3-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "shoe-lace-4-l",
+      "module": "sneaker-l",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "thigh-r",
+      "module": "thigh-r",
+      "kind": "part",
+      "triangles": 1536,
+      "materials": [
+        "pants-twill",
+        "piping"
+      ]
+    },
+    {
+      "name": "cargo-pocket-r",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 60,
+      "materials": [
+        "pants-twill",
+        "aluminium"
+      ]
+    },
+    {
+      "name": "cargo-flap-r",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 12,
+      "materials": [
+        "jacket-nylon"
+      ]
+    },
+    {
+      "name": "shin-r",
+      "module": "shin-r",
+      "kind": "part",
+      "triangles": 1920,
+      "materials": [
+        "pants-twill",
+        "piping"
+      ]
+    },
+    {
+      "name": "pant-cuff-r",
+      "module": "pants",
+      "kind": "part",
+      "triangles": 512,
+      "materials": [
+        "webbing"
+      ]
+    },
+    {
+      "name": "foot-r",
+      "module": "leg-r",
+      "kind": "part",
+      "triangles": 80,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "sneaker-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 0,
+      "materials": []
+    },
+    {
+      "name": "shoe-outsole-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 3200,
+      "materials": [
+        "rubber-ink"
+      ]
+    },
+    {
+      "name": "shoe-midsole-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 5440,
+      "materials": [
+        "rubber-white"
+      ]
+    },
+    {
+      "name": "shoe-upper-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 16344,
+      "materials": [
+        "rubber-black",
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "shoe-panel-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 3560,
+      "materials": [
+        "rubber-ink",
+        "black-plastic"
+      ]
+    },
+    {
+      "name": "shoe-collar-trim-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "white-plastic"
+      ]
+    },
+    {
+      "name": "shoe-heel-tab-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 716,
+      "materials": [
+        "rubber-ink"
+      ]
+    },
+    {
+      "name": "shoe-collar-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 3584,
+      "materials": [
+        "jacket-nylon"
+      ]
+    },
+    {
+      "name": "shoe-tongue-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 4684,
+      "materials": [
+        "white-plastic",
+        "black-plastic",
+        "rubber-ink"
+      ]
+    },
+    {
+      "name": "shoe-lace-1-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "shoe-lace-2-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "shoe-lace-3-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    },
+    {
+      "name": "shoe-lace-4-r",
+      "module": "sneaker-r",
+      "kind": "part",
+      "triangles": 576,
+      "materials": [
+        "tee-cotton"
+      ]
+    }
+  ],
+  "unnamedMeshes": 0,
+  "integralMeshes": 214
+}

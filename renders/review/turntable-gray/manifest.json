@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T06:40:25.254Z",
+  "generator": "scripts/capture.mjs",
+  "label": "review/turntable-gray",
+  "params": {
+    "team": "A",
+    "explode": null,
+    "query": {
+      "ground": "0",
+      "bg": "808080"
+    }
+  },
+  "runtime": {
+    "url": "http://127.0.0.1:38083/",
+    "route": "/",
+    "viewport": [
+      800,
+      1230
+    ],
+    "devicePixelRatio": 1,
+    "renderer": "WebGLRenderer",
+    "threeVersion": "0.169.0",
+    "toneMapping": "ACESFilmic",
+    "outputColorSpace": "srgb",
+    "readySignal": "window.__IMG2_READY",
+    "serve": "snapshot",
+    "source": {
+      "sha256": "205e0157ef25322cc7e079513e49880335896cf10efdfe987dfb21124f6eb092",
+      "files": 10
+    },
+    "captureContract": "url-params (view, az, el, team, explode)",
+    "cameraConvention": "faces +Z, Y up; az 0=+Z front, 90=+X (char left), 180=back, 270=-X (char right)"
+  },
+  "reference": {
+    "kind": "image",
+    "path": "../../../reference/front.png",
+    "sha256": "27428b6cc364f572b007eb15bfdec6689868977143a5fd629fb865241af4eabc",
+    "comparisonBasis": "source-image",
+    "renderRequired": false,
+    "sheet": {
+      "path": "../../../reference/slime-agent-sheet.jpg",
+      "sha256": "e7eb3baadb1785d719d80855de1e9c7098d69ccc3a467e287dbf6c3d1e09b54c"
+    }
+  },
+  "captures": [
+    {
+      "id": "turntable-000",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 0,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          0,
+          1.2294121653265737,
+          4.897468845352166
+        ],
+        "target": [
+          0,
+          0.7991722424312907,
+          -0.02019597607692829
+        ],
+        "distance": 4.936449502139587
+      },
+      "url": "http://127.0.0.1:38083/?az=0&team=A&ground=0&bg=808080",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-000.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:39:17.381Z",
+      "readySignal": true,
+      "screenshotSha256": "ee4900e82eda882c3e224d7483340aaa531403adb643d6e66f3a5c176eb4265f",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 358494
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          128,
+          128,
+          128
+        ],
+        "foregroundFraction": 0.43545,
+        "darkFraction": 0.04974,
+        "foregroundBBox": {
+          "x0": 62,
+          "y0": 33,
+          "x1": 737,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-090",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 90,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          5.055920138558864,
+          1.2261099421835124,
+          -0.021907941176477534
+        ],
+        "target": [
+          0.001895621101843949,
+          0.7839400917239449,
+          -0.021907941176477843
+        ],
+        "distance": 5.0733300700538
+      },
+      "url": "http://127.0.0.1:38083/?az=90&team=A&ground=0&bg=808080",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-090.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:39:39.722Z",
+      "readySignal": true,
+      "screenshotSha256": "36b2188ac5f75748c9df0e0959ecf4ccb4411af78786c76ea8370e7b88ffda26",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 318323
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          128,
+          128,
+          128
+        ],
+        "foregroundFraction": 0.33268,
+        "darkFraction": 0.02878,
+        "foregroundBBox": {
+          "x0": 165,
+          "y0": 33,
+          "x1": 634,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-180",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 180,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          5.913538280775548e-16,
+          1.2413408200098146,
+          -4.849529411052207
+        ],
+        "target": [
+          -1.4110907509836189e-19,
+          0.8187773382788717,
+          -0.019606713630591424
+        ],
+        "distance": 4.848372217472692
+      },
+      "url": "http://127.0.0.1:38083/?az=180&team=A&ground=0&bg=808080",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-180.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:40:02.906Z",
+      "readySignal": true,
+      "screenshotSha256": "5b78dd943d461d5c31961551d29445c21f91d7b4d82903aecdd8ee3cb70a2d42",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 381790
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          128,
+          128,
+          128
+        ],
+        "foregroundFraction": 0.43736,
+        "darkFraction": 0.04086,
+        "foregroundBBox": {
+          "x0": 60,
+          "y0": 34,
+          "x1": 739,
+          "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "turntable-270",
+      "view": "turntable",
+      "role": "orbit",
+      "azimuthDegrees": 270,
+      "elevationDegrees": 5,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          -5.023582071008256,
+          1.2176227098675156,
+          -0.020238616860948317
+        ],
+        "target": [
+          -0.002386873359729968,
+          0.7783250527224582,
+          -0.020238616860947394
+        ],
+        "distance": 5.04037534757698
+      },
+      "url": "http://127.0.0.1:38083/?az=270&team=A&ground=0&bg=808080",
+      "viewport": [
+        800,
+        1230
+      ],
+      "devicePixelRatio": 1,
+      "path": "turntable-270.png",
+      "referenceCrop": null,
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:40:25.154Z",
+      "readySignal": true,
+      "screenshotSha256": "539772c349dcab590850d479572241d557c0d9125f414ba8bb43ddb8ac494a92",
+      "image": {
+        "type": "png",
+        "width": 800,
+        "height": 1230,
+        "bytes": 333403
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 800,
+          "height": 1230
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 800,
+          "height": 1230
+        },
+        "background": [
+          128,
+          128,
+          128
+        ],
+        "foregroundFraction": 0.33699,
+        "darkFraction": 0.03778,
+        "foregroundBBox": {
+          "x0": 161,
+          "y0": 33,
+          "x1": 638,
+          "y1": 1214
+        }
+      }
+    }
+  ],
+  "evidence": {
+    "browser": {
+      "adapter": "playwright",
+      "version": "1.56.1",
+      "browser": "chromium",
+      "executable": "playwright-default",
+      "headless": true,
+      "args": [
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader",
+        "--ignore-gpu-blocklist",
+        "--enable-webgl"
+      ]
+    },
+    "diagnostics": [],
+    "comparisonSheet": null,
+    "consoleErrors": []
+  }
+}

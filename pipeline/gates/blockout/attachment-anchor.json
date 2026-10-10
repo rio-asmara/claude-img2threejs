@@ -1,0 +1,90 @@
+{
+  "errors": [],
+  "warnings": [],
+  "attachments": [
+    {
+      "component": "goggle-body",
+      "anchor": "head",
+      "anchorKind": "component",
+      "distance": 0.19368799653050264,
+      "maxOffset": 0.22,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "goggle-lens",
+      "anchor": "head",
+      "anchorKind": "component",
+      "distance": 0.19720701635590962,
+      "maxOffset": 0.26,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "goggle-strap",
+      "anchor": "head",
+      "anchorKind": "component",
+      "distance": 0.11049054665445368,
+      "maxOffset": 0.14,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "harness-strap-l",
+      "anchor": "chest",
+      "anchorKind": "component",
+      "distance": 0.14989584483900814,
+      "maxOffset": 0.22,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "harness-strap-r",
+      "anchor": "chest",
+      "anchorKind": "component",
+      "distance": 0.14989584483900814,
+      "maxOffset": 0.22,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "back-plate",
+      "anchor": "chest",
+      "anchorKind": "component",
+      "distance": 0.19387641037526976,
+      "maxOffset": 0.2,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "tank",
+      "anchor": "back-plate",
+      "anchorKind": "component",
+      "distance": 0.08575000000000002,
+      "maxOffset": 0.1,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "hose",
+      "anchor": "tank-cap-bottom",
+      "anchorKind": "component",
+      "distance": 0.14576277474032936,
+      "maxOffset": 0.18,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    },
+    {
+      "component": "hose-coupler",
+      "anchor": "pelvis",
+      "anchorKind": "component",
+      "distance": 0.2184837350925693,
+      "maxOffset": 0.25,
+      "offsetRule": "declared attachment.maxOffset",
+      "withinLimit": true
+    }
+  ],
+  "unmeasuredAttachments": [],
+  "attachmentCount": 9,
+  "passed": true
+}

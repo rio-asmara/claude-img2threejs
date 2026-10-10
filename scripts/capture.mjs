@@ -62,7 +62,7 @@ const VIEWPORTS = {
 };
 /** Azimuth/elevation each named view uses in src/main.ts (recorded in the manifest). */
 const VIEW_CAMERA = {
-  front: [0, 5], 'three-quarter': [35, 5], side: [270, 5], back: [180, 5], blaster: [90, 8], swim: [30, 28],
+  front: [0, 5], 'three-quarter': [35, 5], side: [270, 5], back: [180, 5], blaster: [58, 14], swim: [8, 24],
 };
 const REFERENCE_CROP = {
   front: 'reference/front.png', 'three-quarter': 'reference/three-quarter.png', side: 'reference/side.png',

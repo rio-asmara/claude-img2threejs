@@ -1592,10 +1592,11 @@
   }
  },
  "harness": "pipeline/headless/execute_factory.ts bundled with esbuild (NODE_PATH=<project>/node_modules) and run in node 22; no renderer",
- "typecheck": "tsc --noEmit strict + noUnusedLocals/noUnusedParameters: 0 errors",
+ "typecheck": "tsc --noEmit strict + noUnusedLocals/noUnusedParameters (project flags): 0 errors",
  "notes": [
   "Box3 bounds of rotated meshes are AABB-of-AABB overestimates",
   "hair-cap standProud: 339/2665 vertices are its buried underside inside the skull (occluded); pushing further would smear hair over the face",
-  "triangles measured at hero tessellation tier"
+  "triangles measured at hero tessellation tier",
+  "gates run on this executed geometry: pipeline/gates/scalp-exposure.blockout.json (pass, 0.0 exposed v0.6-1.0), pipeline/gates/attachment-anchor.blockout.json (pass, 9/9 measured)"
  ]
 }
