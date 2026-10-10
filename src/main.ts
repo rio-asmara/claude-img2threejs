@@ -15,6 +15,7 @@ import {
   type CameraFit,
   type Margins,
 } from './framing';
+import { mountHud } from './hud';
 
 /*
  * Slime-agent review viewer.
@@ -33,6 +34,8 @@ import {
  *   bg     = RRGGBB background override
  *   maps   = 0 → strip any texture maps (map-stripped blockout evidence; the model has none)
  *   tone   = neutral (default) | aces | agx;  exposure, env, hemi, key = lighting overrides
+ *   outline= 0 — no ink outline; anim = 0 — orbit view without the idle loop
+ *   hud    = 0 — hide the visitor control panel (src/hud.ts); every review capture passes it
  */
 
 type ViewName = 'front' | 'three-quarter' | 'side' | 'back' | 'blaster' | 'swim' | 'orbit' | 'turntable';
@@ -364,6 +367,7 @@ if (isOrbit) {
   controls.maxDistance = subjectRadius * 20;
   document.getElementById('hint')!.style.display = 'block';
 }
+mountHud({ view: viewName, team, explode: explodeFactor > 0 });
 resize();
 frame();
 

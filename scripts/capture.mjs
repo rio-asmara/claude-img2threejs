@@ -13,6 +13,7 @@
  *
  * View tokens: front, three-quarter, side, back, blaster, swim, turntable (= az 0/90/180/270),
  * az=<deg> (saved as turntable-<ddd>.png). Default: all of them.
+ * Every capture URL carries hud=0, so the visitor control panel (src/hud.ts) never appears.
  *
  * Serving: `snapshot` (default) runs `vite build` into a temp dir and serves that, so every view in
  * a batch renders the same source even while src/ is being edited (and no HMR reload can land
@@ -236,7 +237,8 @@ async function main() {
   try {
     for (const job of jobs) {
       const viewport = VIEWPORTS[job.view] ?? FIGURE_VIEWPORT;
-      const query = new URLSearchParams({ ...job.query, team, ...(explode ? { explode } : {}), ...extraQuery });
+      // hud=0 last: review captures never show the visitor control panel, whatever --query says.
+      const query = new URLSearchParams({ ...job.query, team, ...(explode ? { explode } : {}), ...extraQuery, hud: '0' });
       const url = `${baseUrl}?${query}`;
       const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
       const consoleErrors = [];
@@ -331,7 +333,7 @@ async function main() {
       readySignal: 'window.__IMG2_READY',
       serve: server.mode,
       source: server.source,
-      captureContract: 'url-params (view, az, el, team, explode)',
+      captureContract: 'url-params (view, az, el, team, explode, hud=0)',
       cameraConvention: 'faces +Z, Y up; az 0=+Z front, 90=+X (char left), 180=back, 270=-X (char right)',
     },
     reference: existsSync(reference)
