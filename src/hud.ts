@@ -87,9 +87,10 @@ export function mountHud(state: HudState): void {
     return c;
   });
 
-  const blasterOn = params.get('blaster') === '1';
-  const outlineOn = params.get('outline') !== '0';
-  const animOn = params.get('anim') !== '0';
+  // A toggle that does not apply to this view reads as off (its param is still carried along).
+  const blasterOn = isFigure && params.get('blaster') === '1';
+  const outlineOn = isFigure && params.get('outline') !== '0';
+  const animOn = isOrbit && params.get('anim') !== '0';
   const toggles = [
     chip('Blaster in hand', isFigure ? hrefWith({ blaster: blasterOn ? null : '1' }) : null,
       { on: blasterOn, title: isFigure ? undefined : 'Figure views only' }),
