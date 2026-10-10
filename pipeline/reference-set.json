@@ -1,0 +1,107 @@
+{
+  "schema": "img2threejs.reference-set.v1",
+  "subject": "Slime Agent",
+  "sourceSheet": {
+    "path": "reference/slime-agent-sheet.jpg",
+    "sha256": "e7eb3baadb1785d719d80855de1e9c7098d69ccc3a467e287dbf6c3d1e09b54c",
+    "width": 1672,
+    "height": 941
+  },
+  "primaryReference": "reference/front.png",
+  "views": [
+    {
+      "id": "front",
+      "path": "reference/front.png",
+      "sha256": "27428b6cc364f572b007eb15bfdec6689868977143a5fd629fb865241af4eabc",
+      "width": 400,
+      "height": 615,
+      "cameraRole": "fixed-review / primary reference (pixel+feature aligned)",
+      "admission": {
+        "admitted": true,
+        "pHash": "12321770110001228298",
+        "foregroundCoverage": 0.3985,
+        "evidence": "pipeline/admission/admission-front.json"
+      }
+    },
+    {
+      "id": "three-quarter",
+      "path": "reference/three-quarter.png",
+      "sha256": "48c5d2929f75ded68f526b00df8eaab0154bf2dd57ec06073690de7adc200d4d",
+      "width": 330,
+      "height": 615,
+      "cameraRole": "observed orbit view (~+35..45 deg, character turned to its right)",
+      "admission": {
+        "admitted": true,
+        "pHash": "12297909025258494488",
+        "foregroundCoverage": 0.491,
+        "evidence": "pipeline/admission/admission-three-quarter.json"
+      }
+    },
+    {
+      "id": "side",
+      "path": "reference/side.png",
+      "sha256": "b35dc7c336526666f6bc9490b8a4073b5a38d61623cf4eccb918f67a64505f13",
+      "width": 310,
+      "height": 615,
+      "cameraRole": "observed profile view: character's own RIGHT side faces camera (character faces image-right)",
+      "admission": {
+        "admitted": true,
+        "pHash": "17881725444051366028",
+        "foregroundCoverage": 0.4075,
+        "evidence": "pipeline/admission/admission-side.json"
+      }
+    },
+    {
+      "id": "back",
+      "path": "reference/back.png",
+      "sha256": "3bd5a467ff8871b2359692c145f23ba049189d0b5f01c2962ae9e78d2e250ad5",
+      "width": 380,
+      "height": 615,
+      "cameraRole": "observed rear view (180 deg)",
+      "admission": {
+        "admitted": true,
+        "pHash": "17271208504015916568",
+        "foregroundCoverage": 0.4259,
+        "evidence": "pipeline/admission/admission-back.json"
+      }
+    }
+  ],
+  "auxiliary": [
+    {
+      "id": "blaster",
+      "path": "reference/blaster.png",
+      "sha256": "038d569faff01d303859386e4b70baa409f4368d39d5652aae267c65a7f8c3aa",
+      "width": 537,
+      "height": 260,
+      "cameraRole": "prop sheet: ink blaster held in hand_r socket (not part of turnaround pose)"
+    },
+    {
+      "id": "swim-form",
+      "path": "reference/swim-form.png",
+      "sha256": "36fe24bb8b9c75ebe804aca9901b40c9cdfeaec8495d588130a722c7d134f791",
+      "width": 598,
+      "height": 260,
+      "cameraRole": "alternate form sheet: slime puddle + goggles (out of scope for the humanoid factory)"
+    },
+    {
+      "id": "team-palette",
+      "path": "reference/team-palette.png",
+      "sha256": "f2327dca2d7865391c35db837d145542b706d81b3a08def9986686aaeaead47a",
+      "width": 482,
+      "height": 260,
+      "cameraRole": "palette sheet: Team A #1ACFC3 / Team B #E8158E; glossy / textured / glassy finishes"
+    }
+  ],
+  "hiddenRegionConfidence": {
+    "skullTopUnderHair": 0.3,
+    "jacketInterior": 0.2,
+    "soleUnderside": 0.3,
+    "faceUnderGoggleLens": 0.2,
+    "innerThighs": 0.5,
+    "hoseRoutingBehindHip": 0.6,
+    "backOfBody": 0.85,
+    "rightSide": 0.85,
+    "leftSide": 0.7
+  },
+  "notes": "Left side is not directly observed; inferred by bilateral mirror of the right side (side.png) except the hose which is right-hip only (confirmed in back.png)."
+}

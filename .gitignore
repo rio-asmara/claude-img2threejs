@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+.vite/
+.DS_Store
+# Keep renders/ tracked (review evidence); only throwaway captures are ignored.
+renders/scratch/

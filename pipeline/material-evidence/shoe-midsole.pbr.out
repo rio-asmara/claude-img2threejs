@@ -1,0 +1,83 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.868,
+  "estimatedFidelity": 0.868,
+  "targetThreshold": 0.7,
+  "materialId": "shoe-midsole",
+  "sourceImage": "/home/user/claude-img2threejs/pipeline/crops/shoe-midsole.png",
+  "outDir": "/home/user/claude-img2threejs/pipeline/material-evidence/shoe-midsole",
+  "palette": [
+    "#37363A",
+    "#232324",
+    "#898987",
+    "#050706",
+    "#4E4E4E"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/shoe-midsole/shoe-midsole_albedo.png",
+      "url": "shoe-midsole_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/shoe-midsole/shoe-midsole_roughness.png",
+      "url": "shoe-midsole_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/shoe-midsole/shoe-midsole_height.png",
+      "url": "shoe-midsole_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/shoe-midsole/shoe-midsole_normal.png",
+      "url": "shoe-midsole_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/shoe-midsole/shoe-midsole_ao.png",
+      "url": "shoe-midsole_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 26,
+    "sourceHeight": 9,
+    "mapSize": 1024,
+    "cropBBoxPixels": {
+      "x": 17,
+      "y": 0,
+      "width": 9,
+      "height": 8
+    },
+    "mask": {
+      "backgroundColor": "#F5F4F4",
+      "backgroundNoise": 39.294,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 0.0983
+    },
+    "mapStats": {
+      "valueRange": 0.5089,
+      "heightP90Gradient": 0.01429,
+      "roughnessBase": 0.68,
+      "roughnessVariation": 0.05,
+      "normalStrength": 0.173,
+      "blurRadius": 21
+    },
+    "palette": [
+      "#37363A",
+      "#232324",
+      "#898987",
+      "#050706",
+      "#4E4E4E"
+    ]
+  },
+  "warnings": [],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

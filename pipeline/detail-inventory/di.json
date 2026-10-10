@@ -1,0 +1,478 @@
+{
+  "sourceImage": "/home/user/claude-img2threejs/reference/front.png",
+  "zonesDir": "/home/user/claude-img2threejs/pipeline/detail-inventory",
+  "detailInventory": {
+    "scanMethod": "grid-3x3",
+    "targetMinDetails": 10,
+    "note": "Zone crops in pipeline/detail-inventory/zone-r*c*.png (front.png); back/side-only details cite reference/back.png and reference/side.png.",
+    "zonesDir": "pipeline/detail-inventory",
+    "details": [
+      {
+        "id": "hair-gloss-highlights",
+        "kind": "gloss",
+        "description": "Crisp white specular hotspots on every slime hair lock (upper-left of each blob), wet clearcoat look",
+        "region": {
+          "x": 0.2,
+          "y": 0.0,
+          "width": 0.65,
+          "height": 0.32,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "roughness/clearcoat",
+        "mapsTo": {
+          "type": "localOverride",
+          "ref": "slime-hair/gloss-highlight"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c1.png",
+        "confidence": 0.85,
+        "realization": "material clearcoat 1.0 + roughness 0.12 on MeshPhysicalMaterial; key light upper-left"
+      },
+      {
+        "id": "skin-gloss-highlights",
+        "kind": "gloss",
+        "description": "Specular streaks on slime hands, forearms and face below the goggles",
+        "region": {
+          "x": 0.05,
+          "y": 0.55,
+          "width": 0.25,
+          "height": 0.15,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "roughness/clearcoat",
+        "mapsTo": {
+          "type": "localOverride",
+          "ref": "slime-skin/gloss-highlight"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c0.png",
+        "confidence": 0.8,
+        "realization": "material clearcoat 1.0 + roughness 0.15"
+      },
+      {
+        "id": "hair-droplets",
+        "kind": "ridge",
+        "description": "4-6 raised teardrop droplets falling beside the head and hanging from lock tips (positive relief beads)",
+        "region": {
+          "x": 0.2,
+          "y": 0.25,
+          "width": 0.15,
+          "height": 0.1,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "hair-cap/falling-droplets"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c0.png",
+        "confidence": 0.75,
+        "realization": "hair-drop-* tapered-sweep teardrop components"
+      },
+      {
+        "id": "smile-line",
+        "kind": "linework",
+        "description": "Small upward-curved dark smile line centred below the goggle frame",
+        "region": {
+          "x": 0.45,
+          "y": 0.32,
+          "width": 0.1,
+          "height": 0.03,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry/color",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "mouth-smile/smile-curve"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c1.png",
+        "confidence": 0.85,
+        "realization": "thin tapered-sweep arc in dark-teal material proud of the face surface"
+      },
+      {
+        "id": "lens-specular-band",
+        "kind": "gloss",
+        "description": "Soft grey reflection band across the upper half of the black goggle lens",
+        "region": {
+          "x": 0.3,
+          "y": 0.2,
+          "width": 0.4,
+          "height": 0.06,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "roughness/clearcoat",
+        "mapsTo": {
+          "type": "localOverride",
+          "ref": "goggle-lens/lens-specular-band"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c1.png",
+        "confidence": 0.8,
+        "realization": "roughness 0.05 + clearcoat 1 on lens; environment reflection"
+      },
+      {
+        "id": "goggle-frame-bevel",
+        "kind": "bevel",
+        "description": "Rounded white bezel edge around the lens catches a highlight line on its top edge",
+        "region": {
+          "x": 0.25,
+          "y": 0.2,
+          "width": 0.55,
+          "height": 0.13,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "goggle-body/frame-rounded-bevel"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c1.png",
+        "confidence": 0.75,
+        "realization": "goggle-body ellipsoid rim exposed around the lens"
+      },
+      {
+        "id": "goggle-nose-notch",
+        "kind": "groove",
+        "description": "Frame dips at the bottom centre over the nose bridge",
+        "region": {
+          "x": 0.45,
+          "y": 0.3,
+          "width": 0.1,
+          "height": 0.03,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "goggle-body/nose-bridge-notch"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c1.png",
+        "confidence": 0.55,
+        "realization": "approximated by the lens ellipsoid bottom curvature at blockout; refine later"
+      },
+      {
+        "id": "goggle-strap-clips",
+        "kind": "fastener",
+        "description": "Silver rectangular clip hinges where the black strap meets the frame at both temples",
+        "region": {
+          "x": 0.75,
+          "y": 0.22,
+          "width": 0.08,
+          "height": 0.07,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry/material",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "goggle-clip-l/clip-hinge"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r0c2.png",
+        "confidence": 0.75,
+        "realization": "goggle-clip-l/-r metal box micro parts"
+      },
+      {
+        "id": "jacket-piping",
+        "kind": "linework",
+        "description": "Turquoise piping stripes down both front panels, along the open front edges and down the sleeves",
+        "region": {
+          "x": 0.35,
+          "y": 0.37,
+          "width": 0.3,
+          "height": 0.18,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "color",
+        "mapsTo": {
+          "type": "localOverride",
+          "ref": "jacket-nylon/piping-stripes"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c1.png",
+        "confidence": 0.85,
+        "realization": "vertexPaint tapered-capsule regions on jacket-body and axis-band regions on upper-arm sleeves"
+      },
+      {
+        "id": "collar-lining",
+        "kind": "decal",
+        "description": "Turquoise inner lining visible inside the high stand-up collar",
+        "region": {
+          "x": 0.38,
+          "y": 0.35,
+          "width": 0.24,
+          "height": 0.06,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "color",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "jacket-collar/turquoise-inner-lining"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c1.png",
+        "confidence": 0.8,
+        "realization": "vertexPaint ellipsoid region on the collar inner surface"
+      },
+      {
+        "id": "harness-buckles",
+        "kind": "fastener",
+        "description": "Silver/white rectangular buckles on both harness straps at chest height",
+        "region": {
+          "x": 0.35,
+          "y": 0.42,
+          "width": 0.3,
+          "height": 0.05,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry/material",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "harness-buckle-l/buckle-frame"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c1.png",
+        "confidence": 0.8,
+        "realization": "harness-buckle-l/-r torus frames in brushed metal"
+      },
+      {
+        "id": "jacket-snaps",
+        "kind": "fastener",
+        "description": "Small silver snap/rivet dots on the jacket front panels and cuffs",
+        "region": {
+          "x": 0.3,
+          "y": 0.45,
+          "width": 0.4,
+          "height": 0.1,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "jacket-body/snap-rivets"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c1.png",
+        "confidence": 0.4,
+        "realization": "documented only at blockout (too small at 400x615); add instanced micro parts in form-refinement if the review needs them"
+      },
+      {
+        "id": "jacket-stitching",
+        "kind": "stitch",
+        "description": "Faint stitching/panel lines on the black nylon jacket panels",
+        "region": {
+          "x": 0.3,
+          "y": 0.4,
+          "width": 0.4,
+          "height": 0.15,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "normal/AO",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "jacket-body/panel-stitch-lines"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c1.png",
+        "confidence": 0.45,
+        "realization": "documented; textureless flat-shaded material at blockout"
+      },
+      {
+        "id": "pants-side-stripe",
+        "kind": "linework",
+        "description": "Turquoise vertical stripe along the outer leg seam of both pant legs",
+        "region": {
+          "x": 0.25,
+          "y": 0.55,
+          "width": 0.12,
+          "height": 0.3,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "color",
+        "mapsTo": {
+          "type": "localOverride",
+          "ref": "pants-twill/outer-seam-stripe"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r2c0.png",
+        "confidence": 0.85,
+        "realization": "vertexPaint tapered-capsule region on thigh/shin outer surfaces"
+      },
+      {
+        "id": "cargo-pocket-flaps",
+        "kind": "seam",
+        "description": "Large flap cargo pockets on the outer thighs, flap seam and snap",
+        "region": {
+          "x": 0.25,
+          "y": 0.62,
+          "width": 0.12,
+          "height": 0.12,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "cargo-flap-l/flap-seam"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c0.png",
+        "confidence": 0.8,
+        "realization": "cargo-pocket-l/-r boxes + cargo-flap-l/-r micro boxes"
+      },
+      {
+        "id": "jogger-cuff-gathers",
+        "kind": "groove",
+        "description": "Elastic jogger cuffs gathered at the ankles",
+        "region": {
+          "x": 0.22,
+          "y": 0.8,
+          "width": 0.15,
+          "height": 0.05,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "pant-cuff-l/elastic-gathers"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r2c0.png",
+        "confidence": 0.75,
+        "realization": "pant-cuff-l/-r lathe bands narrower than the shin"
+      },
+      {
+        "id": "shoe-laces",
+        "kind": "fastener",
+        "description": "White laces crossing the black tongue/instep of both sneakers",
+        "region": {
+          "x": 0.22,
+          "y": 0.86,
+          "width": 0.15,
+          "height": 0.04,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "shoe-lace-1-l/lace-crossing"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r2c0.png",
+        "confidence": 0.75,
+        "realization": "3 white lace bars per shoe (repetition documented)"
+      },
+      {
+        "id": "outsole-tread",
+        "kind": "groove",
+        "description": "Turquoise outsole rim with chunky tread lugs below the white midsole",
+        "region": {
+          "x": 0.1,
+          "y": 0.93,
+          "width": 0.3,
+          "height": 0.04,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "shoe-outsole-l/tread-lugs"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r2c0.png",
+        "confidence": 0.65,
+        "realization": "outsole extrude band; lug rhythm documented, underside hidden"
+      },
+      {
+        "id": "glass-specular-streak",
+        "kind": "gloss",
+        "description": "Vertical white specular streak on the glass ink tank",
+        "region": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0,
+          "units": "normalized",
+          "view": "back/side (reference/back.png, reference/side.png)"
+        },
+        "scale": "meso",
+        "affects": "roughness/transmission",
+        "mapsTo": {
+          "type": "localOverride",
+          "ref": "tank-glass/glass-specular-streak"
+        },
+        "evidenceRef": "reference/back.png",
+        "confidence": 0.7,
+        "realization": "transmission 0.9 + roughness 0.05 glass; observed in back.png/side.png, not visible in front.png"
+      },
+      {
+        "id": "tank-band-bevel",
+        "kind": "bevel",
+        "description": "Polished metal bands with bevelled edges ringing the tank under the caps",
+        "region": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0,
+          "units": "normalized",
+          "view": "back/side (reference/back.png, reference/side.png)"
+        },
+        "scale": "micro",
+        "affects": "geometry/material",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "tank-band-top/band-bevel"
+        },
+        "evidenceRef": "reference/back.png",
+        "confidence": 0.7,
+        "realization": "torus bands in brushed metal (back/side views)"
+      },
+      {
+        "id": "hose-corrugation",
+        "kind": "groove",
+        "description": "Black corrugated hose with deep ribs looping from the tank bottom cap to the right hip",
+        "region": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 1.0,
+          "height": 1.0,
+          "units": "normalized",
+          "view": "back/side (reference/back.png, reference/side.png)"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "hose/corrugation-ribs"
+        },
+        "evidenceRef": "reference/back.png",
+        "confidence": 0.75,
+        "realization": "tapered-sweep with alternating rib/valley station radii (back/side views)"
+      },
+      {
+        "id": "wristband-velcro",
+        "kind": "seam",
+        "description": "Black velcro wristbands with a tab seam at each wrist",
+        "region": {
+          "x": 0.08,
+          "y": 0.57,
+          "width": 0.12,
+          "height": 0.04,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "localFeature",
+          "ref": "wristband-l/velcro-tab"
+        },
+        "evidenceRef": "pipeline/detail-inventory/zone-r1c0.png",
+        "confidence": 0.7,
+        "realization": "wristband-l/-r lathe bands"
+      }
+    ]
+  },
+  "authoringInstruction": "Open each zone crop under zonesDir and replace every detail stub's kind, description, scale, affects, mapsTo, and confidence with what is actually observed. Add more detail entries per zone if a single zone contains multiple distinct marks; do not leave stubs unfilled or unlinked (mapsTo must reference a real component.localFeatures or material.localOverrides entry)."
+}

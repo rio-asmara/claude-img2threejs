@@ -1,0 +1,157 @@
+{
+  "sourceImage": "/home/user/claude-img2threejs/reference/front.png",
+  "overlayImage": "/home/user/claude-img2threejs/pipeline/landmarks.png",
+  "overlayLegend": {
+    "C": "center symmetry axis",
+    "1..N": "head-unit horizontal ticks (blue, dashed)",
+    "H": "hairline guide (default fraction of the first head-unit band)",
+    "E": "eye line guide",
+    "N": "nose base guide",
+    "M": "mouth line guide",
+    "S": "shoulder line guide (default fraction, adjust to observed pose)",
+    "P": "hip line guide (default fraction, adjust to observed pose)",
+    "grayDashed": "rule-of-thirds compositional grid"
+  },
+  "anatomy": {
+    "styleHeads": 3.4,
+    "proportions": {
+      "headUnit": 0.27,
+      "torso": 0.81,
+      "legs": 1.42,
+      "shoulderWidth": 1.0,
+      "hipWidth": 0.8,
+      "crownToHip": 1.87,
+      "headInclHairOverFigure": 0.351,
+      "notes": "torso = neck-base->hip-joint trunk segment in HU (the quantity new_sculpt_spec._hu_ratio consumes); crownToHip is the reconstruction.md definition. shoulderWidth = shoulder joint-to-joint (outer boxy jacket ~1.25 HU). hipWidth = 0.8 HU (pants outer at hip y=370 is 129px = 0.78 HU). Figure = 3.5 skull-HU incl. hair tuft, 2.85 HU if the hair mass is counted as head."
+    },
+    "pose": {
+      "type": "A-pose; bind pose == reference pose (angles baked into attachment endpoints, jointAngles left at identity to avoid double application)",
+      "observedAnglesDeg": {
+        "leftShoulderAbduction": 27,
+        "rightShoulderAbduction": 27,
+        "leftElbowFlex": 8,
+        "rightElbowFlex": 8,
+        "leftHipAbduction": 7,
+        "rightHipAbduction": 7,
+        "knees": 0,
+        "neck": 0
+      },
+      "jointAngles": {
+        "neck": [
+          0,
+          0,
+          0
+        ],
+        "leftShoulder": [
+          0,
+          0,
+          0
+        ],
+        "rightShoulder": [
+          0,
+          0,
+          0
+        ],
+        "leftElbow": [
+          0,
+          0,
+          0
+        ],
+        "rightElbow": [
+          0,
+          0,
+          0
+        ],
+        "leftWrist": [
+          0,
+          0,
+          0
+        ],
+        "rightWrist": [
+          0,
+          0,
+          0
+        ],
+        "leftHip": [
+          0,
+          0,
+          0
+        ],
+        "rightHip": [
+          0,
+          0,
+          0
+        ],
+        "leftKnee": [
+          0,
+          0,
+          0
+        ],
+        "rightKnee": [
+          0,
+          0,
+          0
+        ],
+        "leftAnkle": [
+          0,
+          0,
+          0
+        ],
+        "rightAnkle": [
+          0,
+          0,
+          0
+        ]
+      },
+      "stance": "symmetric, weight centred, feet planted shoulder-width apart, toes slightly outward"
+    },
+    "faceLandmarks": {
+      "hairline": 0.44,
+      "eyeLine": 0.63,
+      "eyeSpacing": null,
+      "noseBase": null,
+      "mouthLine": 0.9,
+      "earTop": null,
+      "earBottom": null,
+      "gogglesTop": 0.44,
+      "gogglesBottom": 0.86,
+      "gogglesWidthOverHeadWidth": 1.17,
+      "notes": "Normalized to the head box (skull top est. y=55 -> chin y=221). No eyes, nose or ears are depicted: eyeLine is the goggle-lens centre line (the lens occupies the eye region); eyeSpacing/noseBase/ear values are not applicable (null), not unmeasured. hairline = lower edge of the slime fringe where it meets the goggle frame."
+    },
+    "features": [
+      "goggles cover the eye region (single wide lens)",
+      "small smile line below goggles",
+      "no nose, no ears, no visible eyes",
+      "slime hair mass with drips"
+    ],
+    "confidence": 0.65,
+    "applies": true,
+    "styleAxis": "chibi/stylized (between chibi 2-3 HU and stylized 5-6 HU)",
+    "measurementSource": "reference/front.png 400x615, PIL row/column scans of the foreground mask (bg rgb 244,243,239); ground y=600, figure top (hair tuft) y=16",
+    "headUnitPx": 166.0,
+    "landmarksPx": {
+      "hairTuftTop": 16,
+      "hairMassTop": 45,
+      "skullTopEstimated": 55,
+      "gogglesTop": 128,
+      "gogglesBottom": 197,
+      "lensCenter": 160,
+      "mouth": 205,
+      "chin": 221,
+      "collarTop": 222,
+      "neckBase": 230,
+      "shoulderTop": 270,
+      "jacketHem": 332,
+      "hipJoint": 365,
+      "crotch": 388,
+      "fingertips": 422,
+      "pantCuff": 500,
+      "ankle": 512,
+      "shoeTop": 520,
+      "ground": 600,
+      "bodyCenterX": 198
+    },
+    "landmarkTooling": "extract_landmarks.py (stdlib overlay+scaffold) ran; MediaPipe face/pose landmarks are not applicable to an eyeless/noseless stylized slime face behind goggles, so values were measured manually from pixels."
+  },
+  "authoringInstruction": "Open overlayImage and read the reference against its head-unit ticks, thirds grid, face-line guides, shoulder/hip lines, and center axis. Replace every null/placeholder value in anatomy with normalized coordinates or joint angles actually observed; the drawn guide lines are generic starting positions, not measurements."
+}

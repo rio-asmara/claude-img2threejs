@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.719,
+  "estimatedFidelity": 0.719,
+  "targetThreshold": 0.7,
+  "materialId": "tee-cotton",
+  "sourceImage": "/home/user/claude-img2threejs/pipeline/crops/tee-cotton.png",
+  "outDir": "/home/user/claude-img2threejs/pipeline/material-evidence/tee-cotton",
+  "palette": [
+    "#F6F5F6",
+    "#F9F8F8",
+    "#FCFBFB",
+    "#DCDBDB",
+    "#C2C1C2"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/tee-cotton/tee-cotton_albedo.png",
+      "url": "tee-cotton_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/tee-cotton/tee-cotton_roughness.png",
+      "url": "tee-cotton_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/tee-cotton/tee-cotton_height.png",
+      "url": "tee-cotton_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/tee-cotton/tee-cotton_normal.png",
+      "url": "tee-cotton_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/tee-cotton/tee-cotton_ao.png",
+      "url": "tee-cotton_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 36,
+    "sourceHeight": 34,
+    "mapSize": 1024,
+    "cropBBoxPixels": {
+      "x": 0,
+      "y": 0,
+      "width": 36,
+      "height": 34
+    },
+    "mask": {
+      "backgroundColor": "#F4F3F3",
+      "backgroundNoise": 58.907,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 1.0
+    },
+    "mapStats": {
+      "valueRange": 0.1784,
+      "heightP90Gradient": 0.03184,
+      "roughnessBase": 0.686,
+      "roughnessVariation": 0.05,
+      "normalStrength": 0.194,
+      "blurRadius": 21
+    },
+    "palette": [
+      "#F6F5F6",
+      "#F9F8F8",
+      "#FCFBFB",
+      "#DCDBDB",
+      "#C2C1C2"
+    ]
+  },
+  "warnings": [
+    "foreground mask is tiny; material extraction is likely unreliable",
+    "image is not clearly isolated from background; using most pixels as material evidence",
+    "object/background separation is weak",
+    "low value range weakens height/roughness inference"
+  ],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

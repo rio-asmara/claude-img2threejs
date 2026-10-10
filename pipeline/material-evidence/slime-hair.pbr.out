@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.781,
+  "estimatedFidelity": 0.781,
+  "targetThreshold": 0.7,
+  "materialId": "slime-hair",
+  "sourceImage": "/home/user/claude-img2threejs/pipeline/crops/slime-hair.png",
+  "outDir": "/home/user/claude-img2threejs/pipeline/material-evidence/slime-hair",
+  "palette": [
+    "#0BEEDF",
+    "#10E1D3",
+    "#81FDFB",
+    "#03B2A8",
+    "#36EFE5"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/slime-hair/slime-hair_albedo.png",
+      "url": "slime-hair_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/slime-hair/slime-hair_roughness.png",
+      "url": "slime-hair_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/slime-hair/slime-hair_height.png",
+      "url": "slime-hair_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/slime-hair/slime-hair_normal.png",
+      "url": "slime-hair_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/slime-hair/slime-hair_ao.png",
+      "url": "slime-hair_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 80,
+    "sourceHeight": 42,
+    "mapSize": 1024,
+    "cropBBoxPixels": {
+      "x": 0,
+      "y": 0,
+      "width": 80,
+      "height": 42
+    },
+    "mask": {
+      "backgroundColor": "#10F0E2",
+      "backgroundNoise": 26.249,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 1.0
+    },
+    "mapStats": {
+      "valueRange": 0.2864,
+      "heightP90Gradient": 0.0352,
+      "roughnessBase": 0.691,
+      "roughnessVariation": 0.064,
+      "normalStrength": 0.197,
+      "blurRadius": 21
+    },
+    "palette": [
+      "#0BEEDF",
+      "#10E1D3",
+      "#81FDFB",
+      "#03B2A8",
+      "#36EFE5"
+    ]
+  },
+  "warnings": [
+    "image is not clearly isolated from background; using most pixels as material evidence",
+    "object/background separation is weak"
+  ],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

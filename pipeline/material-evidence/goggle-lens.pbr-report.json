@@ -1,0 +1,87 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.794,
+  "estimatedFidelity": 0.794,
+  "targetThreshold": 0.7,
+  "materialId": "goggle-lens",
+  "sourceImage": "/home/user/claude-img2threejs/pipeline/crops/goggle-lens.png",
+  "outDir": "/home/user/claude-img2threejs/pipeline/material-evidence/goggle-lens",
+  "palette": [
+    "#353437",
+    "#29292B",
+    "#4E4D50",
+    "#B8B6B7",
+    "#121213"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/goggle-lens/goggle-lens_albedo.png",
+      "url": "goggle-lens_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/goggle-lens/goggle-lens_roughness.png",
+      "url": "goggle-lens_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/goggle-lens/goggle-lens_height.png",
+      "url": "goggle-lens_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/goggle-lens/goggle-lens_normal.png",
+      "url": "goggle-lens_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "/home/user/claude-img2threejs/pipeline/material-evidence/goggle-lens/goggle-lens_ao.png",
+      "url": "goggle-lens_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 100,
+    "sourceHeight": 42,
+    "mapSize": 1024,
+    "cropBBoxPixels": {
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 42
+    },
+    "mask": {
+      "backgroundColor": "#9B9B9D",
+      "backgroundNoise": 206.114,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 1.0
+    },
+    "mapStats": {
+      "valueRange": 0.4902,
+      "heightP90Gradient": 0.02254,
+      "roughnessBase": 0.683,
+      "roughnessVariation": 0.05,
+      "normalStrength": 0.183,
+      "blurRadius": 21
+    },
+    "palette": [
+      "#353437",
+      "#29292B",
+      "#4E4D50",
+      "#B8B6B7",
+      "#121213"
+    ]
+  },
+  "warnings": [
+    "foreground mask is tiny; material extraction is likely unreliable",
+    "image is not clearly isolated from background; using most pixels as material evidence",
+    "object/background separation is weak"
+  ],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

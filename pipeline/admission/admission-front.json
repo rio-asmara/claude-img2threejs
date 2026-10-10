@@ -1,0 +1,14 @@
+{
+  "admitted": true,
+  "reasons": [],
+  "provenance": {
+    "viewpoint": "front",
+    "sourcePath": "/home/user/claude-img2threejs/reference/front.png",
+    "width": 400,
+    "height": 615,
+    "foregroundCoverage": 0.3985,
+    "largestComponentFraction": 1.0,
+    "pHash": 12321770110001228298,
+    "duplicateOfHash": null
+  }
+}

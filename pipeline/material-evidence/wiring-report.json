@@ -1,0 +1,112 @@
+{
+  "route": "single-crop (analyze_texture.py + extract_pbr_evidence.py per verified crop)",
+  "notUsed": "apply_material_analysis.py (region route) - writes texture-authoring fields that contradict textureless",
+  "materials": [
+    {
+      "materialId": "slime-skin",
+      "crop": "slime-skin",
+      "confidence": 0.81,
+      "finishClass": "painted-metal",
+      "baseColor": "#1EEFDF",
+      "adopted": {
+        "clearcoat": 1.0,
+        "clearcoatRoughness": 0.0525
+      },
+      "decision": "finish painted-metal recipe agrees on clearcoat 1.0 / dielectric; its roughness 0.5 rejected (crisp specular hotspots observed) -> 0.15 kept"
+    },
+    {
+      "materialId": "slime-hair",
+      "crop": "slime-hair",
+      "confidence": 0.781,
+      "finishClass": "painted-metal",
+      "baseColor": "#1EEFDE",
+      "adopted": {
+        "clearcoat": 1.0,
+        "clearcoatRoughness": 0.0525
+      },
+      "decision": "same as slime-skin; hair locks show the crispest highlights -> roughness 0.12 kept"
+    },
+    {
+      "materialId": "goggle-lens",
+      "crop": "goggle-lens",
+      "confidence": 0.794,
+      "finishClass": "worn-composite",
+      "baseColor": "#303133",
+      "adopted": {},
+      "decision": "finish worn-composite (roughness 0.9) rejected: lens shows a sharp environment band -> roughness 0.05 + clearcoat kept; extractor warns the mask is unreliable on a fully-filled crop"
+    },
+    {
+      "materialId": "goggle-frame",
+      "crop": "goggle-frame",
+      "confidence": 0.805,
+      "finishClass": "brushed-steel",
+      "baseColor": "#F0F0F0",
+      "adopted": {},
+      "decision": "finish brushed-steel (metalness 1) rejected: bright low-saturation white plastic misread as steel by the streak heuristic -> dielectric plastic roughness 0.35 kept"
+    },
+    {
+      "materialId": "jacket-nylon",
+      "crop": "jacket-nylon",
+      "confidence": 0.81,
+      "finishClass": "worn-composite",
+      "baseColor": "#252429",
+      "adopted": {
+        "clearcoat": 0.0
+      },
+      "decision": "finish worn-composite agrees on a matte dielectric (clearcoat 0); roughness 0.6 kept (satin nylon sheen visible on folds)"
+    },
+    {
+      "materialId": "tee-cotton",
+      "crop": "tee-cotton",
+      "confidence": 0.719,
+      "finishClass": "brushed-steel",
+      "baseColor": "#F0F0F0",
+      "adopted": {},
+      "decision": "finish brushed-steel rejected (white cotton, low saturation); matte cotton roughness 0.9 kept"
+    },
+    {
+      "materialId": "pants-twill",
+      "crop": "pants-twill",
+      "confidence": 0.716,
+      "finishClass": "worn-composite",
+      "baseColor": "#3B3A40",
+      "adopted": {
+        "clearcoat": 0.0
+      },
+      "decision": "finish worn-composite agrees (matte, clearcoat 0); roughness 0.85 kept"
+    },
+    {
+      "materialId": "shoe-midsole",
+      "crop": "shoe-midsole",
+      "confidence": 0.868,
+      "finishClass": "brushed-steel",
+      "baseColor": "#F0F0F0",
+      "adopted": {},
+      "decision": "finish brushed-steel rejected (white EVA/rubber); roughness 0.6 kept"
+    },
+    {
+      "materialId": "shoe-outsole",
+      "crop": "shoe-outsole",
+      "confidence": 0.809,
+      "finishClass": "painted-metal",
+      "baseColor": "#1EDACD",
+      "adopted": {},
+      "decision": "finish painted-metal rejected (rubber, no clearcoat observed); roughness 0.7 kept"
+    },
+    {
+      "materialId": "accent-turquoise",
+      "sharedAlbedoFrom": "shoe-outsole",
+      "baseColor": "#1EDACD"
+    }
+  ],
+  "notAnalysed": {
+    "ink-liquid": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "metal-brushed": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "mouth-line": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "rubber-black": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "shoe-lace": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "shoe-upper": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "strap-fabric": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept",
+    "tank-glass": "no clean isolatable crop in front.png at 400x615 (thin/occluded/back-only); observation-derived flat values kept"
+  }
+}

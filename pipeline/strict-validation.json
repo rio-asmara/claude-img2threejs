@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "summary": {
+    "targetName": "Slime Agent",
+    "suitability": "conditional",
+    "components": 114,
+    "materials": 19
+  }
+}

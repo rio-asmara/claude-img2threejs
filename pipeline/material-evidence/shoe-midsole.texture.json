@@ -1,0 +1,32 @@
+{
+  "finishClass": "brushed-steel",
+  "recipe": {
+    "metalness": 1.0,
+    "roughness": 0.35,
+    "clearcoat": 0.0,
+    "clearcoatRoughness": 0.0,
+    "transmission": 0.0,
+    "ior": 1.5,
+    "envMapIntensity": 1.0,
+    "anisotropy": 1.0,
+    "procedural": "brushed"
+  },
+  "palette": [
+    "#38373B",
+    "#5E5D5F",
+    "#858685",
+    "#C5C5C4",
+    "#E6E5E4"
+  ],
+  "paletteHueRisk": [],
+  "gradientAxis": "vertical",
+  "stats": {
+    "meanLum": 145.2,
+    "meanSaturation": 0.047,
+    "gradientStrength": 0.68,
+    "mottle": 0.014,
+    "streakRatio": 0.92,
+    "hueSpread": -0.0,
+    "specularFraction": 0.43
+  }
+}

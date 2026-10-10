@@ -1,0 +1,83 @@
+{
+  "slime-skin": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      46,
+      376,
+      76,
+      400
+    ]
+  },
+  "slime-hair": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      160,
+      62,
+      240,
+      104
+    ]
+  },
+  "goggle-lens": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      150,
+      138,
+      250,
+      180
+    ]
+  },
+  "goggle-frame": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      170,
+      128,
+      230,
+      134
+    ]
+  },
+  "jacket-nylon": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      258,
+      306,
+      278,
+      326
+    ]
+  },
+  "tee-cotton": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      182,
+      284,
+      218,
+      318
+    ]
+  },
+  "pants-twill": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      142,
+      440,
+      172,
+      482
+    ]
+  },
+  "shoe-midsole": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      84,
+      568,
+      110,
+      577
+    ]
+  },
+  "shoe-outsole": {
+    "source": "reference/front.png",
+    "bbox_xyxy": [
+      70,
+      584,
+      92,
+      596
+    ]
+  }
+}

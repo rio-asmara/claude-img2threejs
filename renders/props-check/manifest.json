@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T05:55:45.693Z",
+  "generator": "scripts/capture.mjs",
+  "label": "props-check",
+  "params": {
+    "team": "A",
+    "explode": null,
+    "query": {}
+  },
+  "runtime": {
+    "url": "http://127.0.0.1:35983/",
+    "route": "/",
+    "viewport": [
+      800,
+      1230
+    ],
+    "devicePixelRatio": 1,
+    "renderer": "WebGLRenderer",
+    "threeVersion": "0.169.0",
+    "toneMapping": "ACESFilmic",
+    "outputColorSpace": "srgb",
+    "readySignal": "window.__IMG2_READY",
+    "serve": "snapshot",
+    "source": {
+      "sha256": "33f18ad29e93e1003ce5e8524e8a55dab7451713177ed4e2bf19fb018c46d6bf",
+      "files": 11
+    },
+    "captureContract": "url-params (view, az, el, team, explode)",
+    "cameraConvention": "faces +Z, Y up; az 0=+Z front, 90=+X (char left), 180=back, 270=-X (char right)"
+  },
+  "reference": {
+    "kind": "image",
+    "path": "../../reference/front.png",
+    "sha256": "27428b6cc364f572b007eb15bfdec6689868977143a5fd629fb865241af4eabc",
+    "comparisonBasis": "source-image",
+    "renderRequired": false,
+    "sheet": {
+      "path": "../../reference/slime-agent-sheet.jpg",
+      "sha256": "e7eb3baadb1785d719d80855de1e9c7098d69ccc3a467e287dbf6c3d1e09b54c"
+    }
+  },
+  "captures": [
+    {
+      "id": "blaster",
+      "view": "blaster",
+      "role": "prop",
+      "azimuthDegrees": 90,
+      "elevationDegrees": 8,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          1.2340140986056085,
+          0.3658956252406549,
+          -0.011117937067768674
+        ],
+        "target": [
+          -0.000133168884422356,
+          0.1924475381219304,
+          -0.01111793706776875
+        ],
+        "distance": 1.2462759392599434
+      },
+      "url": "http://127.0.0.1:35983/?view=blaster&team=A",
+      "viewport": [
+        1074,
+        520
+      ],
+      "devicePixelRatio": 1,
+      "path": "blaster.png",
+      "referenceCrop": "../../reference/blaster.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T05:55:34.381Z",
+      "readySignal": true,
+      "screenshotSha256": "3ab78cb7c6f8df1826aae37048ca810964bcaffe4edf8da5c1085ac4b3d25453",
+      "image": {
+        "type": "png",
+        "width": 1074,
+        "height": 520,
+        "bytes": 162270
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 1074,
+          "height": 520
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 1074,
+          "height": 520
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.39839,
+        "darkFraction": 0.00007,
+        "foregroundBBox": {
+          "x0": 54,
+          "y0": 68,
+          "x1": 1020,
+          "y1": 484
+        }
+      }
+    },
+    {
+      "id": "swim",
+      "view": "swim",
+      "role": "prop",
+      "azimuthDegrees": 30,
+      "elevationDegrees": 28,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          0.8346483180901,
+          0.8112604361870376,
+          1.382584132626506
+        ],
+        "target": [
+          0.041301716183329375,
+          -0.0323993054337914,
+          0.00846751011185916
+        ],
+        "distance": 1.7970412022710565
+      },
+      "url": "http://127.0.0.1:35983/?view=swim&team=A",
+      "viewport": [
+        1196,
+        520
+      ],
+      "devicePixelRatio": 1,
+      "path": "swim.png",
+      "referenceCrop": "../../reference/swim-form.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T05:55:45.595Z",
+      "readySignal": true,
+      "screenshotSha256": "77fb8815040d9e3b7c75329b56a32c0dff829700ae9d6641c01e815ec2a95380",
+      "image": {
+        "type": "png",
+        "width": 1196,
+        "height": 520,
+        "bytes": 112593
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 1196,
+          "height": 520
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 1196,
+          "height": 520
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.35149,
+        "darkFraction": 0.00047,
+        "foregroundBBox": {
+          "x0": 60,
+          "y0": 51,
+          "x1": 1135,
+          "y1": 478
+        }
+      }
+    }
+  ],
+  "evidence": {
+    "browser": {
+      "adapter": "playwright",
+      "version": "1.56.1",
+      "browser": "chromium",
+      "executable": "playwright-default",
+      "headless": true,
+      "args": [
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader",
+        "--ignore-gpu-blocklist",
+        "--enable-webgl"
+      ]
+    },
+    "diagnostics": [],
+    "comparisonSheet": null,
+    "consoleErrors": []
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "path": "/home/user/claude-img2threejs/reference/front.png",
+  "type": "png",
+  "bytes": 273621,
+  "width": 400,
+  "height": 615,
+  "aspectRatio": 0.6504065040650406,
+  "technicalSuitability": "conditional",
+  "warnings": [
+    "low resolution; small geometry/material details may be unreliable"
+  ],
+  "note": "This is only technical image probing. Semantic object suitability still requires visual inspection."
+}

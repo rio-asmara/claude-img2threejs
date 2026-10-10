@@ -1,0 +1,315 @@
+{
+  "collection": "core_3d",
+  "tool": "forge/stage1_intake/search_specs.py (BM25) + new_pre_spec_assessment.py --spec-query bundle",
+  "queries": [
+    {
+      "file": "cloth-garment-jacket-shell-fold.json",
+      "query": "cloth garment jacket shell fold",
+      "matchCount": 0,
+      "top": []
+    },
+    {
+      "file": "glass-transmission-liquid-tank.json",
+      "query": "glass transmission liquid tank",
+      "matchCount": 1,
+      "top": [
+        {
+          "record_id": "core.pbr-opacity-alpha",
+          "score": 3.09,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "goggles-strap-lens-plastic.json",
+      "query": "goggles strap lens plastic",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.shader-mapping-tubegeometry-straps-cables-belts",
+          "score": 3.16,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.pbr-opacity-alpha",
+          "score": 3.09,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-uvcoordinate-system-conversion-attachment-hierarchy",
+          "score": 2.39,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-fabric-cloth-sheen-roughness.json",
+      "query": "fabric cloth sheen roughness",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.pbr-roughness",
+          "score": 4.2,
+          "source": "grimoire/glossary/3d_vocabulary.md"
+        },
+        {
+          "record_id": "core.pbr-orm-channel-packing",
+          "score": 3.45,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-orm-packed-texture-assignment",
+          "score": 3.0,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-hair.json",
+      "query": "hair",
+      "matchCount": 0,
+      "top": []
+    },
+    {
+      "file": "retry-instancing-repeated-parts.json",
+      "query": "instancing repeated parts",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.component-hierarchy",
+          "score": 2.91,
+          "source": "grimoire/intake/image_analysis.md"
+        },
+        {
+          "record_id": "core.transform-local-object-space",
+          "score": 2.72,
+          "source": "grimoire/intake/image_analysis.md"
+        },
+        {
+          "record_id": "core.shader-mapping-lathegeometry-turnedradially-symmetric-parts",
+          "score": 2.71,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-lathe-profile-revolve.json",
+      "query": "lathe profile revolve",
+      "matchCount": 1,
+      "top": [
+        {
+          "record_id": "core.shader-mapping-lathegeometry-turnedradially-symmetric-parts",
+          "score": 5.01,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-metal-brushed-anisotropic-aluminium.json",
+      "query": "metal brushed anisotropic aluminium",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.pbr-anisotropy",
+          "score": 7.01,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.pbr-metalness",
+          "score": 2.83,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.description-controlled-vocabulary-aat-facets",
+          "score": 2.54,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-rubber-matte-black-plastic.json",
+      "query": "rubber matte black plastic",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.pbr-roughness",
+          "score": 5.85,
+          "source": "grimoire/glossary/3d_vocabulary.md"
+        },
+        {
+          "record_id": "core.pbr-opacity-alpha",
+          "score": 3.09,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.pbr-wearness-alpha-mask",
+          "score": 2.64,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-subsurface-skin-translucency.json",
+      "query": "subsurface skin translucency",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.pbr-subsurface-scattering-sss",
+          "score": 6.18,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-reconstruction-metadata-schema",
+          "score": 3.57,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-meshphysicalmaterial-core-pbr-fields",
+          "score": 2.66,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-toon-outline-stylized.json",
+      "query": "toon outline stylized",
+      "matchCount": 1,
+      "top": [
+        {
+          "record_id": "core.pbr-hand-painted-vs-pbr-texture",
+          "score": 2.63,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-transmission-ior-glass-refraction.json",
+      "query": "transmission ior glass refraction",
+      "matchCount": 1,
+      "top": [
+        {
+          "record_id": "core.pbr-opacity-alpha",
+          "score": 3.09,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "retry-tube-curve-TubeGeometry-cable.json",
+      "query": "tube curve TubeGeometry cable",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.shader-mapping-tubegeometry-straps-cables-belts",
+          "score": 14.68,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-torusgeometry-rings-loops",
+          "score": 3.4,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-cylindergeometry-barrels-round-components",
+          "score": 3.21,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "rubber-hose-corrugated-tube.json",
+      "query": "rubber hose corrugated tube",
+      "matchCount": 2,
+      "top": [
+        {
+          "record_id": "core.shader-mapping-torusgeometry-rings-loops",
+          "score": 3.4,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-cylindergeometry-barrels-round-components",
+          "score": 3.21,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "slime-translucent-glossy-clearcoat-material.json",
+      "query": "slime translucent glossy clearcoat material",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.pbr-clearcoat",
+          "score": 9.33,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.shader-mapping-meshphysicalmaterial-core-pbr-fields",
+          "score": 5.23,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        },
+        {
+          "record_id": "core.pbr-roughness",
+          "score": 4.28,
+          "source": "grimoire/glossary/3d_vocabulary.md"
+        }
+      ]
+    },
+    {
+      "file": "sneaker-shoe-sole-rubber.json",
+      "query": "sneaker shoe sole rubber",
+      "matchCount": 0,
+      "top": []
+    },
+    {
+      "file": "stylized-character-proportions-head-units-chibi.json",
+      "query": "stylized character proportions head units chibi",
+      "matchCount": 3,
+      "top": [
+        {
+          "record_id": "core.coordinate-relative-units",
+          "score": 6.55,
+          "source": "grimoire/glossary/3d_vocabulary.md"
+        },
+        {
+          "record_id": "core.measurement-source-text",
+          "score": 5.27,
+          "source": "grimoire/intake/image_analysis.md"
+        },
+        {
+          "record_id": "core.pbr-hand-painted-vs-pbr-texture",
+          "score": 2.63,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    },
+    {
+      "file": "stylized-hair-clumps-locks.json",
+      "query": "stylized hair clumps locks",
+      "matchCount": 1,
+      "top": [
+        {
+          "record_id": "core.pbr-hand-painted-vs-pbr-texture",
+          "score": 2.63,
+          "source": "docs/raw/img2threejs-skill-dataset.json"
+        }
+      ]
+    }
+  ],
+  "assessmentBundle": "pipeline/assessment.json#localSpecSearch",
+  "usedEvidence": [
+    "core.pbr-clearcoat -> slime/lens clearcoat layer",
+    "core.pbr-subsurface-scattering-sss -> slime translucency approximated (no true SSS)",
+    "core.shader-mapping-tubegeometry-straps-cables-belts -> hose, strap, piping as TubeGeometry along curves",
+    "core.shader-mapping-lathegeometry-turnedradially-symmetric-parts -> tank caps/bands, shoe sole profile",
+    "core.pbr-anisotropy -> brushed aluminium buckles/bands",
+    "core.pbr-roughness -> per-material roughness ladder",
+    "core.pbr-hand-painted-vs-pbr-texture -> toon reference: lighting baked in illustration, use PBR scalars not projected albedo"
+  ],
+  "emptyQueries": [
+    "cloth garment jacket shell fold",
+    "hair",
+    "sneaker shoe sole rubber"
+  ],
+  "note": "No hair/cloth/sneaker-specific records exist in core_3d (queries returned 0); those parts follow grimoire/character/* and grimoire/build/geometry_patterns.md instead of invented domain specs."
+}

@@ -1,0 +1,134 @@
+{
+  "route": "single-crop: analyze_texture.py <crop> --json + extract_pbr_evidence.py <crop> --out-dir ... --material-id ... --target-threshold 0.7 --multi-view-reference --report ...",
+  "cropsVerified": "pipeline/crops/crops.json boxes on reference/front.png; each crop visually checked on its part",
+  "allAboveThreshold": true,
+  "results": [
+    {
+      "material": "goggle-frame",
+      "crop": "pipeline/crops/goggle-frame.png",
+      "pbrReport": "pipeline/material-evidence/goggle-frame.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/goggle-frame.texture.json",
+      "verdict": "pass",
+      "confidence": 0.805,
+      "targetThreshold": 0.7,
+      "finishClass": "brushed-steel",
+      "warnings": [
+        "low high-frequency detail weakens normal/roughness inference"
+      ]
+    },
+    {
+      "material": "goggle-lens",
+      "crop": "pipeline/crops/goggle-lens.png",
+      "pbrReport": "pipeline/material-evidence/goggle-lens.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/goggle-lens.texture.json",
+      "verdict": "pass",
+      "confidence": 0.794,
+      "targetThreshold": 0.7,
+      "finishClass": "worn-composite",
+      "warnings": [
+        "foreground mask is tiny; material extraction is likely unreliable",
+        "image is not clearly isolated from background; using most pixels as material evidence",
+        "object/background separation is weak"
+      ]
+    },
+    {
+      "material": "jacket-nylon",
+      "crop": "pipeline/crops/jacket-nylon.png",
+      "pbrReport": "pipeline/material-evidence/jacket-nylon.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/jacket-nylon.texture.json",
+      "verdict": "pass",
+      "confidence": 0.81,
+      "targetThreshold": 0.7,
+      "finishClass": "worn-composite",
+      "warnings": [
+        "low value range weakens height/roughness inference"
+      ]
+    },
+    {
+      "material": "pants-twill",
+      "crop": "pipeline/crops/pants-twill.png",
+      "pbrReport": "pipeline/material-evidence/pants-twill.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/pants-twill.texture.json",
+      "verdict": "pass",
+      "confidence": 0.716,
+      "targetThreshold": 0.7,
+      "finishClass": "worn-composite",
+      "warnings": [
+        "foreground mask is tiny; material extraction is likely unreliable",
+        "image is not clearly isolated from background; using most pixels as material evidence",
+        "object/background separation is weak",
+        "low value range weakens height/roughness inference"
+      ]
+    },
+    {
+      "material": "shoe-midsole",
+      "crop": "pipeline/crops/shoe-midsole.png",
+      "pbrReport": "pipeline/material-evidence/shoe-midsole.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/shoe-midsole.texture.json",
+      "verdict": "pass",
+      "confidence": 0.868,
+      "targetThreshold": 0.7,
+      "finishClass": "brushed-steel",
+      "warnings": []
+    },
+    {
+      "material": "shoe-outsole",
+      "crop": "pipeline/crops/shoe-outsole.png",
+      "pbrReport": "pipeline/material-evidence/shoe-outsole.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/shoe-outsole.texture.json",
+      "verdict": "pass",
+      "confidence": 0.809,
+      "targetThreshold": 0.7,
+      "finishClass": "painted-metal",
+      "warnings": [
+        "image is not clearly isolated from background; using most pixels as material evidence",
+        "object/background separation is weak"
+      ]
+    },
+    {
+      "material": "slime-hair",
+      "crop": "pipeline/crops/slime-hair.png",
+      "pbrReport": "pipeline/material-evidence/slime-hair.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/slime-hair.texture.json",
+      "verdict": "pass",
+      "confidence": 0.781,
+      "targetThreshold": 0.7,
+      "finishClass": "painted-metal",
+      "warnings": [
+        "image is not clearly isolated from background; using most pixels as material evidence",
+        "object/background separation is weak"
+      ]
+    },
+    {
+      "material": "slime-skin",
+      "crop": "pipeline/crops/slime-skin.png",
+      "pbrReport": "pipeline/material-evidence/slime-skin.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/slime-skin.texture.json",
+      "verdict": "pass",
+      "confidence": 0.81,
+      "targetThreshold": 0.7,
+      "finishClass": "painted-metal",
+      "warnings": [
+        "image is not clearly isolated from background; using most pixels as material evidence",
+        "object/background separation is weak"
+      ]
+    },
+    {
+      "material": "tee-cotton",
+      "crop": "pipeline/crops/tee-cotton.png",
+      "pbrReport": "pipeline/material-evidence/tee-cotton.pbr-report.json",
+      "textureReport": "pipeline/material-evidence/tee-cotton.texture.json",
+      "verdict": "pass",
+      "confidence": 0.719,
+      "targetThreshold": 0.7,
+      "finishClass": "brushed-steel",
+      "warnings": [
+        "foreground mask is tiny; material extraction is likely unreliable",
+        "image is not clearly isolated from background; using most pixels as material evidence",
+        "object/background separation is weak",
+        "low value range weakens height/roughness inference"
+      ]
+    }
+  ],
+  "wiring": "pipeline/material-evidence/wiring-report.json (pipeline/wire_material_evidence.py)"
+}

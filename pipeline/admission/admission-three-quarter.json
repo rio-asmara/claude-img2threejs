@@ -1,0 +1,14 @@
+{
+  "admitted": true,
+  "reasons": [],
+  "provenance": {
+    "viewpoint": "three-quarter",
+    "sourcePath": "/home/user/claude-img2threejs/reference/three-quarter.png",
+    "width": 330,
+    "height": 615,
+    "foregroundCoverage": 0.491,
+    "largestComponentFraction": 1.0,
+    "pHash": 12297909025258494488,
+    "duplicateOfHash": null
+  }
+}

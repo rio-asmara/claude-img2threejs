@@ -1,0 +1,13 @@
+{
+  "path": "/home/user/claude-img2threejs/reference/back.png",
+  "type": "png",
+  "bytes": 253407,
+  "width": 380,
+  "height": 615,
+  "aspectRatio": 0.6178861788617886,
+  "technicalSuitability": "conditional",
+  "warnings": [
+    "low resolution; small geometry/material details may be unreliable"
+  ],
+  "note": "This is only technical image probing. Semantic object suitability still requires visual inspection."
+}
