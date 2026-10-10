@@ -6,6 +6,8 @@ A code-only, procedural Three.js reconstruction of the character sheet in
 There are no mesh files, textures or downloaded assets. Every surface comes from TypeScript in
 [`src/model/`](src/model).
 
+**Live viewer:** https://rio-asmara.github.io/claude-img2threejs/ (deployed by `.github/workflows/deploy-pages.yml` on every push to the default branch).
+
 ![Reference vs render](renders/review/comparison-sheet.png)
 
 *Left of each pair: reference crop. Right: headless WebGL render of this repo (front / ¾ / side / back,
