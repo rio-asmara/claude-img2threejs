@@ -1,0 +1,100 @@
+WARN  detail-dangling: hair-gloss-highlights
+      mapsTo 'slime-hair/gloss-highlight' matches no component, localFeature or localOverride
+WARN  detail-dangling: skin-gloss-highlights
+      mapsTo 'slime-skin/gloss-highlight' matches no component, localFeature or localOverride
+WARN  detail-dangling: hair-droplets
+      mapsTo 'hair-cap/falling-droplets' matches no component, localFeature or localOverride
+WARN  detail-dangling: smile-line
+      mapsTo 'mouth-smile/smile-curve' matches no component, localFeature or localOverride
+WARN  detail-dangling: lens-specular-band
+      mapsTo 'goggle-lens/lens-specular-band' matches no component, localFeature or localOverride
+WARN  detail-dangling: goggle-frame-bevel
+      mapsTo 'goggle-body/frame-rounded-bevel' matches no component, localFeature or localOverride
+WARN  detail-dangling: goggle-nose-notch
+      mapsTo 'goggle-body/nose-bridge-notch' matches no component, localFeature or localOverride
+WARN  detail-dangling: goggle-strap-clips
+      mapsTo 'goggle-clip-l/clip-hinge' matches no component, localFeature or localOverride
+WARN  detail-dangling: jacket-piping
+      mapsTo 'jacket-nylon/piping-stripes' matches no component, localFeature or localOverride
+WARN  detail-dangling: collar-lining
+      mapsTo 'jacket-collar/turquoise-inner-lining' matches no component, localFeature or localOverride
+WARN  detail-dangling: harness-buckles
+      mapsTo 'harness-buckle-l/buckle-frame' matches no component, localFeature or localOverride
+WARN  detail-dangling: jacket-snaps
+      mapsTo 'jacket-body/snap-rivets' matches no component, localFeature or localOverride
+WARN  detail-dangling: jacket-stitching
+      mapsTo 'jacket-body/panel-stitch-lines' matches no component, localFeature or localOverride
+WARN  detail-dangling: pants-side-stripe
+      mapsTo 'pants-twill/outer-seam-stripe' matches no component, localFeature or localOverride
+WARN  detail-dangling: cargo-pocket-flaps
+      mapsTo 'cargo-flap-l/flap-seam' matches no component, localFeature or localOverride
+WARN  detail-dangling: jogger-cuff-gathers
+      mapsTo 'pant-cuff-l/elastic-gathers' matches no component, localFeature or localOverride
+WARN  detail-dangling: shoe-laces
+      mapsTo 'shoe-lace-1-l/lace-crossing' matches no component, localFeature or localOverride
+WARN  detail-dangling: outsole-tread
+      mapsTo 'shoe-outsole-l/tread-lugs' matches no component, localFeature or localOverride
+WARN  detail-dangling: glass-specular-streak
+      mapsTo 'tank-glass/glass-specular-streak' matches no component, localFeature or localOverride
+WARN  detail-dangling: tank-band-bevel
+      mapsTo 'tank-band-top/band-bevel' matches no component, localFeature or localOverride
+WARN  detail-dangling: hose-corrugation
+      mapsTo 'hose/corrugation-ribs' matches no component, localFeature or localOverride
+WARN  detail-dangling: wristband-velcro
+      mapsTo 'wristband-l/velcro-tab' matches no component, localFeature or localOverride
+note  component-folded: clavicle-l
+      no mesh of its own — folded into 'chest', which is built. Correct for relief; a real gap only if this needed to be separable.
+note  component-folded: clavicle-r
+      no mesh of its own — folded into 'chest', which is built. Correct for relief; a real gap only if this needed to be separable.
+note  part-not-specified: goggles
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-drip-1
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-drip-2
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-drip-3
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-drop-6
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-drop-7
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-18
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-19
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-20
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-21
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-22
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-23
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-24
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-25
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: hair-lock-26
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: ink-tank
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: shoe-lace-4-l
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: shoe-lace-4-r
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: sleeve-lower-l
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: sleeve-lower-r
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: slime-hair
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: sneaker-l
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: sneaker-r
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: tank-harness-frame
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+note  part-not-specified: tank-hose
+      built part has no matching component in the spec (fine for detail groups; a sign of spec drift for anything larger)
+
+check_part_coverage: 113 specified, 136 built, 0 error(s), 22 warning(s)

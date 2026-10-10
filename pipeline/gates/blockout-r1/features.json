@@ -1,0 +1,8 @@
+[
+  {"id": "anatomy-proportion", "score": 0.8, "notes": "Head+hair ~35% of height; Tier 1 aspect delta 0.015 and scale delta 0.006 pass."},
+  {"id": "pose-silhouette", "score": 0.77, "notes": "A-pose with bent elbows, legs apart, toes out; hands end slightly higher than the sheet."},
+  {"id": "slime-hair-drip-silhouette", "score": 0.75, "notes": "Refined: locks now flare and droop instead of hanging as a curtain, side locks sweep backward so the strap and temple show in side view as on the sheet; drips fall from lock tips. Front view is still a fuller, more regular dome than the sheet's irregular clumps and narrow crown."},
+  {"id": "goggles-identity", "score": 0.86, "notes": "Wrap goggles wider than the head, black lens, white frame, strap over the hair with clips; now visible in side/back as on the sheet."},
+  {"id": "backpack-ink-tank", "score": 0.85, "notes": "Tank, back plate, bands, caps, hose loop to the right hip."},
+  {"id": "chunky-sneakers", "score": 0.76, "notes": "Thicker team-colour outsole and white midsole band now match the sheet's sole proportions; upper black with team panels."}
+]

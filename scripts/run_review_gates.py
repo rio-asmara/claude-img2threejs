@@ -79,6 +79,9 @@ def main() -> int:
     # The Tier 1 reference is front.png minus its painted ground shadow (scripts/prepare_tier1_reference.py);
     # review renders are captured with ground=0, so neither mask contains a floor shadow.
     tier1 = [py, review / "diagnose_render.py", "--reference", REF / "tier1" / "front.png", "--render", front, "--json"]
+    stripped = renders / "map-stripped" / "front.png"  # capture.mjs --label <label>/map-stripped --query "ground=0&maps=0"
+    if stripped.exists():
+        tier1 += ["--map-stripped-render", stripped]
     if args.record:
         tier1 += ["--spec", SPEC, "--pass-id", args.pass_id, "--in-place"]
     run("tier1-diagnostics", tier1, "diagnose-front.json")

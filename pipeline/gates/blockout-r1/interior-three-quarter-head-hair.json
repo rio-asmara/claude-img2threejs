@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "interior-difference",
+  "baseline": "/home/user/claude-img2threejs/reference/three-quarter.png",
+  "render": "/home/user/claude-img2threejs/renders/review/three-quarter.png",
+  "band": {
+    "from": 0.0,
+    "to": 0.35
+  },
+  "grid": 192,
+  "cellsCompared": 5520,
+  "warnings": [],
+  "interiorDifference": 0.1719563337949243,
+  "status": "measured"
+}

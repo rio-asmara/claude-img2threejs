@@ -1,0 +1,34 @@
+{
+  "ok": false,
+  "message": "Tier 1 diagnostics have not passed for this render — run diagnose_render.py first",
+  "pipeline": {
+    "passGateMode": "locked-sequential",
+    "passOrder": [
+      "blockout",
+      "structural-pass",
+      "proportion-lock",
+      "feature-placement",
+      "material-pass",
+      "lighting-pass",
+      "interaction-pass",
+      "optimization-pass"
+    ],
+    "currentPass": "blockout",
+    "completedPasses": [],
+    "lastCompletedPass": "",
+    "blockedReason": "",
+    "nextRequiredEvidence": [
+      "Head+hair ~35% of figure height; goggles wider than the head; hands to upper thigh; shoes ~0.39 long.",
+      "Hair reads as blobby locks + tuft (not a cap); tank + hose visible from back/side.",
+      "AI vision >= 0.7 and every critical blockout feature >= its threshold.",
+      "browser render screenshot from your agent's browser/screenshot tool",
+      "side-by-side reference/render comparison sheet for AI vision review",
+      "banded interior difference vs the reference baseline (forge/stage4_review/interior_difference.py --from/--to per region)",
+      "scalp exposure below the hard maximum, measured on geometry before rendering (forge/stage4_review/scalp_exposure.py)",
+      "hair gate comparing banded coverage, hairline offset and highlight-band position against the reference (forge/stage4_review/hair_gate.py)",
+      "AI vision score at or above the visual acceptance threshold",
+      "all critical semantic feature scores from the shared image pair at or above their thresholds",
+      "self-correction review appended with action=continue before the next pass"
+    ]
+  }
+}

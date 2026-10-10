@@ -31,6 +31,7 @@ import {
  *   blaster= 1 — humanoid holds the blaster (figure views)
  *   ground = 0 — hide the shadow-catcher ground
  *   bg     = RRGGBB background override
+ *   maps   = 0 → strip any texture maps (map-stripped blockout evidence; the model has none)
  *   tone   = neutral (default) | aces | agx;  exposure, env, hemi, key = lighting overrides
  */
 
@@ -168,7 +169,11 @@ scene.add(ground);
 function buildSubject(): THREE.Group {
   if (spec.subject === 'blaster') return createSlimeBlasterModel({ team });
   if (spec.subject === 'swim') return createSlimeSwimFormModel({ team });
-  return createSlimeAgentModel({ team, form: 'humanoid', withBlaster: params.get('blaster') === '1' });
+  return createSlimeAgentModel({
+    team, form: 'humanoid', withBlaster: params.get('blaster') === '1',
+    // Interactive orbit view plays the idle loop; fixed review views stay in the bind pose.
+    animate: isOrbit && params.get('anim') !== '0', outline: params.get('outline') !== '0',
+  });
 }
 
 const model = buildSubject();
@@ -180,6 +185,21 @@ model.traverse((o) => {
   }
 });
 scene.add(model);
+
+// `maps=0`: map-stripped render for the blockout gate (diagnose_render --map-stripped-render).
+// The reconstruction is code-only and assigns no texture maps, so this is a no-op by
+// construction; it is applied anyway so the evidence is produced by the same switch the gate names.
+if (params.get('maps') === '0') {
+  const MAP_KEYS = ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap', 'bumpMap', 'alphaMap'] as const;
+  model.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh) return;
+    for (const mat of Array.isArray(m.material) ? m.material : [m.material]) {
+      const rec = mat as unknown as Record<string, unknown>;
+      for (const k of MAP_KEYS) if (rec[k]) { rec[k] = null; mat.needsUpdate = true; }
+    }
+  });
+}
 
 // A prop is shown floating just above the floor so its contact shadow reads, whatever its origin.
 if (spec.subject === 'blaster') {

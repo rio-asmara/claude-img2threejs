@@ -1,0 +1,26 @@
+{
+  "referenceAreaFraction": 0.39210060975609756,
+  "angles": [
+    {
+      "path": "/home/user/claude-img2threejs/renders/review/three-quarter.png",
+      "areaFraction": 0.36979268292682926,
+      "ratio": 0.9431066255083237,
+      "degenerate": false
+    },
+    {
+      "path": "/home/user/claude-img2threejs/renders/review/side.png",
+      "areaFraction": 0.3338963414634146,
+      "ratio": 0.8515578225474111,
+      "degenerate": false
+    },
+    {
+      "path": "/home/user/claude-img2threejs/renders/review/back.png",
+      "areaFraction": 0.4317865853658537,
+      "ratio": 1.1012137564245115,
+      "degenerate": false
+    }
+  ],
+  "degenerate": false,
+  "collapseRatio": 0.15,
+  "note": "deterministic; zero token; a flat-plane-faking-a-volume collapses in silhouette area when orbited"
+}

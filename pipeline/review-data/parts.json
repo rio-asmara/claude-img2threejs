@@ -398,24 +398,6 @@
       ]
     },
     {
-      "name": "hair-lock-27",
-      "module": "slime-hair",
-      "kind": "part",
-      "triangles": 1280,
-      "materials": [
-        "slime-skin"
-      ]
-    },
-    {
-      "name": "hair-lock-28",
-      "module": "slime-hair",
-      "kind": "part",
-      "triangles": 1280,
-      "materials": [
-        "slime-skin"
-      ]
-    },
-    {
       "name": "hair-tuft",
       "module": "slime-hair",
       "kind": "part",
@@ -435,6 +417,15 @@
     },
     {
       "name": "hair-drip-2",
+      "module": "slime-hair",
+      "kind": "part",
+      "triangles": 1320,
+      "materials": [
+        "slime-skin"
+      ]
+    },
+    {
+      "name": "hair-drip-3",
       "module": "slime-hair",
       "kind": "part",
       "triangles": 1320,
@@ -1260,5 +1251,5 @@
     }
   ],
   "unnamedMeshes": 0,
-  "integralMeshes": 214
+  "integralMeshes": 213
 }

@@ -47,7 +47,7 @@ const L = LANDMARKS;
 // Head ellipsoid (relative to the head pivot).
 const HEAD = { rx: 0.215, ry: 0.2, rz: 0.2, cy: L.headCenterY - L.headPivotY };
 // Hair cap ellipsoid (relative to the head pivot).
-const HAIR = { rx: 0.234, ry: 0.19, rz: 0.236, cy: L.hairCenterY - L.headPivotY, cz: -0.012 };
+const HAIR = { rx: 0.234, ry: 0.19, rz: 0.236, cy: L.hairCenterY - L.headPivotY, cz: -0.032 };
 
 export interface GogglesBuilder {
   (mats: SlimeMaterials): THREE.Object3D;
@@ -172,7 +172,7 @@ interface LockSpec {
 /**
  * Slime hair: a shell cap plus draped blob locks. Roots are bound to the hair-cap
  * ellipsoid as (azimuth, polar) — scalp (u, v) coordinates — never absolute positions,
- * and each lock follows the cap surface before hanging vertically, ending in a bulbous
+ * and each lock follows the cap surface before flaring outward, ending in a bulbous
  * droplet tip. Drips and detached droplets reproduce the melting silhouette of the sheet.
  * Hair is rigidly parented to the head (never skinned).
  */
@@ -188,36 +188,39 @@ export function buildSlimeHair(mats: SlimeMaterials): THREE.Group {
   hair.add(tagPart(cap, 'hair-cap', 'slime-hair'));
 
   const locks: LockSpec[] = [];
+  // Side locks sweep toward the back of the head (side view of the sheet): twist the azimuth
+  // toward ±π in proportion to how lateral the root is, plus a little random disorder.
   const push = (lk: Omit<LockSpec, 'twist' | 'drip'> & { drip?: boolean }) =>
-    locks.push({ twist: (rnd() - 0.5) * 0.5, drip: false, ...lk });
+    locks.push({ twist: 0.55 * Math.sin(lk.az) * Math.abs(Math.sin(lk.az)) + (rnd() - 0.5) * 0.6, drip: false, ...lk });
 
-  // Layer A — drape ring. The fringe stops on the goggle frame; side locks stick out
-  // (splay) before drooping, back locks hang to the strap.
-  const ring = 14;
+  // Layer A — locks radiating from the crown. On the sheet they do NOT hang down over the face:
+  // the fringe stops on the goggle frame, side locks end at strap height and flare OUTWARD with
+  // a bulb (drips fall from some of them), back locks sweep backward past the occiput.
+  const ring = 12;
   for (let i = 0; i < ring; i++) {
     const az = (i / ring) * Math.PI * 2 + (rnd() - 0.5) * 0.2;
     const wrapped = Math.atan2(Math.sin(az), Math.cos(az)); // -π..π, 0 = front
     const frontness = Math.cos(wrapped);
     const sideness = Math.abs(Math.sin(wrapped));
     if (frontness > 0.6) {
-      push({ az, p0: 0.38 + rnd() * 0.12, p1: 1.34 + rnd() * 0.1, r: 0.058 + rnd() * 0.012, tip: 1.35 + rnd() * 0.2, lift: 0.006, splay: 0.012 });
-    } else if (frontness > -0.55) {
+      push({ az, p0: 0.38 + rnd() * 0.12, p1: 1.36 + rnd() * 0.1, r: 0.058 + rnd() * 0.012, tip: 1.35 + rnd() * 0.2, lift: 0.006, splay: 0.014 });
+    } else if (frontness > -0.45) {
       push({
-        az, p0: 0.42 + rnd() * 0.12, p1: 2.02 + rnd() * 0.36, r: 0.056 + rnd() * 0.014, tip: 1.3 + rnd() * 0.22,
-        lift: 0.004, splay: 0.03 + rnd() * 0.035, drip: sideness > 0.6 && rnd() > 0.4,
+        az, p0: 0.4 + rnd() * 0.12, p1: 1.4 + rnd() * 0.4, r: 0.05 + rnd() * 0.028, tip: 1.32 + rnd() * 0.3,
+        lift: 0.006, splay: 0.03 + rnd() * 0.03, drip: sideness > 0.6 && rnd() > 0.5,
       });
     } else {
-      push({ az, p0: 0.42 + rnd() * 0.12, p1: 1.78 + rnd() * 0.32, r: 0.06 + rnd() * 0.012, tip: 1.3 + rnd() * 0.2, lift: 0.004, splay: 0.02 });
+      push({ az, p0: 0.36 + rnd() * 0.12, p1: 1.5 + rnd() * 0.4, r: 0.052 + rnd() * 0.026, tip: 1.32 + rnd() * 0.3, lift: 0.006, splay: 0.04 + rnd() * 0.035 });
     }
   }
-  // Layer B — fat upper locks lying on the drape, giving the bumpy dome.
+  // Layer B — fat upper clumps lying on the drape, giving the lumpy dome.
   const upper = 9;
   for (let i = 0; i < upper; i++) {
     const az = (i / upper) * Math.PI * 2 + 0.35 + (rnd() - 0.5) * 0.3;
     const front = Math.cos(az) > 0.55;
     push({
-      az, p0: 0.12 + rnd() * 0.12, p1: front ? 1.02 + rnd() * 0.12 : 1.05 + rnd() * 0.35, r: 0.066 + rnd() * 0.014,
-      tip: 1.3 + rnd() * 0.2, lift: 0.018 + rnd() * 0.012, splay: 0.016,
+      az, p0: 0.12 + rnd() * 0.12, p1: front ? 1.0 + rnd() * 0.16 : 1.0 + rnd() * 0.5, r: 0.058 + rnd() * 0.026,
+      tip: 1.3 + rnd() * 0.2, lift: 0.016 + rnd() * 0.012, splay: 0.03 + rnd() * 0.02,
     });
   }
   // Layer C — short crown blobs.
@@ -237,14 +240,13 @@ export function buildSlimeHair(mats: SlimeMaterials): THREE.Group {
       const radiusNow = lk.r * (0.7 + 0.3 * t);
       // The sheet's hair mass leans to the character's left (+X): splay more on that side.
       const lean = 1 + 0.4 * Math.max(0, Math.sin(az)) - 0.3 * Math.max(0, -Math.sin(az));
-      const off = radiusNow * 0.6 + lk.lift * (0.4 + 0.6 * Math.sin(Math.PI * t)) + lk.splay * lean * t * t + 0.006 * Math.max(0, Math.sin(az)) * t;
-      const pc = Math.min(polar, 1.62);
-      const p = ellipsoidPoint(HAIR.rx + off, HAIR.ry + off, HAIR.rz + off, az, pc);
-      if (polar > 1.62) {
-        // Past the equator the lock hangs straight down instead of wrapping under.
-        p.multiplyScalar(1 - (polar - 1.62) * 0.04);
-        p.y -= (polar - 1.62) * HAIR.ry * 1.05;
-      }
+      // Flare: the tip lifts off the cap and sticks out (cubic ease so the root stays seated).
+      const flare = lk.splay * lean * t * t * t;
+      const off = radiusNow * 0.6 + lk.lift * (0.4 + 0.6 * Math.sin(Math.PI * t)) + flare;
+      const p = ellipsoidPoint(HAIR.rx + off, HAIR.ry + off, HAIR.rz + off, az, polar);
+      // Droop: past the flare the tip bends down under its own weight (slime, not spikes).
+      const droopT = Math.max(0, (t - 0.55) / 0.45);
+      p.y -= lk.splay * 1.4 * droopT * droopT;
       p.y += HAIR.cy;
       p.z += HAIR.cz;
       pts.push(p);
@@ -497,6 +499,8 @@ export function buildPelvis(mats: SlimeMaterials): THREE.Group {
 // ---------------------------------------------------------------------------
 // Arms. Built in the arm's local frame (hanging along -Y from the joint).
 // ---------------------------------------------------------------------------
+const WRIST_ROLL = 0.25;
+
 export interface ArmChain {
   shoulder: THREE.Group;
   elbow: THREE.Group;
@@ -572,13 +576,15 @@ export function buildArm(mats: SlimeMaterials, side: Side): ArmChain {
   elbow.add(tagPart(wristband, `wristband-${n}`));
 
   const wrist = pivot(`wrist-${n}`, 0, -L.forearmLength, 0);
-  wrist.rotation.z = -s * 0.25;
+  wrist.rotation.z = -s * WRIST_ROLL;
   elbow.add(wrist);
   const hand = buildHand(mats, side);
   wrist.add(hand);
 
   // Grip socket in the palm (the blaster parents here).
   const handSocket = pivot(`socket-hand-${n}`, -s * 0.01, -0.07, 0.012);
+  // Undo the arm chain's roll so a held prop stands upright in world space at rest.
+  handSocket.rotation.z = -s * (L.armSwing + L.elbowBend - WRIST_ROLL);
   handSocket.userData.socket = { id: `hand-${n}`, purpose: 'grip' };
   wrist.add(handSocket);
 

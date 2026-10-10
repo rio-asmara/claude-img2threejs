@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-10-10T06:40:25.254Z",
+  "createdAt": "2026-10-10T06:55:05.907Z",
   "generator": "scripts/capture.mjs",
   "label": "review/turntable-gray",
   "params": {
@@ -12,7 +12,7 @@
     }
   },
   "runtime": {
-    "url": "http://127.0.0.1:38083/",
+    "url": "http://127.0.0.1:37925/",
     "route": "/",
     "viewport": [
       800,
@@ -26,7 +26,7 @@
     "readySignal": "window.__IMG2_READY",
     "serve": "snapshot",
     "source": {
-      "sha256": "205e0157ef25322cc7e079513e49880335896cf10efdfe987dfb21124f6eb092",
+      "sha256": "83052959b4a452036f380a063b7ed9865fde728278f9ba95b349d1aa5ec70f7c",
       "files": 10
     },
     "captureContract": "url-params (view, az, el, team, explode)",
@@ -54,17 +54,17 @@
       "camera": {
         "position": [
           0,
-          1.2294121653265737,
-          4.897468845352166
+          1.2294120894105158,
+          4.897468775816815
         ],
         "target": [
           0,
-          0.7991722424312907,
-          -0.02019597607692829
+          0.7959961547457459,
+          -0.05649802625170023
         ],
-        "distance": 4.936449502139587
+        "distance": 4.972890150447553
       },
-      "url": "http://127.0.0.1:38083/?az=0&team=A&ground=0&bg=808080",
+      "url": "http://127.0.0.1:37925/?az=0&team=A&ground=0&bg=808080",
       "viewport": [
         800,
         1230
@@ -73,14 +73,14 @@
       "path": "turntable-000.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:39:17.381Z",
+      "recordedAt": "2026-10-10T06:53:50.505Z",
       "readySignal": true,
-      "screenshotSha256": "ee4900e82eda882c3e224d7483340aaa531403adb643d6e66f3a5c176eb4265f",
+      "screenshotSha256": "ea06350f8dabb05cf41553e73557cb5df2a929babe8f34085a8c5a3fe73efd70",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 358494
+        "bytes": 358339
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -104,8 +104,8 @@
           128,
           128
         ],
-        "foregroundFraction": 0.43545,
-        "darkFraction": 0.04974,
+        "foregroundFraction": 0.43549,
+        "darkFraction": 0.04942,
         "foregroundBBox": {
           "x0": 62,
           "y0": 33,
@@ -123,18 +123,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          5.055920138558864,
-          1.2261099421835124,
-          -0.021907941176477534
+          5.055920115451595,
+          1.226109936119085,
+          -0.051471391092948744
         ],
         "target": [
-          0.001895621101843949,
-          0.7839400917239449,
-          -0.021907941176477843
+          0.0018956214528566594,
+          0.7839400877118512,
+          -0.051471391092949056
         ],
-        "distance": 5.0733300700538
+        "distance": 5.073330046505912
       },
-      "url": "http://127.0.0.1:38083/?az=90&team=A&ground=0&bg=808080",
+      "url": "http://127.0.0.1:37925/?az=90&team=A&ground=0&bg=808080",
       "viewport": [
         800,
         1230
@@ -143,14 +143,14 @@
       "path": "turntable-090.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:39:39.722Z",
+      "recordedAt": "2026-10-10T06:54:13.394Z",
       "readySignal": true,
-      "screenshotSha256": "36b2188ac5f75748c9df0e0959ecf4ccb4411af78786c76ea8370e7b88ffda26",
+      "screenshotSha256": "68361307b126e42c71ac3188fa8220ed6d5a110ca7636d080d1cfd81c4660a53",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 318323
+        "bytes": 320473
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -174,12 +174,12 @@
           128,
           128
         ],
-        "foregroundFraction": 0.33268,
-        "darkFraction": 0.02878,
+        "foregroundFraction": 0.33757,
+        "darkFraction": 0.03148,
         "foregroundBBox": {
-          "x0": 165,
+          "x0": 149,
           "y0": 33,
-          "x1": 634,
+          "x1": 650,
           "y1": 1214
         }
       }
@@ -193,18 +193,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          5.913538280775548e-16,
-          1.2413408200098146,
-          -4.849529411052207
+          5.868740720755215e-16,
+          1.2413408010373697,
+          -4.849529349137268
         ],
         "target": [
-          -1.4110907509836189e-19,
-          0.8187773382788717,
-          -0.019606713630591424
+          -1.751376531805192e-19,
+          0.82195334320975,
+          -0.055908771045458515
         ],
-        "distance": 4.848372217472692
+        "distance": 4.8119314299445675
       },
-      "url": "http://127.0.0.1:38083/?az=180&team=A&ground=0&bg=808080",
+      "url": "http://127.0.0.1:37925/?az=180&team=A&ground=0&bg=808080",
       "viewport": [
         800,
         1230
@@ -213,14 +213,14 @@
       "path": "turntable-180.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:40:02.906Z",
+      "recordedAt": "2026-10-10T06:54:40.870Z",
       "readySignal": true,
-      "screenshotSha256": "5b78dd943d461d5c31961551d29445c21f91d7b4d82903aecdd8ee3cb70a2d42",
+      "screenshotSha256": "71bb964fe60de067ed8bb069bd89af937fbb15a9f3faa4586091f72002e4cd8c",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 381790
+        "bytes": 376568
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -244,8 +244,8 @@
           128,
           128
         ],
-        "foregroundFraction": 0.43736,
-        "darkFraction": 0.04086,
+        "foregroundFraction": 0.43481,
+        "darkFraction": 0.04376,
         "foregroundBBox": {
           "x0": 60,
           "y0": 34,
@@ -263,18 +263,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          -5.023582071008256,
-          1.2176227098675156,
-          -0.020238616860948317
+          -5.023582047640202,
+          1.2176227037346519,
+          -0.057025025857301105
         ],
         "target": [
-          -0.002386873359729968,
-          0.7783250527224582,
-          -0.020238616860947394
+          -0.002386873714703645,
+          0.7783250486650904,
+          -0.05702502585730018
         ],
-        "distance": 5.04037534757698
+        "distance": 5.0403753237633335
       },
-      "url": "http://127.0.0.1:38083/?az=270&team=A&ground=0&bg=808080",
+      "url": "http://127.0.0.1:37925/?az=270&team=A&ground=0&bg=808080",
       "viewport": [
         800,
         1230
@@ -283,14 +283,14 @@
       "path": "turntable-270.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:40:25.154Z",
+      "recordedAt": "2026-10-10T06:55:05.793Z",
       "readySignal": true,
-      "screenshotSha256": "539772c349dcab590850d479572241d557c0d9125f414ba8bb43ddb8ac494a92",
+      "screenshotSha256": "9a05822282b9e99be118861688ef96146411723c08a5095ed0dd14b3ea41ad8f",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 333403
+        "bytes": 334055
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -314,12 +314,12 @@
           128,
           128
         ],
-        "foregroundFraction": 0.33699,
-        "darkFraction": 0.03778,
+        "foregroundFraction": 0.34343,
+        "darkFraction": 0.03781,
         "foregroundBBox": {
-          "x0": 161,
+          "x0": 143,
           "y0": 33,
-          "x1": 638,
+          "x1": 656,
           "y1": 1214
         }
       }

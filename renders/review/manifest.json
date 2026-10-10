@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-10-10T06:35:52.716Z",
+  "createdAt": "2026-10-10T06:53:23.137Z",
   "generator": "scripts/capture.mjs",
   "label": "review",
   "params": {
@@ -11,7 +11,7 @@
     }
   },
   "runtime": {
-    "url": "http://127.0.0.1:38529/",
+    "url": "http://127.0.0.1:40911/",
     "route": "/",
     "viewport": [
       800,
@@ -25,7 +25,7 @@
     "readySignal": "window.__IMG2_READY",
     "serve": "snapshot",
     "source": {
-      "sha256": "205e0157ef25322cc7e079513e49880335896cf10efdfe987dfb21124f6eb092",
+      "sha256": "83052959b4a452036f380a063b7ed9865fde728278f9ba95b349d1aa5ec70f7c",
       "files": 10
     },
     "captureContract": "url-params (view, az, el, team, explode)",
@@ -53,17 +53,17 @@
       "camera": {
         "position": [
           0,
-          1.2294121653265737,
-          4.897468845352166
+          1.2294120894105158,
+          4.897468775816815
         ],
         "target": [
           0,
-          0.7991722424312907,
-          -0.02019597607692829
+          0.7959961547457459,
+          -0.05649802625170023
         ],
-        "distance": 4.936449502139587
+        "distance": 4.972890150447553
       },
-      "url": "http://127.0.0.1:38529/?view=front&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?view=front&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -72,14 +72,14 @@
       "path": "front.png",
       "referenceCrop": "../../reference/front.png",
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:33:16.667Z",
+      "recordedAt": "2026-10-10T06:50:27.089Z",
       "readySignal": true,
-      "screenshotSha256": "388a0d9d5057a83234c2973440e1d60172b7f0969db3eaa2c80963b8616cbc6d",
+      "screenshotSha256": "bc478f8f369bfccd8e2f7cb6bd5a2d9048de749c3872055b35a75a77184b919c",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 358372
+        "bytes": 358758
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -103,8 +103,8 @@
           241,
           237
         ],
-        "foregroundFraction": 0.39109,
-        "darkFraction": 0.04974,
+        "foregroundFraction": 0.39098,
+        "darkFraction": 0.04942,
         "foregroundBBox": {
           "x0": 62,
           "y0": 33,
@@ -122,18 +122,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          2.869792928412787,
-          1.2231731369069299,
-          4.123134821899388
+          2.869792809792639,
+          1.223173427501678,
+          4.123134651743361
         ],
         "target": [
-          -0.020166784172856334,
-          0.7823622930961557,
-          -0.004155381194812484
+          -0.03722318637946852,
+          0.7797609575411405,
+          -0.028514448757276704
         ],
-        "distance": 5.057737217466585
+        "distance": 5.087587529881405
       },
-      "url": "http://127.0.0.1:38529/?view=three-quarter&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?view=three-quarter&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -142,14 +142,14 @@
       "path": "three-quarter.png",
       "referenceCrop": "../../reference/three-quarter.png",
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:33:38.970Z",
+      "recordedAt": "2026-10-10T06:50:51.468Z",
       "readySignal": true,
-      "screenshotSha256": "553f95dc54dc08a98314872a71e767c79813a816325a3ae4591a4bc7b977846c",
+      "screenshotSha256": "8fc09136efe1d16fa725eb5ae75827b1ae7f6bda10d855346acccf73cb5471c1",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 360844
+        "bytes": 353928
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -173,8 +173,8 @@
           241,
           237
         ],
-        "foregroundFraction": 0.37179,
-        "darkFraction": 0.04409,
+        "foregroundFraction": 0.36865,
+        "darkFraction": 0.04291,
         "foregroundBBox": {
           "x0": 94,
           "y0": 33,
@@ -192,18 +192,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          -5.023582071008256,
-          1.2176227098675156,
-          -0.020238616860948317
+          -5.023582047640202,
+          1.2176227037346519,
+          -0.057025025857301105
         ],
         "target": [
-          -0.002386873359729968,
-          0.7783250527224582,
-          -0.020238616860947394
+          -0.002386873714703645,
+          0.7783250486650904,
+          -0.05702502585730018
         ],
-        "distance": 5.04037534757698
+        "distance": 5.0403753237633335
       },
-      "url": "http://127.0.0.1:38529/?view=side&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?view=side&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -212,14 +212,14 @@
       "path": "side.png",
       "referenceCrop": "../../reference/side.png",
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:34:01.702Z",
+      "recordedAt": "2026-10-10T06:51:12.617Z",
       "readySignal": true,
-      "screenshotSha256": "0b7545cc22e1c27f8380cdca09f1bc6d7957cf9424424302e9d43f403d89a42b",
+      "screenshotSha256": "20d8c581fb0c65c80127f6832adf40aa5fc36ae7a9b515a5faa08d2223e2e1a4",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 333042
+        "bytes": 333912
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -243,12 +243,12 @@
           241,
           237
         ],
-        "foregroundFraction": 0.32545,
-        "darkFraction": 0.03778,
+        "foregroundFraction": 0.33228,
+        "darkFraction": 0.0378,
         "foregroundBBox": {
-          "x0": 161,
+          "x0": 143,
           "y0": 33,
-          "x1": 638,
+          "x1": 656,
           "y1": 1214
         }
       }
@@ -262,18 +262,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          5.913538280775548e-16,
-          1.2413408200098146,
-          -4.849529411052207
+          5.868740720755215e-16,
+          1.2413408010373697,
+          -4.849529349137268
         ],
         "target": [
-          -1.4110907509836189e-19,
-          0.8187773382788717,
-          -0.019606713630591424
+          -1.751376531805192e-19,
+          0.82195334320975,
+          -0.055908771045458515
         ],
-        "distance": 4.848372217472692
+        "distance": 4.8119314299445675
       },
-      "url": "http://127.0.0.1:38529/?view=back&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?view=back&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -282,14 +282,14 @@
       "path": "back.png",
       "referenceCrop": "../../reference/back.png",
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:34:23.534Z",
+      "recordedAt": "2026-10-10T06:51:35.335Z",
       "readySignal": true,
-      "screenshotSha256": "f28466f8c163a4f7807f14b4d87375d296466fbd61d02c119f5b598ce1ca3123",
+      "screenshotSha256": "a1ce29f2b72849ef1878b7265efd3c638dc07c24aca81dfa915e64635ddec962",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 381988
+        "bytes": 377118
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -313,8 +313,8 @@
           241,
           237
         ],
-        "foregroundFraction": 0.4331,
-        "darkFraction": 0.04086,
+        "foregroundFraction": 0.4304,
+        "darkFraction": 0.04376,
         "foregroundBBox": {
           "x0": 60,
           "y0": 34,
@@ -333,17 +333,17 @@
       "camera": {
         "position": [
           0,
-          1.2294121653265737,
-          4.897468845352166
+          1.2294120894105158,
+          4.897468775816815
         ],
         "target": [
           0,
-          0.7991722424312907,
-          -0.02019597607692829
+          0.7959961547457459,
+          -0.05649802625170023
         ],
-        "distance": 4.936449502139587
+        "distance": 4.972890150447553
       },
-      "url": "http://127.0.0.1:38529/?az=0&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?az=0&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -352,14 +352,14 @@
       "path": "turntable-000.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:34:44.886Z",
+      "recordedAt": "2026-10-10T06:51:59.039Z",
       "readySignal": true,
-      "screenshotSha256": "388a0d9d5057a83234c2973440e1d60172b7f0969db3eaa2c80963b8616cbc6d",
+      "screenshotSha256": "bc478f8f369bfccd8e2f7cb6bd5a2d9048de749c3872055b35a75a77184b919c",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 358372
+        "bytes": 358758
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -383,8 +383,8 @@
           241,
           237
         ],
-        "foregroundFraction": 0.39109,
-        "darkFraction": 0.04974,
+        "foregroundFraction": 0.39098,
+        "darkFraction": 0.04942,
         "foregroundBBox": {
           "x0": 62,
           "y0": 33,
@@ -402,18 +402,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          5.055920138558864,
-          1.2261099421835124,
-          -0.021907941176477534
+          5.055920115451595,
+          1.226109936119085,
+          -0.051471391092948744
         ],
         "target": [
-          0.001895621101843949,
-          0.7839400917239449,
-          -0.021907941176477843
+          0.0018956214528566594,
+          0.7839400877118512,
+          -0.051471391092949056
         ],
-        "distance": 5.0733300700538
+        "distance": 5.073330046505912
       },
-      "url": "http://127.0.0.1:38529/?az=90&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?az=90&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -422,14 +422,14 @@
       "path": "turntable-090.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:35:06.974Z",
+      "recordedAt": "2026-10-10T06:52:22.676Z",
       "readySignal": true,
-      "screenshotSha256": "889a6ea9f14612325315ff3d57a5ca4ef1dd1432109eb9817b347d660b4011b3",
+      "screenshotSha256": "e1d3d430ddb798b82866371658624388670e63ad9962c3d2565bad89e47e67b9",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 318814
+        "bytes": 321361
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -453,12 +453,12 @@
           241,
           237
         ],
-        "foregroundFraction": 0.31746,
-        "darkFraction": 0.02878,
+        "foregroundFraction": 0.32303,
+        "darkFraction": 0.03148,
         "foregroundBBox": {
-          "x0": 165,
+          "x0": 149,
           "y0": 33,
-          "x1": 634,
+          "x1": 650,
           "y1": 1214
         }
       }
@@ -472,18 +472,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          5.913538280775548e-16,
-          1.2413408200098146,
-          -4.849529411052207
+          5.868740720755215e-16,
+          1.2413408010373697,
+          -4.849529349137268
         ],
         "target": [
-          -1.4110907509836189e-19,
-          0.8187773382788717,
-          -0.019606713630591424
+          -1.751376531805192e-19,
+          0.82195334320975,
+          -0.055908771045458515
         ],
-        "distance": 4.848372217472692
+        "distance": 4.8119314299445675
       },
-      "url": "http://127.0.0.1:38529/?az=180&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?az=180&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -492,14 +492,14 @@
       "path": "turntable-180.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:35:29.717Z",
+      "recordedAt": "2026-10-10T06:52:44.510Z",
       "readySignal": true,
-      "screenshotSha256": "f28466f8c163a4f7807f14b4d87375d296466fbd61d02c119f5b598ce1ca3123",
+      "screenshotSha256": "a1ce29f2b72849ef1878b7265efd3c638dc07c24aca81dfa915e64635ddec962",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 381988
+        "bytes": 377118
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -523,8 +523,8 @@
           241,
           237
         ],
-        "foregroundFraction": 0.4331,
-        "darkFraction": 0.04086,
+        "foregroundFraction": 0.4304,
+        "darkFraction": 0.04376,
         "foregroundBBox": {
           "x0": 60,
           "y0": 34,
@@ -542,18 +542,18 @@
       "fovDegrees": 20,
       "camera": {
         "position": [
-          -5.023582071008256,
-          1.2176227098675156,
-          -0.020238616860948317
+          -5.023582047640202,
+          1.2176227037346519,
+          -0.057025025857301105
         ],
         "target": [
-          -0.002386873359729968,
-          0.7783250527224582,
-          -0.020238616860947394
+          -0.002386873714703645,
+          0.7783250486650904,
+          -0.05702502585730018
         ],
-        "distance": 5.04037534757698
+        "distance": 5.0403753237633335
       },
-      "url": "http://127.0.0.1:38529/?az=270&team=A&ground=0",
+      "url": "http://127.0.0.1:40911/?az=270&team=A&ground=0",
       "viewport": [
         800,
         1230
@@ -562,14 +562,14 @@
       "path": "turntable-270.png",
       "referenceCrop": null,
       "status": "recorded",
-      "recordedAt": "2026-10-10T06:35:52.638Z",
+      "recordedAt": "2026-10-10T06:53:07.585Z",
       "readySignal": true,
-      "screenshotSha256": "0b7545cc22e1c27f8380cdca09f1bc6d7957cf9424424302e9d43f403d89a42b",
+      "screenshotSha256": "20d8c581fb0c65c80127f6832adf40aa5fc36ae7a9b515a5faa08d2223e2e1a4",
       "image": {
         "type": "png",
         "width": 800,
         "height": 1230,
-        "bytes": 333042
+        "bytes": 333912
       },
       "consoleErrors": [],
       "browserSnapshot": {
@@ -593,13 +593,153 @@
           241,
           237
         ],
-        "foregroundFraction": 0.32545,
-        "darkFraction": 0.03778,
+        "foregroundFraction": 0.33228,
+        "darkFraction": 0.0378,
         "foregroundBBox": {
-          "x0": 161,
+          "x0": 143,
           "y0": 33,
-          "x1": 638,
+          "x1": 656,
           "y1": 1214
+        }
+      }
+    },
+    {
+      "id": "blaster",
+      "view": "blaster",
+      "role": "prop",
+      "azimuthDegrees": 58,
+      "elevationDegrees": 14,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          0.903805936421667,
+          0.4737555022439569,
+          0.624216125490401
+        ],
+        "target": [
+          -0.03394708730225951,
+          0.19805405367645304,
+          0.03824300130501893
+        ],
+        "distance": 1.1396299945654134
+      },
+      "url": "http://127.0.0.1:40911/?view=blaster&team=A&ground=0",
+      "viewport": [
+        1074,
+        520
+      ],
+      "devicePixelRatio": 1,
+      "path": "blaster.png",
+      "referenceCrop": "../../reference/blaster.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:53:16.835Z",
+      "readySignal": true,
+      "screenshotSha256": "ff9e72d252bd5093db3e8e1975edf31ddee622fcbae6d6eaae26feacad00790f",
+      "image": {
+        "type": "png",
+        "width": 1074,
+        "height": 520,
+        "bytes": 208690
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 1074,
+          "height": 520
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 1074,
+          "height": 520
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.37067,
+        "darkFraction": 0.00149,
+        "foregroundBBox": {
+          "x0": 82,
+          "y0": 41,
+          "x1": 992,
+          "y1": 478
+        }
+      }
+    },
+    {
+      "id": "swim",
+      "view": "swim",
+      "role": "prop",
+      "azimuthDegrees": 8,
+      "elevationDegrees": 24,
+      "fovDegrees": 20,
+      "camera": {
+        "position": [
+          0.19961637756588851,
+          0.7610817817083935,
+          1.7222508833200063
+        ],
+        "target": [
+          -0.03871639038533199,
+          -0.001368607115769231,
+          0.02642512238786987
+        ],
+        "distance": 1.874555444669073
+      },
+      "url": "http://127.0.0.1:40911/?view=swim&team=A&ground=0",
+      "viewport": [
+        1196,
+        520
+      ],
+      "devicePixelRatio": 1,
+      "path": "swim.png",
+      "referenceCrop": "../../reference/swim-form.png",
+      "status": "recorded",
+      "recordedAt": "2026-10-10T06:53:23.028Z",
+      "readySignal": true,
+      "screenshotSha256": "277474772dd81688b1a1344723c3e97a9c55176db02dbb4bf01b83bdaeae6a8e",
+      "image": {
+        "type": "png",
+        "width": 1196,
+        "height": 520,
+        "bytes": 117009
+      },
+      "consoleErrors": [],
+      "browserSnapshot": {
+        "canvas": {
+          "width": 1196,
+          "height": 520
+        },
+        "webgl": {
+          "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+        }
+      },
+      "diagnostics": {
+        "ok": true,
+        "image": {
+          "width": 1196,
+          "height": 520
+        },
+        "background": [
+          242,
+          241,
+          237
+        ],
+        "foregroundFraction": 0.27859,
+        "darkFraction": 0.00189,
+        "foregroundBBox": {
+          "x0": 59,
+          "y0": 125,
+          "x1": 1136,
+          "y1": 404
         }
       }
     }

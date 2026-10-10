@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "kind": "hair-gate",
+  "verdict": "review",
+  "hardChannelPresent": true,
+  "hardFailures": [],
+  "softSignals": [
+    "back: not-measurable",
+    "front: not-measurable",
+    "side: not-measurable"
+  ],
+  "views": {
+    "back": {
+      "status": "not-measurable",
+      "referenceStatus": "no-hair-skin-split",
+      "renderStatus": "measured"
+    },
+    "front": {
+      "status": "not-measurable",
+      "referenceStatus": "no-hair-skin-split",
+      "renderStatus": "measured"
+    },
+    "side": {
+      "status": "not-measurable",
+      "referenceStatus": "no-hair-skin-split",
+      "renderStatus": "measured"
+    }
+  },
+  "referenceNotObserved": [
+    "rear: no view in this set sees the back of the head, so the nape and rear mass are unobserved. Do not author them as if measured.",
+    "depth: a single view cannot separate hair thickness from hair silhouette.",
+    "hairline: no view produced a usable hair/skin boundary."
+  ],
+  "renderNotObserved": [],
+  "thresholds": {
+    "bandShortfallSoft": 0.08,
+    "hairlineOffsetMax": 0.013,
+    "specularOffsetMax": 0.15,
+    "uncalibrated": true
+  },
+  "note": "A band shortfall is a soft signal and never on its own authorises widening the masses. That exact response was measured: widening took closure from 42.2% to 40.9%, worse on all six views, because the widened mass slid off the skull rather than growing on it."
+}
